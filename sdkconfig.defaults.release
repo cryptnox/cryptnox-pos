@@ -1,0 +1,51 @@
+# ============================================================================
+# RELEASE overlay — production units only. Layer it ON TOP of the dev secure
+# overlay (order matters: release must come last so it overrides):
+#
+#   idf.py -D "SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.defaults.flash_encryption;sdkconfig.defaults.release" build
+#
+# Turns the reflashable/verbose DEVELOPMENT secure build into the locked
+# production image.
+#
+#   *** IRREVERSIBLE once flashed and booted — validate on a sacrificial unit
+#       first. After this, no plaintext UART flashing and no flash dump. ***
+# ============================================================================
+
+# --- Flash Encryption: RELEASE mode -----------------------------------------
+# Burns DISABLE_DL_ENCRYPT/DECRYPT/CACHE and maxes FLASH_CRYPT_CNT: the download
+# path can no longer decrypt/encrypt, and plaintext reflash is gone for good.
+# Pre-encrypted reflash (tools/secure_flash.py) and signed OTA still work.
+# CONFIG_SECURE_FLASH_ENCRYPTION_MODE_DEVELOPMENT is not set
+CONFIG_SECURE_FLASH_ENCRYPTION_MODE_RELEASE=y
+
+# --- Signed images: inherited, not set here --------------------------------
+# The whole point of the browser-mediated update path (main/ota.cpp) is that the
+# terminal never talks to GitHub, so it cannot validate a TLS certificate chain
+# to decide whether an image is genuine. It has exactly one way to know: an
+# RSA-3072 signature over the image, checked against a public key compiled into
+# the firmware that is already running. With this off, anybody who reaches
+# POST /api/ota — an admin code away — replaces the firmware on a device that
+# signs cryptocurrency transactions.
+#
+# The flash-encryption overlay underneath already provides it, as HARDWARE
+# Secure Boot v2 (CONFIG_SECURE_BOOT=y): the bootloader and every app are signed
+# with secure_keys/secure_boot_signing_key.pem, the first boot burns the key
+# digest into eFuse — ONE-WAY — and esp_ota_end() refuses any image not signed
+# with that key. This file used to set the software-only variant
+# (CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT) on top, which Kconfig silently
+# drops once SECURE_BOOT is on, together with a second key path that did not
+# exist — so it is not repeated here. One model, one key: see docs/ota.md.
+
+# --- Quiet boot ----------------------------------------------
+# No INFO logs on the UART: no app_init "Compile time" fingerprint, and our own
+# nonce / tx-hash lines are not echoed over serial.
+# CONFIG_LOG_DEFAULT_LEVEL_INFO is not set
+CONFIG_LOG_DEFAULT_LEVEL_NONE=y
+CONFIG_LOG_DEFAULT_LEVEL=0
+
+# --- Notes (NOT enabled here — deliberate trade-offs) -----------------------
+# * Secure Boot already disables JTAG on its eFuse burn (CONFIG_SECURE_BOOT_
+#   ALLOW_JTAG is off), closing the JTAG-reads-RAM vector.
+# * For maximum lockdown you can also disable the UART download ROM mode
+#   (CONFIG_SECURE_DISABLE_ROM_DL_MODE=y) — but then recovery is OTA-only, so
+#   only enable it once you have a robust signed-OTA path. Left off on purpose.

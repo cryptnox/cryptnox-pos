@@ -1,0 +1,49 @@
+/*
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ * Copyright (c) 2026 Cryptnox SA
+ */
+
+/**
+ * @file groups.dox
+ * @brief Doxygen module (group) definitions for the cryptnox-pos firmware.
+ *
+ * Mirrors the grouping convention of cryptnox-sdk-cpp (see its CW_Defs.h):
+ * every source file declares an @\ingroup tag so the generated docs are
+ * organised by subsystem rather than as a flat file list.
+ */
+
+/**
+ * @defgroup app Application core
+ * @brief Boot sequence, payment-flow orchestration and the ESP-IDF entry point.
+ *
+ * Wires the subsystems together and drives the interaction loop:
+ * amount entry → confirm → card sign → RLP encode → JSON-RPC broadcast →
+ * on-chain receipt.
+ */
+
+/**
+ * @defgroup eth Ethereum transaction layer
+ * @brief Address parsing, RLP/keccak encoding and the JSON-RPC client.
+ *
+ * The pure, host-testable parsers (@ref eth_addr.h, @ref eth_rlp.h,
+ * @ref eth_json.h) plus the Keccak-256 digest (@ref keccak256.h) and the HTTPS
+ * JSON-RPC client (@ref eth_rpc.h). The parsers carry libFuzzer harnesses under
+ * fuzz/.
+ */
+
+/**
+ * @defgroup device Device services
+ * @brief Wi-Fi / SNTP bring-up and persistent NVS settings.
+ *
+ * Platform plumbing with no application-protocol logic: network station
+ * management and time sync (@ref net.h), and the NVS-backed settings store
+ * (@ref settings.h).
+ */
+
+/**
+ * @defgroup ui User interface
+ * @brief Touchscreen screens, events and transaction-state display.
+ *
+ * The LVGL-based UI for the CYD (ILI9341 display + XPT2046 touch):
+ * see @ref ui.h.
+ */

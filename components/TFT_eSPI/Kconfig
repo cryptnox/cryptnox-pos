@@ -1,0 +1,3 @@
+# Forward the menuconfig options of the pinned TFT_eSPI submodule
+# (CONFIG_TFT_* symbols used by sdkconfig.defaults).
+rsource "TFT_eSPI/Kconfig"

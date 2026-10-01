@@ -1,0 +1,88 @@
+name: CodeQL
+
+# Taint analysis over the parsers that eat attacker-controlled bytes — a hostile
+# RPC node's JSON, an address read off a card, a form field from the config
+# portal. Complements rather than replaces the cppcheck/clang-tidy job in
+# misra_check.yml: those are linters that judge a line, this follows data from
+# where it arrives to where it is used.
+#
+# Findings land in the repository's Security tab.
+#
+# Scope note: CodeQL only sees what the compiler sees, and the app sources
+# (main, boot, pay*, card_io, provision, ui*) cannot be compiled without a ~1 GB
+# ESP-IDF install. The analysed set is therefore the host-buildable sources —
+# which is also where the attacker-controlled input actually lands.
+
+permissions:
+  contents: read
+
+on:
+  push:
+  pull_request:
+  schedule:
+    # Weekly, so a newly published query gets to look at old code without
+    # waiting for somebody to push.
+    - cron: '17 4 * * 1'
+
+jobs:
+  analyse:
+    name: CodeQL (C/C++)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # required to upload results to the Security tab
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Initialise CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: c-cpp
+          build-mode: manual
+          # Default queries plus the extended security set — the extra ones are
+          # the taint-tracking rules, which is the whole reason to run this
+          # alongside a linter.
+          queries: security-extended
+
+      # eth_json.cpp includes "cJSON.h" and eth_sig.cpp "mbedtls/ecp.h", both of
+      # which ship inside ESP-IDF. The headers alone are enough to compile, and
+      # misra_check.yml already resolves cJSON this way for clang-tidy; the
+      # mbedTLS ones land on the default include path.
+      - name: Install cJSON and mbedTLS headers
+        run: sudo apt-get update && sudo apt-get install -y libcjson-dev libmbedtls-dev
+
+      # main/config.h holds the per-deployment addresses and endpoints, so it is
+      # gitignored and no runner has one. The template is the same header with
+      # placeholders in place of the secrets, which is all the analysis needs --
+      # and test_networks.cpp is written to accept a placeholder contract as
+      # "this asset was never configured".
+      - name: Provide a config.h
+        run: cp config.template.h main/config.h
+
+      # Every test and fuzz harness is single-TU and #includes the production
+      # source it covers, so compiling them reaches eth_addr, eth_rlp, eth_json,
+      # keccak256, eth_sig, tron_tx, hardening and the header-only parsers (form_parse,
+      # json_out, addr_check, card_status, rpc_error, ota_version, chain).
+      # Objects only: nothing here needs to link or run.
+      - name: Build the host-compilable sources
+        run: |
+          set -e
+          mkdir -p build/codeql
+          for t in tests/units/test_*.cpp; do
+            echo "cc $t"
+            g++ -std=c++14 -c "$t" -o "build/codeql/$(basename "$t").o" \
+              -I main -I cryptnox-sdk-esp32/cryptnox-sdk-cpp -I /usr/include/cjson
+          done
+          for f in fuzz/fuzz_*.cpp; do
+            echo "cc $f"
+            g++ -std=c++14 -c "$f" -o "build/codeql/$(basename "$f").o" \
+              -I main -I cryptnox-sdk-esp32/cryptnox-sdk-cpp -I /usr/include/cjson
+          done
+
+      - name: Analyse
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: /language:c-cpp

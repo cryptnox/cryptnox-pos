@@ -1,0 +1,105 @@
+name: Static analysis
+permissions:
+  contents: read
+  pull-requests: write
+on:
+  push:
+  pull_request:
+jobs:
+  cppcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # main/config.h holds the per-deployment addresses and endpoints, so it is
+      # gitignored and no runner has one. Without it every contract macro falls
+      # back to "" and settings.cpp's mainnet/testnet ternaries collapse into a
+      # bogus duplicateExpressionTernary. The template is the same header with
+      # placeholders instead of secrets.
+      - name: Provide a config.h
+        run: cp config.template.h main/config.h
+
+      - name: Install cppcheck
+        run: sudo apt-get install -y cppcheck
+
+      # Lint only the application sources under main/. The Cryptnox SDK
+      # (cryptnox-sdk-esp32 submodule) is audited separately, and the
+      # vendored TFT_eSPI / XPT2046_Touchscreen components are third-party.
+      # ESP-IDF / Arduino / mbedtls / FreeRTOS headers are not installed in
+      # CI -- suppress missingInclude rather than try to ship the full
+      # toolchain.
+      - name: cppcheck (cryptnox-pos application, C++)
+        run: |
+          cppcheck \
+            --enable=warning,style,performance,portability \
+            --std=c++17 \
+            --language=c++ \
+            --inline-suppr \
+            --error-exitcode=1 \
+            --suppress=missingInclude \
+            --suppress=missingIncludeSystem \
+            --suppress=unusedFunction \
+            -I main \
+            --force \
+            main/
+
+  # The coding-standard half, split out so it shows up on the repo under its own
+  # name: until now this file was called misra_check.yml but no check called
+  # MISRA has ever appeared next to a commit.
+  misra:
+    name: MISRA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Provide a config.h
+        run: cp config.template.h main/config.h
+
+      - name: Install cppcheck, clang-tidy and cJSON headers
+        run: sudo apt-get install -y cppcheck clang-tidy libcjson-dev
+
+      # This is the gating rule set. There is no MISRA C++ checker in the free
+      # tooling, so the project's own "MISRA-like" C++ rules are the .clang-tidy
+      # at the repo root (bugprone / CERT / clang-analyzer / portability, plus
+      # the CODING_RULES 1.4 ban on raw memcpy in favour of
+      # CW_Utils::safe_memcpy). Unlike cppcheck, clang-tidy compiles each TU, so
+      # it only runs on the pure security-critical parsers that parse without
+      # the full ESP-IDF toolchain. CW_Utils.h resolves via the SDK submodule
+      # (host branch of platform_compat), cJSON.h via libcjson-dev.
+      # WarningsAsErrors in .clang-tidy fails the job.
+      - name: clang-tidy (project MISRA-like C++ rules)
+        run: |
+          clang-tidy \
+            main/eth_addr.cpp main/eth_rlp.cpp main/eth_json.cpp \
+            -- -std=c++17 \
+               -I main \
+               -I cryptnox-sdk-esp32/cryptnox-sdk-cpp \
+               -I /usr/include/cjson
+
+      # And the real MISRA rule numbers, from cppcheck's MISRA C 2012 addon.
+      # Advisory only: it is a C rule set pointed at C++, so a good part of what
+      # it reports is not a defect here and wants a deviation record rather than
+      # a code change. Read the list, decide what to deviate, and drop the
+      # continue-on-error once it is quiet enough to gate on.
+      - name: cppcheck MISRA C 2012 addon (advisory)
+        continue-on-error: true
+        run: |
+          cppcheck \
+            --addon=misra \
+            --enable=style \
+            --std=c++17 \
+            --language=c++ \
+            --inline-suppr \
+            --error-exitcode=1 \
+            --suppress=missingInclude \
+            --suppress=missingIncludeSystem \
+            --suppress=unusedFunction \
+            -I main \
+            --force \
+            main/

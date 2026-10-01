@@ -1,0 +1,129 @@
+CONFIG_IDF_TARGET="esp32"
+
+# Enough stack for TLS + JSON + crypto operations in app_main
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=16384
+
+# mbedTLS certificate bundle for HTTPS RPC endpoints
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=y
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_FULL=y
+
+# Actually enforce certificate notBefore/notAfter. HAVE_TIME alone only buys
+# relative timekeeping (session-ticket expiry) — without HAVE_TIME_DATE
+# mbedTLS compiles the date comparison out entirely (x509_crt.c guards the
+# BADCERT_EXPIRED/BADCERT_FUTURE block on it), so an expired certificate is
+# accepted and the blocking SNTP sync at boot buys nothing.
+#
+# NOTE: sdkconfig is gitignored and an existing value there WINS over this
+# default — delete your sdkconfig (or flip the line by hand) after pulling.
+#
+# Pinning is per deployment and OFF by default: RPC_CA_CERT_PEM,
+# POLY_CA_CERT_PEM and TRON_CA_CERT_PEM are optional config.h macros (see
+# config.template.h), and with none defined every endpoint trusts the full
+# ~150-CA bundle above. The boot log says which endpoints are unpinned. Pin an
+# intermediate rather than a leaf so the provider's leaf renewals keep working,
+# and note its notAfter — a pinned intermediate that expires stops every sale.
+CONFIG_MBEDTLS_HAVE_TIME_DATE=y
+
+# Allocate the TLS record buffers per handshake and size them to what the
+# peer actually sends, instead of holding a fixed 16 KB input buffer for the
+# life of every connection. No PSRAM here, a 48 KB LVGL pool beside it, and a
+# fresh handshake per RPC call: over a long uptime the fixed buffer is the
+# plausible way the heap fragments until a handshake cannot allocate. The main
+# loop logs largest-free-block every ten minutes to show whether it does.
+CONFIG_MBEDTLS_DYNAMIC_BUFFER=y
+
+# Task watchdog RESETS the terminal instead of only logging. The main loop and
+# the UI loop subscribe (main.cpp, ui.cpp) and feed around their long waits
+# (card wait, receipt poll, each HTTPS request): a hung PN532 I2C transaction or
+# a wedged read used to freeze the panel until somebody pulled the plug. 60 s
+# because one HTTPS request may take up to ~45 s (connect, write and read at
+# 15 s each) between two feeds.
+CONFIG_ESP_TASK_WDT_PANIC=y
+CONFIG_ESP_TASK_WDT_TIMEOUT_S=60
+
+# HTTPS support in the HTTP client
+CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS=y
+
+# NOT enabled, deliberately: CONFIG_ESP_HTTPS_SERVER_ENABLE and
+# CONFIG_MBEDTLS_PEM_WRITE_C. The config portal (main/provision.cpp) serves plain
+# HTTP over its own WPA2 SoftAP, which is the radio's only interface while it is
+# up — so there is no TLS server, no self-signed identity in NVS, and nothing on
+# that wire but the phone in front of the terminal. See main/provision.h.
+# mbedtls itself stays linked: the RPC client (main/https_post.cpp) needs it.
+
+# Allow up to 3 SNTP servers (multi-server time sync fallback in eth_rpc)
+CONFIG_LWIP_SNTP_MAX_SERVERS=3
+
+# CYD ships with a Boya SPI flash chip — link its dedicated driver so IDF
+# doesn't fall back to the generic one (silences the boot-time warning)
+CONFIG_SPI_FLASH_SUPPORT_BOYA_CHIP=y
+
+# CYD has 4 MB flash — custom table with two 1.94 MB OTA app slots
+CONFIG_ESPTOOLPY_FLASHSIZE_2MB=n
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="4MB"
+CONFIG_PARTITION_TABLE_SINGLE_APP=n
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_PARTITION_TABLE_FILENAME="partitions.csv"
+
+# Roll back an update that does not survive its own first boot. The bootloader
+# marks a freshly-booted slot PENDING_VERIFY; ota_mark_valid() (main/ota.cpp)
+# clears that only once the panel, the NFC reader and the RPC uplink have all
+# come up. A panic, a watchdog reset or a failed bring-up before that point
+# means the next boot returns to the slot that was working. Without this, one
+# bad build bricks a terminal that is no longer on a bench.
+CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
+
+# Arduino-as-component — auto-start setup()/loop() is NOT used; we call from app_main
+CONFIG_AUTOSTART_ARDUINO=n
+CONFIG_FREERTOS_HZ=1000
+
+# TFT_eSPI config for CYD ESP32-2432S028R (mirrors esp32-loot's platformio build_flags)
+CONFIG_TFT_ILI9341_DRIVER=n
+CONFIG_TFT_ILI9341_2_DRIVER=y
+CONFIG_TFT_BGR_ORDER=y
+CONFIG_TFT_WIDTH=240
+CONFIG_TFT_HEIGHT=320
+CONFIG_TFT_HSPI_PORT=y
+CONFIG_TFT_MISO=12
+CONFIG_TFT_MOSI=13
+CONFIG_TFT_SCLK=14
+CONFIG_TFT_CS=15
+CONFIG_TFT_DC=2
+# CYD: the panel RESET is hard-wired to the board EN line — no GPIO controls it.
+# TFT_eSPI emits "Invalid Reset pin" at build time: expected, the driver falls
+# back to software reset (SWRESET).
+CONFIG_TFT_RST=-1
+CONFIG_ENABLE_BL=y
+CONFIG_TFT_BL=21
+CONFIG_TFT_BACKLIGHT_ON_HIGH=y
+CONFIG_TFT_SPI_FREQUENCY=55000000
+# LVGL renders every glyph; TFT_eSPI only flushes pixels, so none of its fonts.
+CONFIG_TFT_LOAD_GLCD=n
+CONFIG_TFT_LOAD_FONT2=n
+CONFIG_TFT_LOAD_FONT4=n
+CONFIG_TFT_LOAD_FONT6=n
+CONFIG_TFT_LOAD_FONT7=n
+CONFIG_TFT_LOAD_FONT8=n
+CONFIG_TFT_LOAD_GFXFF=n
+CONFIG_TFT_SMOOTH_FONT=n
+
+# ── LVGL (8.x) — UI toolkit, configured here for a reproducible build ──
+# TFT_eSPI is used only as the low-level panel driver (flush); LVGL renders.
+CONFIG_LV_COLOR_DEPTH_16=y
+CONFIG_LV_MEM_SIZE_KILOBYTES=48
+# No built-in text fonts: the UI is Plus Jakarta Sans, generated into
+# main/fonts/ by tools/gen_fonts.py, and ui.cpp hands it to the theme. Kconfig
+# insists on a built-in default, so it gets the smallest one (~2 KB, unused).
+CONFIG_LV_FONT_MONTSERRAT_14=n
+CONFIG_LV_FONT_DEFAULT_UNSCII_8=y
+
+# CYD: the XPT2046 touch controller lives on its own SPI bus (CS=33, CLK=25,
+# MOSI=32, MISO=39, IRQ=36), driven by the XPT2046_Touchscreen component — NOT
+# by TFT_eSPI, whose touch support requires sharing the display bus. The
+# build-time "TOUCH_CS pin not defined" warning is expected; do not enable
+# CONFIG_ENABLE_TOUCH, it would fight the XPT2046 driver over GPIO 33.
+
+# QR code on the phone-setup screen (provision.cpp).
+CONFIG_LV_USE_QRCODE=y

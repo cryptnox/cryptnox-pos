@@ -1,0 +1,1 @@
+cryptnox-pos eth_rlp fuzz seed: 137+ bytes so the harness fills all six u64 scalars, the 20-byte recipient, the parity bit, and a non-empty calldata tail.

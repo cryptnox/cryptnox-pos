@@ -1,0 +1,21 @@
+# Static analysis for the cryptnox-pos C++ application code.
+#
+# Focused on real-bug categories (bugprone / CERT / the clang static analyzer
+# / portability) rather than whole-codebase style enforcement. Findings are
+# errors so CI fails on them.
+#
+# Project rule (CODING_RULES 1.4): raw memcpy/memmove are banned -- use the
+# bounds-checked CW_Utils::safe_memcpy. The few statically-proven exceptions
+# (eth_rlp.cpp scratch buffers) carry an explicit
+#   // NOLINT(bugprone-unsafe-functions)
+# so every deviation is visible and greppable.
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  clang-analyzer-*,
+  portability-*
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*/main/.*'
+CheckOptions:
+  bugprone-unsafe-functions.CustomFunctions: '^::memcpy$,CW_Utils::safe_memcpy,;^::memmove$,CW_Utils::safe_memcpy,'

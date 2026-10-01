@@ -1,0 +1,60 @@
+name: Build and deploy documentation
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository. The cryptnox-sdk-esp32 submodule is excluded
+      #    from the Doxygen INPUT (it ships its own documentation), so we
+      #    skip submodule init to keep the checkout fast.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Install Doxygen (pinned: Ubuntu's apt ships 1.9.x which does not
+      #    understand the `> [!IMPORTANT]` GitHub-style alert syntax we use in
+      #    README.md) and Graphviz. Pulled from the doxygen/doxygen GitHub
+      #    releases (GitHub CDN) rather than doxygen.nl, whose file server
+      #    intermittently returns 5xx/404 (wget exit 8) and failed the job on a
+      #    single hiccup; wget also retries transient HTTP errors as a backstop.
+      - name: Install Doxygen and Graphviz
+        env:
+          DOXYGEN_VERSION: "1.17.0"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y graphviz wget
+          # Extract in /tmp so the bundled examples/ directory does NOT end
+          # up inside the repo and get picked up by INPUT = . recursive.
+          wget -q --tries=5 --retry-connrefused --waitretry=5 \
+            --retry-on-http-error=403,404,429,500,502,503,504 \
+            -O /tmp/doxygen.tar.gz \
+            "https://github.com/doxygen/doxygen/releases/download/Release_${DOXYGEN_VERSION//./_}/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz"
+          tar xf /tmp/doxygen.tar.gz -C /tmp
+          sudo install "/tmp/doxygen-${DOXYGEN_VERSION}/bin/doxygen" /usr/local/bin/doxygen
+          doxygen --version
+
+      # 3. Build Doxygen documentation
+      - name: Generate Doxygen docs
+        run: doxygen docs/Doxyfile
+
+      # 4. Deploy HTML documentation to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/html
+          publish_branch: gh-pages
+          allow_empty_commit: false
+          keep_files: false
+          force_orphan: false
+          enable_jekyll: false

@@ -1,0 +1,10 @@
+[submodule "cryptnox-sdk-esp32"]
+	path = cryptnox-sdk-esp32
+	url = https://github.com/embarquech/cryptnox-sdk-esp32
+	branch = main
+[submodule "components/TFT_eSPI/TFT_eSPI"]
+	path = components/TFT_eSPI/TFT_eSPI
+	url = https://github.com/Bodmer/TFT_eSPI
+[submodule "components/XPT2046_Touchscreen/XPT2046_Touchscreen"]
+	path = components/XPT2046_Touchscreen/XPT2046_Touchscreen
+	url = https://github.com/PaulStoffregen/XPT2046_Touchscreen

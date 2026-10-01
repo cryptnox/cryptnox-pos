@@ -1,0 +1,57 @@
+# ============================================================================
+# Flash-encryption overlay — layer it ON TOP of sdkconfig.defaults:
+#
+#   idf.py -D SDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.defaults.flash_encryption" \
+#          build flash monitor
+#
+# Scope: Flash Encryption + encrypted NVS + Secure Boot v2. Encrypts secrets at
+# rest — a flash dump no longer yields the Wi-Fi password or any NVS secret —
+# and only images signed with secure_keys/secure_boot_signing_key.pem boot, or
+# install over the air. Secure Boot's first boot burns eFuses: ONE-WAY.
+# ============================================================================
+
+# --- Flash Encryption -------------------------------------------------------
+# DEVELOPMENT mode on purpose: the board stays re-flashable for several cycles
+# and JTAG/UART download keep working, so the whole pipeline can be validated
+# without bricking. The eFuse burn still happens on first encrypted boot, but
+# the device is NOT permanently locked.
+#
+# Switch to RELEASE mode (comment the DEVELOPMENT line, set the RELEASE one)
+# ONLY in manufacturing — that lock is IRREVERSIBLE: no more plaintext UART
+# flashing, no more flash dump, JTAG disabled.
+CONFIG_SECURE_FLASH_ENC_ENABLED=y
+CONFIG_SECURE_FLASH_ENCRYPTION_MODE_DEVELOPMENT=y
+# CONFIG_SECURE_FLASH_ENCRYPTION_MODE_RELEASE=y   # <-- manufacturing only
+
+# --- Encrypted NVS ----------------------------------------------------------
+# The `nvs` partition is encrypted with XTS-AES keys stored in the `nvs_keys`
+# partition (flash-encrypted, see partitions.csv). nvs_flash_init() picks the
+# keys up automatically and generates them on first boot — no application code
+# change. On the classic ESP32-WROOM-32 the flash-encryption-based scheme is
+# the only one available (no HMAC eFuse peripheral) and is the default here.
+CONFIG_NVS_ENCRYPTION=y
+
+# Secure Boot v2 on the classic ESP32 requires the minimum chip revision set
+# to v3 (ECO3) — otherwise the toolchain falls back to Secure Boot V1 (ECDSA).
+# This board is ESP32-D0WD-V3 rev v3.1.
+CONFIG_ESP32_REV_MIN_3=y
+
+# --- Secure Boot v2 (firmware authenticity) ---------------------------------
+# Only firmware signed with the RSA-3072 key below boots. The bootloader and
+# app are signed automatically at build time. First boot burns the public-key
+# digest (eFuse BLOCK2) + ABS_DONE_1 — ONE-WAY. Keep the .pem offline: losing
+# it means no more updates can ever be flashed to a locked board.
+CONFIG_SECURE_BOOT=y
+CONFIG_SECURE_BOOT_V2_ENABLED=y
+CONFIG_SECURE_BOOT_SIGNING_KEY="secure_keys/secure_boot_signing_key.pem"
+
+# --- Partition table offset -------------------------------------------------
+# Flash Encryption AND Secure Boot both grow the bootloader (FE ~36 KB, + the
+# SBv2 signature block) past the default 0x7000 window before the table at
+# 0x8000. Push the table to 0x10000 for comfortable headroom; partitions.csv
+# uses blank offsets so each partition auto-places after it.
+CONFIG_PARTITION_TABLE_OFFSET=0x10000
+
+# This overlay is the DEVELOPMENT secure build: encryption/signing on, but the
+# board stays reflashable and logs stay verbose for debugging. For the locked
+# production image, layer sdkconfig.defaults.release on top (see that file).

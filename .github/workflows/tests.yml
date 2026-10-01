@@ -1,0 +1,98 @@
+name: Tests
+
+# Runs what codeql.yml only compiles: the host unit tests under ASan + UBSan,
+# each libFuzzer harness for a minute, and the firmware build itself.
+# Plan #18.
+
+permissions:
+  contents: read
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  host-tests:
+    name: Host tests (ASan + UBSan)
+    runs-on: ubuntu-latest
+    # The IDF image carries cJSON and mbedTLS sources at $IDF_PATH, which
+    # test_eth_receipt and test_eth_sig link against — without them checks.sh
+    # skips those two rather than failing.
+    container: espressif/idf:v5.5.4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      # config.h is gitignored; the template's placeholders are what
+      # test_networks treats as "asset not configured".
+      - run: cp config.template.h main/config.h
+      # The config page check runs its script through node; the IDF image has none.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: checks.sh
+        shell: bash
+        env:
+          SANITIZE: -fsanitize=address,undefined -fno-sanitize-recover=all -g
+        run: bash scripts/checks.sh
+
+  fuzz:
+    name: Fuzz (60 s per harness)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: cp config.template.h main/config.h
+      - name: Fetch cJSON source
+        run: git clone --depth 1 --branch v1.7.18 https://github.com/DaveGamble/cJSON.git "$RUNNER_TEMP/cJSON"
+      - name: Build
+        run: |
+          cmake -S fuzz -B build/fuzz -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
+                -DCJSON_DIR="$RUNNER_TEMP/cJSON"
+          cmake --build build/fuzz -j
+      - name: civil_time self-check
+        run: build/fuzz/test_civil_time
+      - name: Run each harness
+        run: |
+          set -e
+          for t in eth_rlp:4096 parse_address:64 eth_rpc_json:4096; do
+            name=${t%%:*}; len=${t##*:}
+            # A scratch copy, so new inputs found here do not dirty the tree.
+            mkdir -p "build/corpus/$name"
+            cp fuzz/corpus/$name/* "build/corpus/$name/"
+            echo "== fuzz_$name"
+            build/fuzz/fuzz_$name "build/corpus/$name" -max_len=$len -max_total_time=60
+          done
+      - name: Keep crash inputs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-crashes
+          path: |
+            crash-*
+            leak-*
+            timeout-*
+          if-no-files-found: ignore
+
+  firmware:
+    name: Firmware build
+    runs-on: ubuntu-latest
+    container: espressif/idf:v5.5.4
+    steps:
+      # Full history and tags: the version is <tag>-<first-parent count>-g<hash>
+      # and BUILD_ID is that count, so a shallow clone would build "-1-" forever.
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          fetch-tags: true
+      # The container runs as root on a checkout it did not create; without this
+      # git refuses the repository and CMake cannot read the count.
+      - run: git config --global --add safe.directory '*'
+      - run: cp config.template.h main/config.h
+      - name: idf.py build
+        shell: bash
+        run: |
+          . "$IDF_PATH/export.sh"
+          idf.py build

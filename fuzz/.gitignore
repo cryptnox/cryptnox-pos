@@ -1,0 +1,21 @@
+# Build outputs
+build/
+artifacts/
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.obj
+
+# libFuzzer run artifacts
+fuzz-*.log
+crash-*
+slow-unit-*
+oom-*
+timeout-*
+
+# libFuzzer-generated corpus units (40-hex SHA1 names). The curated seed
+# files (descriptive names) are tracked; everything libFuzzer discovers at
+# runtime is regenerated and stays local.
+corpus/**/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*

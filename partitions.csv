@@ -1,0 +1,29 @@
+# Name,   Type, SubType, Offset, Size,   Flags
+# Offsets are left blank: with Flash Encryption the bootloader grows and the
+# partition table is pushed to 0xC000 (CONFIG_PARTITION_TABLE_OFFSET), so IDF
+# auto-places each partition after it (and 64 KB-aligns the app).
+nvs,      data, nvs,     ,       0x6000,
+phy_init, data, phy,     ,       0x1000,
+# Which app slot the bootloader boots, and whether the last OTA has been
+# confirmed. Left unencrypted on purpose — the bootloader reads it before the
+# flash-encryption cache is set up.
+otadata,  data, ota,     ,       0x2000,
+# Holds the XTS-AES keys that encrypt the `nvs` partition. The `encrypted`
+# flag makes it flash-encrypted, so the keys are protected by the per-chip
+# flash-encryption key burned (read-protected) in eFuse. Inert in a normal
+# build (an unused 4 KB data partition); used only when CONFIG_NVS_ENCRYPTION
+# is on — see sdkconfig.defaults.flash_encryption.
+nvs_keys, data, nvs_keys,,       0x1000, encrypted
+# Two app slots so a firmware update can be written while running from the
+# other one. 0x1F0000 is the largest 64 KB-aligned size that fits twice in
+# 4 MB after the data partitions above: ota_0 lands at 0x20000, ota_1 at
+# 0x210000, and ota_1 ends exactly on the 4 MB boundary. That halves the app
+# budget from the old single 3 MB `factory` slot to 1.94 MB — the image is
+# ~1.6 MB today, so watch the `idf.py size` headroom before adding assets.
+#
+# *** Changing this table is NOT something OTA can do: the table itself is
+#     never rewritten by an update. A unit flashed with the old single-slot
+#     layout has to be reflashed over serial once before it can ever take an
+#     over-the-air update. ***
+ota_0,    app,  ota_0,   ,       0x1F0000,
+ota_1,    app,  ota_1,   ,       0x1F0000,
