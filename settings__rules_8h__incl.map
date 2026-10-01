@@ -1,0 +1,28 @@
+<map id="main/settings_rules.h" name="main/settings_rules.h">
+<area shape="rect" id="Node000001" title="What a setting may be, apart from where it is stored." alt="" coords="278,5,441,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="32,152,114,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,24,202,29,123,40,55,56,30,67,14,80,8,95,14,112,28,128,45,142,42,146,24,131,9,114,3,95,9,77,28,63,54,51,122,34,202,24,278,19"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="322,152,397,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="381,29,399,43,417,61,428,82,426,105,411,128,392,146,388,142,407,124,421,103,423,83,413,64,396,47,377,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="172,152,243,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="279,29,228,47,205,61,187,80,182,94,182,109,194,139,189,141,177,110,176,93,183,77,202,57,225,42,277,24"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="486,79,553,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="386,28,482,71,480,75,384,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="578,79,648,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="401,28,565,74,563,79,400,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="673,79,766,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="418,28,660,76,659,81,417,33"/>
+<area shape="rect" id="Node000008" href="$civil__time_8h.html" title="TZ&#45;independent calendar arithmetic and date&#45;string parsing." alt="" coords="24,79,122,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="314,33,133,78,132,73,313,28"/>
+<area shape="rect" id="Node000009" href="$keccak256_8h.html" title="Original Keccak&#45;256 digest as used by Ethereum." alt="" coords="308,79,411,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="362,31,362,65,357,65,357,31"/>
+<area shape="rect" id="Node000010" href="$settings_8h.html" title="Persistent device settings stored in NVS (backlight, Wi&#45;Fi creds)." alt="" coords="198,79,284,104"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="342,33,274,74,271,69,339,28"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="76,104,76,138,70,138,70,104"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="96,102,175,143,172,148,93,106"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="362,104,362,138,357,138,357,104"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="336,106,246,149,244,144,334,102"/>
+<area shape="poly" id="edge15_Node000010_Node000002" title=" " alt="" coords="215,106,114,149,112,144,213,102"/>
+<area shape="poly" id="edge16_Node000010_Node000003" title=" " alt="" coords="261,102,330,142,327,147,259,106"/>
+<area shape="poly" id="edge14_Node000010_Node000004" title=" " alt="" coords="238,105,221,141,216,139,233,103"/>
+</map>

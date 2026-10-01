@@ -1,0 +1,5 @@
+<map id="pb_field_t" name="pb_field_t">
+<area shape="rect" id="Node000001" title="One field: its number and either its varint or its payload range." alt="" coords="5,101,91,127"/>
+<area shape="rect" id="Node000002" href="$structpb__t.html" title="Cursor over a hex byte string; positions count BYTES, not nibbles." alt="" coords="23,5,73,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,45,51,101,45,101,45,45"/>
+</map>

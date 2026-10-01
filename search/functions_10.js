@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['raw_5fhex_5fok_0',['raw_hex_ok',['../tron__tx_8cpp.html#a19627c1bccf8bce468f4adffe730d572',1,'tron_tx.cpp']]],
+  ['raw_5fok_1',['raw_ok',['../tron__tx_8cpp.html#a775854600202fb05cbf65e6ffeeaafd6',1,'tron_tx.cpp']]],
+  ['read_5fbody_2',['read_body',['../provision_8cpp.html#ace706c9c1b5421e2f3490071619ef4b7',1,'provision.cpp']]],
+  ['redirect_3',['redirect',['../provision_8cpp.html#aa37a9613dfe4f7871dbfb0bb87650df3',1,'provision.cpp']]],
+  ['redirect_5f404_4',['redirect_404',['../provision_8cpp.html#a9020b14d6c3f3423f1610263fb2d4dd7',1,'provision.cpp']]],
+  ['refuse_5',['refuse',['../ota_8cpp.html#a78b0f35594eb71da1d49f0a06ef41afb',1,'ota.cpp']]],
+  ['register_5fhandlers_6',['register_handlers',['../provision_8cpp.html#a6edd9d0ad15101d358038f57698d6d45',1,'provision.cpp']]],
+  ['rejoin_5fcancel_7',['rejoin_cancel',['../net_8cpp.html#ae0e010827523225da932149bd666ebd4',1,'net.cpp']]],
+  ['rejoin_5fcb_8',['rejoin_cb',['../net_8cpp.html#ac46d548969951a0e9dd3228d0bb2854c',1,'net.cpp']]],
+  ['rejoin_5fschedule_9',['rejoin_schedule',['../net_8cpp.html#a68c3a7d4ec446bd831cd7fabfd8f08b9',1,'net.cpp']]],
+  ['render_5frequested_5fscreen_10',['render_requested_screen',['../ui__internal_8h.html#a922bd97bd9fbce76d278ba37f2ebcceb',1,'render_requested_screen(void):&#160;ui_widgets.cpp'],['../ui__widgets_8cpp.html#a922bd97bd9fbce76d278ba37f2ebcceb',1,'render_requested_screen(void):&#160;ui_widgets.cpp']]],
+  ['reply_11',['reply',['../provision_8cpp.html#ab57a9ee4586b88b2ec58ca987384ab43',1,'provision.cpp']]],
+  ['request_5fprov_5fstop_12',['request_prov_stop',['../ui_8cpp.html#a83855dcf550418fa53ca8cda9244421e',1,'ui.cpp']]],
+  ['request_5fscreen_13',['request_screen',['../ui_8cpp.html#a6380b176c17e2872e62f91b47e3bbd74',1,'request_screen(ui_screen_t s):&#160;ui.cpp'],['../ui__internal_8h.html#a6380b176c17e2872e62f91b47e3bbd74',1,'request_screen(ui_screen_t s):&#160;ui.cpp']]],
+  ['rescan_5fpost_14',['rescan_post',['../provision_8cpp.html#a074eac6a570687940b3d5e614d4548f6',1,'provision.cpp']]],
+  ['resolve_5fevm_5fpayout_15',['resolve_evm_payout',['../boot_8cpp.html#a424dbcb0de8fd23c2799c775af8f78db',1,'boot.cpp']]],
+  ['rlp_5fbytes_16',['rlp_bytes',['../eth__rlp_8cpp.html#a0d5757837dee971c71afa095fcc7178d',1,'eth_rlp.cpp']]],
+  ['rlp_5fint256_17',['rlp_int256',['../eth__rlp_8cpp.html#a8c2049ed7c1126748b6c47824a946ba3',1,'eth_rlp.cpp']]],
+  ['rlp_5flist_5fheader_18',['rlp_list_header',['../eth__rlp_8cpp.html#afcd8883950916221b4559e7132abd776',1,'eth_rlp.cpp']]],
+  ['rlp_5fuint64_19',['rlp_uint64',['../eth__rlp_8cpp.html#a4e0ad18671fc6c0e8b04d56179e1fb99',1,'eth_rlp.cpp']]],
+  ['rot64_20',['rot64',['../keccak256_8cpp.html#a9085e44058b50bc6a267c71ec4c1e59c',1,'keccak256.cpp']]],
+  ['rpc_5ferr_5fcontains_21',['rpc_err_contains',['../rpc__error_8h.html#a254e0df997c0cac6d1f9e81e790456a9',1,'rpc_error.h']]],
+  ['rpc_5ferror_5ftext_22',['rpc_error_text',['../rpc__error_8h.html#a35017f254b71f2f8bc1a3ca61b6bac64',1,'rpc_error.h']]],
+  ['run_5fpayment_5fdecision_23',['run_payment_decision',['../hardening_8h.html#a7fcb4a0e7555d43894cdea2c2e19b9b9',1,'hardening.h']]],
+  ['run_5fwizard_24',['run_wizard',['../boot_8cpp.html#a074c9726bbf9033560c2f190aafe2b33',1,'run_wizard(CryptnoxWallet &amp;wallet, Pn532NfcTransport &amp;transport, CW_CryptoProvider &amp;crypto, bool wifi_only):&#160;boot.cpp'],['../pos__app_8h.html#a074c9726bbf9033560c2f190aafe2b33',1,'run_wizard(CryptnoxWallet &amp;wallet, Pn532NfcTransport &amp;transport, CW_CryptoProvider &amp;crypto, bool wifi_only):&#160;boot.cpp']]]
+];

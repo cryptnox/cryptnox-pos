@@ -1,0 +1,25 @@
+var ota_8cpp =
+[
+    [ "OTA_MIN_IMAGE", "ota_8cpp.html#a8b084686ca80a7843cbef9ec1c387cb4", null ],
+    [ "lock_ready", "ota_8cpp.html#a72d8f33d597d6311bbbe5dbb81b4c9d6", null ],
+    [ "ota_abort", "ota_8cpp.html#a174b34e2e32080c05be01c8adb1e470a", null ],
+    [ "ota_begin", "ota_8cpp.html#afb2c2a58346a23353b44433a7d1a52d2", null ],
+    [ "ota_commit", "ota_8cpp.html#af750a72c3cddee59fa71b57340196d7e", null ],
+    [ "ota_end", "ota_8cpp.html#a215a6be4948c5f0f903cb5ee214d550e", null ],
+    [ "ota_last_update_failed", "ota_8cpp.html#ae71387b221ebce45acc3d9888460fb18", null ],
+    [ "ota_mark_valid", "ota_8cpp.html#a23f3702065513e0bef3cabcda33b9a43", null ],
+    [ "ota_receiving", "ota_8cpp.html#a280684c72edbdb4912fa3b19270bd65d", null ],
+    [ "ota_running_version", "ota_8cpp.html#a1947b5b24dfd0048185f48ed19903b36", null ],
+    [ "ota_staged", "ota_8cpp.html#a909e5f4a7116877eb2b6071bf7349f3c", null ],
+    [ "ota_write", "ota_8cpp.html#af297395a7f260be00b566d632a4f4aa1", null ],
+    [ "refuse", "ota_8cpp.html#a78b0f35594eb71da1d49f0a06ef41afb", null ],
+    [ "s_dst", "ota_8cpp.html#a6f4b0b4508e4ef91a985eacf52ac01c8", null ],
+    [ "s_handle", "ota_8cpp.html#a4fccb1c71680d2501c7b3f03399baa76", null ],
+    [ "s_lock", "ota_8cpp.html#a5ded5b9330faf3995b4226531dd97d3c", null ],
+    [ "s_receiving", "ota_8cpp.html#a9c8b9912c70073e53396920b9384a42f", null ],
+    [ "s_running_ver", "ota_8cpp.html#af9ef57cb42ecc8221bdc3261bdce4cb2", null ],
+    [ "s_staged", "ota_8cpp.html#a4dad3f54390ebb330fc6614158cd8ae2", null ],
+    [ "s_staged_older", "ota_8cpp.html#a63abed87983c9eb3b28c50751a31c166", null ],
+    [ "s_staged_ver", "ota_8cpp.html#a33bc6484d68a9151df4811bfdd5bfb67", null ],
+    [ "TAG", "ota_8cpp.html#a4ef5b5f197804a60836ab1e8907d8301", null ]
+];

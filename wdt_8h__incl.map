@@ -1,0 +1,5 @@
+<map id="main/wdt.h" name="main/wdt.h">
+<area shape="rect" id="Node000001" title="Task&#45;watchdog feed that is safe to call from any task." alt="" coords="19,5,114,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,128,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,31,69,65,64,65,64,31"/>
+</map>

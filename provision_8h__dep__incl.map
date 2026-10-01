@@ -1,0 +1,35 @@
+<map id="main/provision.h" name="main/provision.h">
+<area shape="rect" id="Node000001" title="The config portal: one web app for setting a terminal up and for administering it afterwards,..." alt="" coords="816,5,947,31"/>
+<area shape="rect" id="Node000002" href="$pos__app_8h.html" title="Private to the application files (main, boot, card_io, pay, pay_evm, pay_tron): the state they share ..." alt="" coords="436,79,561,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="807,36,561,81,560,76,806,31"/>
+<area shape="rect" id="Node000009" href="$provision_8cpp.html" title="The config portal: a SoftAP and a captive portal, for setup and for administration alike,..." alt="" coords="808,79,955,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="884,44,884,79,879,79,879,44"/>
+<area shape="rect" id="Node000010" href="$ui__internal_8h.html" title="Private to the ui*.cpp files: the state and helpers they share." alt="" coords="1278,79,1418,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="960,29,1278,77,1277,82,960,34"/>
+<area shape="rect" id="Node000003" href="$boot_8cpp.html" title="Bring&#45;up: NVS, panel, reader, wallet, addresses, setup wizard, Wi&#45;Fi and clock — everything before th..." alt="" coords="5,152,120,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,108,132,155,121,157,120,151,132,149,422,102"/>
+<area shape="rect" id="Node000004" href="$card__io_8cpp.html" title="The card on the reader: is it usable, open a channel, sign, read the payout addresses off it." alt="" coords="144,152,277,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="440,110,258,154,257,149,439,105"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="cryptnox&#45;pos entry point: touchscreen USDC payment terminal." alt="" coords="302,152,421,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="466,113,385,154,383,149,463,108"/>
+<area shape="rect" id="Node000006" href="$pay_8cpp.html" title="What a sale is paid with and to, and the sale between broadcast and verdict." alt="" coords="445,152,553,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="501,118,501,152,496,152,496,118"/>
+<area shape="rect" id="Node000007" href="$pay__evm_8cpp.html" title="Ethereum and Polygon: endpoint, fees, pre&#45;flight balance, sign and broadcast an EIP&#45;1559 transfer." alt="" coords="577,152,724,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="536,107,627,149,625,154,534,112"/>
+<area shape="rect" id="Node000008" href="$pay__tron_8cpp.html" title="Tron: pre&#45;flight balance, sign and broadcast a TRX or TRC&#45;20 transfer." alt="" coords="749,152,891,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="564,104,769,149,767,154,563,110"/>
+<area shape="rect" id="Node000011" href="$ui_8cpp.html" title="Touchscreen UI implementation built on LVGL 8.x." alt="" coords="916,152,1015,177"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1274,109,1016,157,1015,152,1273,104"/>
+<area shape="rect" id="Node000012" href="$ui__admin_8cpp.html" title="The settings page, touch calibration and the admin&#45;code screens." alt="" coords="1039,152,1185,177"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="1298,110,1151,154,1149,149,1296,105"/>
+<area shape="rect" id="Node000013" href="$ui__hal_8cpp.html" title="Panel and touch hardware: TFT_eSPI flush, XPT2046 reads, the LVGL display and input drivers,..." alt="" coords="1209,152,1335,177"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="1328,115,1286,154,1283,150,1324,111"/>
+<area shape="rect" id="Node000014" href="$ui__sale_8cpp.html" title="The sale flow: amount, confirm, PIN, transaction status, and their page chrome." alt="" coords="1359,152,1491,177"/>
+<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="1372,111,1414,150,1411,154,1369,115"/>
+<area shape="rect" id="Node000015" href="$ui__setup_8cpp.html" title="First&#45;run setup on the panel: welcome, the browser hand&#45;off, card reads, Wi&#45;Fi." alt="" coords="1516,152,1657,177"/>
+<area shape="poly" id="edge14_Node000010_Node000015" title=" " alt="" coords="1400,105,1549,149,1547,154,1399,110"/>
+<area shape="rect" id="Node000016" href="$ui__theme_8cpp.html" title="Colours, the LVGL theme and the shared layout metrics." alt="" coords="1681,152,1828,177"/>
+<area shape="poly" id="edge15_Node000010_Node000016" title=" " alt="" coords="1427,104,1690,149,1689,155,1426,109"/>
+<area shape="rect" id="Node000017" href="$ui__widgets_8cpp.html" title="Widget helpers shared by every screen, and the Wi&#45;Fi signal mark." alt="" coords="1853,152,2009,177"/>
+<area shape="poly" id="edge16_Node000010_Node000017" title=" " alt="" coords="1432,100,1840,149,1853,151,1852,156,1840,155,1431,105"/>
+</map>

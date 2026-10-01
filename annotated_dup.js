@@ -1,0 +1,26 @@
+var annotated_dup =
+[
+    [ "anom_entry_t", "structanom__entry__t.html", "structanom__entry__t" ],
+    [ "eth_receipt_expect_t", "structeth__receipt__expect__t.html", "structeth__receipt__expect__t" ],
+    [ "eth_tx_t", "structeth__tx__t.html", "structeth__tx__t" ],
+    [ "inflight_t", "structinflight__t.html", "structinflight__t" ],
+    [ "net_wifi_ap_t", "structnet__wifi__ap__t.html", "structnet__wifi__ap__t" ],
+    [ "NullLogger", "classNullLogger.html", "classNullLogger" ],
+    [ "pb_field_t", "structpb__field__t.html", "structpb__field__t" ],
+    [ "pb_t", "structpb__t.html", "structpb__t" ],
+    [ "pos_addr_t", "structpos__addr__t.html", "structpos__addr__t" ],
+    [ "pos_amount_t", "structpos__amount__t.html", "structpos__amount__t" ],
+    [ "pos_asset_t", "structpos__asset__t.html", "structpos__asset__t" ],
+    [ "pos_hw_t", "structpos__hw__t.html", "structpos__hw__t" ],
+    [ "pos_net_info_t", "structpos__net__info__t.html", "structpos__net__info__t" ],
+    [ "resp_hdrs_t", "structresp__hdrs__t.html", "structresp__hdrs__t" ],
+    [ "sale_fee_t", "structsale__fee__t.html", "structsale__fee__t" ],
+    [ "token_cfg_t", "structtoken__cfg__t.html", "structtoken__cfg__t" ],
+    [ "token_t", "structtoken__t.html", "structtoken__t" ],
+    [ "touch_cal_t", "structtouch__cal__t.html", "structtouch__cal__t" ],
+    [ "touch_jump_t", "structtouch__jump__t.html", "structtouch__jump__t" ],
+    [ "tron_tx_ctx_t", "structtron__tx__ctx__t.html", "structtron__tx__ctx__t" ],
+    [ "ui_msg_t", "structui__msg__t.html", "structui__msg__t" ],
+    [ "UiLock", "structUiLock.html", "structUiLock" ],
+    [ "WipeGuard", "structWipeGuard.html", "structWipeGuard" ]
+];

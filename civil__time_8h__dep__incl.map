@@ -1,0 +1,33 @@
+<map id="main/civil_time.h" name="main/civil_time.h">
+<area shape="rect" id="Node000001" title="TZ&#45;independent calendar arithmetic and date&#45;string parsing." alt="" coords="436,5,571,31"/>
+<area shape="rect" id="Node000002" href="$civil__time_8cpp.html" title="TZ&#45;independent calendar arithmetic and date&#45;string parsing." alt="" coords="5,79,156,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,35,149,81,148,76,422,30"/>
+<area shape="rect" id="Node000003" href="$https__post_8cpp.html" title="HTTPS JSON POST with the authenticated&#45;Date clock cross&#45;check." alt="" coords="181,79,335,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="452,37,298,81,297,76,450,32"/>
+<area shape="rect" id="Node000004" href="$net_8cpp.html" title="Wi&#45;Fi station bring&#45;up (init/scan/connect/RSSI) and SNTP time sync." alt="" coords="359,79,466,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="479,41,429,81,426,76,476,37"/>
+<area shape="rect" id="Node000005" href="$provision_8cpp.html" title="The config portal: a SoftAP and a captive portal, for setup and for administration alike,..." alt="" coords="430,152,577,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="506,45,506,152,501,152,501,45"/>
+<area shape="rect" id="Node000006" href="$settings_8cpp.html" title="NVS&#45;backed implementation of the persistent device settings." alt="" coords="601,152,739,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="585,29,664,48,697,61,717,77,723,87,724,98,716,119,702,138,686,154,683,150,698,135,712,117,718,97,717,89,713,80,694,66,663,53,584,34"/>
+<area shape="rect" id="Node000007" href="$settings__rules_8h.html" title="What a setting may be, apart from where it is stored." alt="" coords="541,79,703,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="536,35,604,76,601,81,533,40"/>
+<area shape="rect" id="Node000008" href="$ui__internal_8h.html" title="Private to the ui*.cpp files: the state and helpers they share." alt="" coords="1125,79,1265,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="585,25,1125,80,1125,85,584,30"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="592,113,524,154,521,149,590,109"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="640,114,664,150,660,153,635,117"/>
+<area shape="rect" id="Node000009" href="$ui_8cpp.html" title="Touchscreen UI implementation built on LVGL 8.x." alt="" coords="763,152,862,177"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="1121,109,863,157,862,152,1120,104"/>
+<area shape="rect" id="Node000010" href="$ui__admin_8cpp.html" title="The settings page, touch calibration and the admin&#45;code screens." alt="" coords="886,152,1033,177"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="1145,110,998,154,997,149,1144,105"/>
+<area shape="rect" id="Node000011" href="$ui__hal_8cpp.html" title="Panel and touch hardware: TFT_eSPI flush, XPT2046 reads, the LVGL display and input drivers,..." alt="" coords="1057,152,1182,177"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="1175,115,1134,154,1130,150,1171,111"/>
+<area shape="rect" id="Node000012" href="$ui__sale_8cpp.html" title="The sale flow: amount, confirm, PIN, transaction status, and their page chrome." alt="" coords="1207,152,1339,177"/>
+<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="1220,111,1262,150,1258,154,1216,115"/>
+<area shape="rect" id="Node000013" href="$ui__setup_8cpp.html" title="First&#45;run setup on the panel: welcome, the browser hand&#45;off, card reads, Wi&#45;Fi." alt="" coords="1363,152,1505,177"/>
+<area shape="poly" id="edge14_Node000008_Node000013" title=" " alt="" coords="1248,105,1396,149,1395,154,1246,110"/>
+<area shape="rect" id="Node000014" href="$ui__theme_8cpp.html" title="Colours, the LVGL theme and the shared layout metrics." alt="" coords="1529,152,1675,177"/>
+<area shape="poly" id="edge15_Node000008_Node000014" title=" " alt="" coords="1274,104,1537,149,1536,155,1274,109"/>
+<area shape="rect" id="Node000015" href="$ui__widgets_8cpp.html" title="Widget helpers shared by every screen, and the Wi&#45;Fi signal mark." alt="" coords="1700,152,1856,177"/>
+<area shape="poly" id="edge16_Node000008_Node000015" title=" " alt="" coords="1279,100,1688,149,1700,151,1700,156,1687,155,1278,105"/>
+</map>

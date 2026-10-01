@@ -1,0 +1,5 @@
+<map id="main/addr_check.h" name="main/addr_check.h">
+<area shape="rect" id="Node000001" title="Structural address checks for the config portal." alt="" coords="6,5,151,31"/>
+<area shape="rect" id="Node000002" href="$provision_8cpp.html" title="The config portal: a SoftAP and a captive portal, for setup and for administration alike,..." alt="" coords="5,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,44,81,79,76,79,76,44"/>
+</map>

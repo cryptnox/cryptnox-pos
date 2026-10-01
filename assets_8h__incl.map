@@ -1,0 +1,13 @@
+<map id="main/assets.h" name="main/assets.h">
+<area shape="rect" id="Node000001" title="What each selectable asset IS — one row per pos_chain_t." alt="" coords="91,5,205,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,33,94,80,60,141,55,138,90,77,133,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="208,152,283,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,29,184,50,206,77,224,108,238,138,233,140,220,111,202,80,180,54,159,33"/>
+<area shape="rect" id="Node000004" href="$settings_8h.html" title="Persistent device settings stored in NVS (backlight, Wi&#45;Fi creds)." alt="" coords="105,79,191,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,31,151,65,145,65,145,31"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="133,106,76,146,73,142,130,102"/>
+<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="165,102,220,141,217,146,162,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="113,152,183,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="151,104,151,138,145,138,145,104"/>
+</map>

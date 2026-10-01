@@ -1,0 +1,43 @@
+<map id="main/tron_rpc.cpp" name="main/tron_rpc.cpp">
+<area shape="rect" id="Node000001" title="Tron HTTP API client implementation." alt="" coords="618,5,757,31"/>
+<area shape="rect" id="Node000002" href="$tron__rpc_8h.html" title="Tron HTTP API client (Nile testnet): build a TRX transfer, broadcast it signed, poll its receipt." alt="" coords="5,79,92,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="618,27,394,46,106,81,105,76,394,41,618,22"/>
+<area shape="rect" id="Node000006" href="$tron__tx_8h.html" title="Tron transaction hex helpers — protobuf varints, the TransferContract integrity check and the signed&#45;..." alt="" coords="117,79,197,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="618,29,438,49,211,81,210,76,437,43,617,23"/>
+<area shape="rect" id="Node000007" href="$eth__json_8h.html" title="JSON&#45;RPC response parsing helpers — kept in their own unit (cJSON + CW_Utils only,..." alt="" coords="221,79,311,104"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="618,33,325,81,324,76,617,27"/>
+<area shape="rect" id="Node000008" href="$https__post_8h.html" title="One HTTPS JSON POST, shared by every RPC client in the firmware." alt="" coords="335,79,437,104"/>
+<area shape="poly" id="edge13_Node000001_Node000008" title=" " alt="" coords="640,33,448,78,447,73,638,28"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="462,79,529,104"/>
+<area shape="poly" id="edge16_Node000001_Node000009" title=" " alt="" coords="657,33,541,76,539,71,656,28"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="553,79,624,104"/>
+<area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="673,33,617,73,614,68,670,29"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="648,79,727,104"/>
+<area shape="poly" id="edge18_Node000001_Node000011" title=" " alt="" coords="690,31,690,65,685,65,685,31"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="751,79,837,104"/>
+<area shape="poly" id="edge19_Node000001_Node000012" title=" " alt="" coords="706,28,767,69,764,73,703,33"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="862,79,955,104"/>
+<area shape="poly" id="edge20_Node000001_Node000013" title=" " alt="" coords="724,28,861,72,859,77,722,33"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="980,79,1064,104"/>
+<area shape="poly" id="edge21_Node000001_Node000014" title=" " alt="" coords="742,28,967,76,966,81,741,33"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1089,79,1227,104"/>
+<area shape="poly" id="edge22_Node000001_Node000015" title=" " alt="" coords="757,27,1076,75,1075,80,756,32"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1251,79,1342,104"/>
+<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="757,22,968,42,1238,76,1237,81,967,47,757,27"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1367,79,1440,104"/>
+<area shape="poly" id="edge24_Node000001_Node000017" title=" " alt="" coords="757,20,1015,37,1182,53,1353,76,1352,81,1181,59,1015,42,757,25"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="31,152,101,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="54,104,63,138,57,140,49,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="225,152,307,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="84,101,219,145,217,150,83,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="126,152,201,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="68,102,134,142,132,147,66,106"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="144,106,93,145,90,141,140,102"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="176,102,238,142,235,147,173,106"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="160,104,164,138,158,139,155,105"/>
+<area shape="poly" id="edge12_Node000007_Node000003" title=" " alt="" coords="235,107,113,150,111,145,233,102"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="269,104,269,138,263,138,263,104"/>
+<area shape="poly" id="edge11_Node000007_Node000005" title=" " alt="" coords="251,106,193,146,190,142,248,102"/>
+<area shape="poly" id="edge14_Node000008_Node000004" title=" " alt="" coords="368,106,299,147,296,142,365,102"/>
+<area shape="poly" id="edge15_Node000008_Node000005" title=" " alt="" coords="351,107,213,150,211,145,349,101"/>
+</map>

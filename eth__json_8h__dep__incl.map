@@ -1,0 +1,26 @@
+<map id="main/eth_json.h" name="main/eth_json.h">
+<area shape="rect" id="Node000001" title="JSON&#45;RPC response parsing helpers — kept in their own unit (cJSON + CW_Utils only,..." alt="" coords="259,5,386,31"/>
+<area shape="rect" id="Node000002" href="$eth__json_8cpp.html" title="Implementation of the JSON&#45;RPC response parsing helpers." alt="" coords="96,79,237,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="286,39,193,81,191,76,284,34"/>
+<area shape="rect" id="Node000003" href="$eth__rpc_8cpp.html" title="Ethereum JSON&#45;RPC client implementation (HTTPS). Network bring&#45;up (Wi&#45;Fi, SNTP) lives in net...." alt="" coords="207,152,342,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="315,45,303,80,280,153,275,151,297,78,310,43"/>
+<area shape="rect" id="Node000004" href="$eth__rpc_8h.html" title="Ethereum JSON&#45;RPC client over HTTPS (nonce / ecrecover parity / raw&#45;tx broadcast / receipt polling)...." alt="" coords="313,79,431,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="341,41,366,77,362,80,336,44"/>
+<area shape="rect" id="Node000012" href="$tron__rpc_8cpp.html" title="Tron HTTP API client implementation." alt="" coords="456,79,595,104"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="369,33,493,76,492,81,367,38"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="347,114,292,154,289,150,344,110"/>
+<area shape="rect" id="Node000005" href="$pos__app_8h.html" title="Private to the application files (main, boot, card_io, pay, pay_evm, pay_tron): the state they share ..." alt="" coords="367,152,492,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="392,113,422,150,418,154,388,116"/>
+<area shape="rect" id="Node000006" href="$boot_8cpp.html" title="Bring&#45;up: NVS, panel, reader, wallet, addresses, setup wizard, Wi&#45;Fi and clock — everything before th..." alt="" coords="5,225,120,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="358,183,121,228,120,223,357,177"/>
+<area shape="rect" id="Node000007" href="$card__io_8cpp.html" title="The card on the reader: is it usable, open a channel, sign, read the payout addresses off it." alt="" coords="144,225,277,251"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="382,184,247,228,245,223,380,179"/>
+<area shape="rect" id="Node000008" href="$main_8cpp.html" title="cryptnox&#45;pos entry point: touchscreen USDC payment terminal." alt="" coords="302,225,421,251"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="411,189,374,227,370,223,407,185"/>
+<area shape="rect" id="Node000009" href="$pay_8cpp.html" title="What a sale is paid with and to, and the sale between broadcast and verdict." alt="" coords="445,225,553,251"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="452,185,489,223,486,227,448,189"/>
+<area shape="rect" id="Node000010" href="$pay__evm_8cpp.html" title="Ethereum and Polygon: endpoint, fees, pre&#45;flight balance, sign and broadcast an EIP&#45;1559 transfer." alt="" coords="577,225,724,251"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="478,179,616,223,614,228,477,184"/>
+<area shape="rect" id="Node000011" href="$pay__tron_8cpp.html" title="Tron: pre&#45;flight balance, sign and broadcast a TRX or TRC&#45;20 transfer." alt="" coords="749,225,891,251"/>
+<area shape="poly" id="edge11_Node000005_Node000011" title=" " alt="" coords="506,177,757,223,756,228,505,182"/>
+</map>

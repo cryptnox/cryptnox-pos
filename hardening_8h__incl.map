@@ -1,0 +1,14 @@
+<map id="main/hardening.h" name="main/hardening.h">
+<area shape="rect" id="Node000001" title="Decision&#45;integrity primitives (see docs/HARDENING.md §3, §4)." alt="" coords="6,5,142,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,76,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,33,44,53,29,79,26,109,33,138,27,139,20,110,23,78,39,50,58,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="39,79,109,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="77,31,77,65,71,65,71,31"/>
+<area shape="rect" id="Node000004" href="$eth__addr_8h.html" title="Hex Ethereum&#45;address parsing — a pure, dependency&#45;free unit so it can be unit&#45;tested and fuzzed on th..." alt="" coords="134,79,225,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="92,28,152,69,150,73,89,33"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="158,106,77,148,74,143,156,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="121,152,195,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="178,105,168,140,163,138,173,104"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="219,152,302,177"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="194,102,239,141,235,145,191,106"/>
+</map>

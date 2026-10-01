@@ -1,0 +1,7 @@
+<map id="main/settings_rules.h" name="main/settings_rules.h">
+<area shape="rect" id="Node000001" title="What a setting may be, apart from where it is stored." alt="" coords="80,5,243,31"/>
+<area shape="rect" id="Node000002" href="$provision_8cpp.html" title="The config portal: a SoftAP and a captive portal, for setup and for administration alike,..." alt="" coords="5,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,42,94,80,90,76,136,38"/>
+<area shape="rect" id="Node000003" href="$settings_8cpp.html" title="NVS&#45;backed implementation of the persistent device settings." alt="" coords="176,79,315,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,38,233,76,230,80,184,42"/>
+</map>

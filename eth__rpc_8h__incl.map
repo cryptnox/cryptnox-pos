@@ -1,0 +1,14 @@
+<map id="main/eth_rpc.h" name="main/eth_rpc.h">
+<area shape="rect" id="Node000001" title="Ethereum JSON&#45;RPC client over HTTPS (nonce / ecrecover parity / raw&#45;tx broadcast / receipt polling)...." alt="" coords="97,5,216,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,76,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,33,90,52,74,65,60,80,48,109,43,139,38,138,43,108,56,77,70,61,87,47,123,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,152,179,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,30,175,63,177,84,175,105,160,141,155,139,170,103,172,84,170,64,159,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="205,152,287,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,30,234,139,230,142,162,33"/>
+<area shape="rect" id="Node000005" href="$eth__json_8h.html" title="JSON&#45;RPC response parsing helpers — kept in their own unit (cJSON + CW_Utils only,..." alt="" coords="71,79,160,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="152,32,131,68,127,65,148,30"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="105,106,65,144,61,141,102,102"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="122,103,135,138,130,140,117,105"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="138,102,214,143,212,148,135,106"/>
+</map>

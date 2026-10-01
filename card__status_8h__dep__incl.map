@@ -1,0 +1,17 @@
+<map id="main/card_status.h" name="main/card_status.h">
+<area shape="rect" id="Node000001" title="What a tapped card is missing, read from its SELECT response." alt="" coords="356,5,503,31"/>
+<area shape="rect" id="Node000002" href="$pos__app_8h.html" title="Private to the application files (main, boot, card_io, pay, pay_evm, pay_tron): the state they share ..." alt="" coords="367,79,492,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="432,44,432,79,427,79,427,44"/>
+<area shape="rect" id="Node000003" href="$boot_8cpp.html" title="Bring&#45;up: NVS, panel, reader, wallet, addresses, setup wizard, Wi&#45;Fi and clock — everything before th..." alt="" coords="5,152,120,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="358,109,121,155,120,150,357,104"/>
+<area shape="rect" id="Node000004" href="$card__io_8cpp.html" title="The card on the reader: is it usable, open a channel, sign, read the payout addresses off it." alt="" coords="144,152,277,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="382,111,247,154,245,149,380,106"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="cryptnox&#45;pos entry point: touchscreen USDC payment terminal." alt="" coords="302,152,421,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="411,116,374,154,370,150,407,112"/>
+<area shape="rect" id="Node000006" href="$pay_8cpp.html" title="What a sale is paid with and to, and the sale between broadcast and verdict." alt="" coords="445,152,553,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="452,112,489,150,486,154,448,116"/>
+<area shape="rect" id="Node000007" href="$pay__evm_8cpp.html" title="Ethereum and Polygon: endpoint, fees, pre&#45;flight balance, sign and broadcast an EIP&#45;1559 transfer." alt="" coords="577,152,724,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="478,106,616,149,614,154,477,111"/>
+<area shape="rect" id="Node000008" href="$pay__tron_8cpp.html" title="Tron: pre&#45;flight balance, sign and broadcast a TRX or TRC&#45;20 transfer." alt="" coords="749,152,891,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="506,104,757,149,756,155,505,109"/>
+</map>
