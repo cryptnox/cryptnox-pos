@@ -29,6 +29,7 @@ jobs:
     name: CodeQL (C/C++)
     runs-on: ubuntu-latest
     permissions:
+      actions: read            # analyze step reads the workflow run (fails without it)
       contents: read
       security-events: write   # required to upload results to the Security tab
     steps:
