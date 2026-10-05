@@ -36,7 +36,7 @@ testnet-only selection — Circle wound it down in 2024&ndash;25.
 > native-coin amount is signed as a `uint64` of wei — so **ETH and POL sales are
 > capped at 18.44**. The keypad stops there rather than letting an operator key a
 > figure the transaction cannot carry. The stablecoins are 6-decimal and keep the
-> full 99999.99 range.
+> full 9999.99 range.
 
 > [!WARNING]
 > **Reference / educational dev kit — not a tamper-resistant terminal.**
