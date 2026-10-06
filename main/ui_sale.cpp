@@ -307,6 +307,9 @@ void build_splash(void) {
     /* Tight under the logo (the image carries its own breathing margin). */
     make_label(lv_scr_act(), "cryptnox-pos", lv_color_black(),
                &font_pjs_20_medium, LV_ALIGN_CENTER, 0, 40);
+    /* Self-built hardware: say so before anyone mistakes it for a product. */
+    make_label(lv_scr_act(), "DIY", COL_DIM,
+               &font_inter_14, LV_ALIGN_CENTER, 0, 64);
 
     /* Boot feedback — the splash stays up while Wi-Fi/SNTP/RPC come up, so
      * show a discreet spinner instead of looking frozen. */
