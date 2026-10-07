@@ -153,93 +153,91 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('settings_8h_so
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/* Family/network predicates for each selection live in assets.h. */</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="settings_8h.html#a1fa8ab0ed8ab4165ffa7d769ad21c4db">   60</a></span><span class="preprocessor">#define POS_AMOUNT_UNITS_MAX_NATIVE  18446744ULL</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> <a class="code hl_function" href="settings_8h.html#a52b629fead798f0db04e29125d9ec3e3">settings_get_chain</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> <a class="code hl_function" href="settings_8h.html#a52b629fead798f0db04e29125d9ec3e3">settings_get_chain</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a928c7c9e2d629272bb4a384af0059be9">settings_set_chain</a>(<a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> chain);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ad75a14391247a05065372376e35cc0b2">settings_get_mainnet</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a928c7c9e2d629272bb4a384af0059be9">settings_set_chain</a>(<a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> chain);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a9d69087bfaf7b7c4f700ffb1e157e751">settings_set_mainnet</a>(<span class="keywordtype">bool</span> mainnet);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ad75a14391247a05065372376e35cc0b2">settings_get_mainnet</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a9d69087bfaf7b7c4f700ffb1e157e751">settings_set_mainnet</a>(<span class="keywordtype">bool</span> mainnet);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="settings_8h.html#a45013d6f9ea3d10da283279653dd3231">settings_net_str</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *testnet, <span class="keyword">const</span> <span class="keywordtype">char</span> *mainnet);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="settings_8h.html#a45013d6f9ea3d10da283279653dd3231">settings_net_str</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *testnet, <span class="keyword">const</span> <span class="keywordtype">char</span> *mainnet);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="settings_8h.html#a365e60dce183e0ba4ce65b50500dbcfa">   77</a></span><span class="preprocessor">#define TZ_OFFSET_MIN  (-720)</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="settings_8h.html#ace9681772ee79f11a0b41ac1f0859dd3">   78</a></span><span class="preprocessor">#define TZ_OFFSET_MAX  (840)</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>int16_t <a class="code hl_function" href="settings_8h.html#a6d3632b45fe486b2ad88445a23e24316">settings_get_tz_offset_min</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="settings_8h.html#a365e60dce183e0ba4ce65b50500dbcfa">   91</a></span><span class="preprocessor">#define TZ_OFFSET_MIN  (-720)</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="settings_8h.html#ace9681772ee79f11a0b41ac1f0859dd3">   92</a></span><span class="preprocessor">#define TZ_OFFSET_MAX  (840)</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>int16_t <a class="code hl_function" href="settings_8h.html#a6d3632b45fe486b2ad88445a23e24316">settings_get_tz_offset_min</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a1e4d04a3e729b3c48a072b6ff249a821">settings_set_tz_offset_min</a>(int16_t minutes);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>uint8_t <a class="code hl_function" href="settings_8h.html#a77234299daa9d11d1687f64e5cd93249">settings_get_tz_dst</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#acbb6cfe4c4a7232e56376b8aac78f424">settings_set_tz_dst</a>(uint8_t rule);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>uint8_t <a class="code hl_function" href="settings_8h.html#a818ad1b9e12386084a6f3ac81b457206">settings_get_brightness</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#ad15919561c01cc19a22b19b34d30db5c">settings_set_brightness</a>(uint8_t pct);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#aaf1b2b93b30d70a506ce9bc2e8108145">settings_get_touch_cal</a>(uint16_t *x_min, uint16_t *x_max,</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                            uint16_t *y_min, uint16_t *y_max);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#ad5a7b863ad18cc5bec2618061f92b911">settings_set_touch_cal</a>(uint16_t x_min, uint16_t x_max,</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                            uint16_t y_min, uint16_t y_max);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a0ce88caf5e1f89361552c90b47ebc9be">settings_has_wifi</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a172f2aea1550fda41bb292fca261891b">settings_get_wifi</a>(<span class="keywordtype">char</span> *ssid, <span class="keywordtype">size_t</span> ssid_n, <span class="keywordtype">char</span> *pass, <span class="keywordtype">size_t</span> pass_n);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a7e76308e770c39d46e1e1e4f9f123fd3">settings_set_wifi</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *ssid, <span class="keyword">const</span> <span class="keywordtype">char</span> *pass);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ad3200b5d1e2e3ad727bf971525ee44ca">settings_has_admin_code</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a8131914716c5a2264f972988a8a82057">settings_set_admin_code</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *code);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a04a4d53c0bd72fef1bca3aa7a540001e">settings_check_admin_code</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *code);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>uint8_t <a class="code hl_function" href="settings_8h.html#ab7cab7b76f913efe3d20f41ae7fed2fd">settings_admin_fail_count</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>uint32_t <a class="code hl_function" href="settings_8h.html#ae5fa2fb8d5ff26e2ab997c4384ac6ad8">settings_get_max_fee_gwei</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>uint32_t <a class="code hl_function" href="settings_8h.html#a772911b2f26faae157630d855318f16c">settings_get_priority_fee_gwei</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a7c47f204b7ea1b0dd94e9f96cb5eaa30">settings_set_fees_gwei</a>(uint32_t max_gwei, uint32_t prio_gwei);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="settings_8h.html#aeb66271972d06d56ccc6eaf2b00743b2">  214</a></span><span class="preprocessor">#define SETTINGS_PAYOUT_MAX  64U</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a7f58946e853a127fae0d6fbad217c07d">settings_get_payout</a>(<span class="keywordtype">bool</span> tron, <span class="keywordtype">char</span> *out, <span class="keywordtype">size_t</span> n);</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ae24a2878fbba4ad4d30e6a389e802f68">settings_has_payout</a>(<span class="keywordtype">bool</span> tron);</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span></div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ab5774aac758cda9f0bfc6be6e6d3a3bc">settings_set_payout</a>(<span class="keywordtype">bool</span> tron, <span class="keyword">const</span> <span class="keywordtype">char</span> *addr);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a5313efb4b3043d5a6ceb7740f2a970ea">settings_get_contract</a>(<a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> chain, <span class="keywordtype">char</span> *out, <span class="keywordtype">size_t</span> n);</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#aaaa7085add2c6180530acc4562b44fbb">settings_set_contract</a>(<a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> chain, <span class="keyword">const</span> <span class="keywordtype">char</span> *addr);</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span></div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#ab6e8c2165049181e1c37d84624b3ba2a">settings_factory_reset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span></div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#af017179ccd5628e765b9ac5e0fc02fcf">settings_inflight_save</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *rec, <span class="keywordtype">size_t</span> n);</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a9846aac2482226abf9826699acf40290">settings_inflight_load</a>(<span class="keywordtype">void</span> *rec, <span class="keywordtype">size_t</span> n);</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span></div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#adfb78a778a4b2074fa6c7a1892de0389">settings_inflight_clear</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment"> * BUILD_ID is set by the build to `git rev-list --count --first-parent HEAD`</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment"> * (project CMakeLists.txt), so every commit gets a new one. A plain counter</span></div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment"> * survives every route onto a unit (browser update, `idf.py flash`, factory</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment"> * image). See @ref settings_wipe_if_new_build.</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a41b7d44a8d46e11e3b907a04ab6ccf49">settings_wipe_if_new_build</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>}</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="preprocessor">#endif </span><span class="comment">/* SETTINGS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a1e4d04a3e729b3c48a072b6ff249a821">settings_set_tz_offset_min</a>(int16_t minutes);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>uint8_t <a class="code hl_function" href="settings_8h.html#a77234299daa9d11d1687f64e5cd93249">settings_get_tz_dst</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#acbb6cfe4c4a7232e56376b8aac78f424">settings_set_tz_dst</a>(uint8_t rule);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>uint8_t <a class="code hl_function" href="settings_8h.html#a818ad1b9e12386084a6f3ac81b457206">settings_get_brightness</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#ad15919561c01cc19a22b19b34d30db5c">settings_set_brightness</a>(uint8_t pct);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#aaf1b2b93b30d70a506ce9bc2e8108145">settings_get_touch_cal</a>(uint16_t *x_min, uint16_t *x_max,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                            uint16_t *y_min, uint16_t *y_max);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#ad5a7b863ad18cc5bec2618061f92b911">settings_set_touch_cal</a>(uint16_t x_min, uint16_t x_max,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                            uint16_t y_min, uint16_t y_max);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a0ce88caf5e1f89361552c90b47ebc9be">settings_has_wifi</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a172f2aea1550fda41bb292fca261891b">settings_get_wifi</a>(<span class="keywordtype">char</span> *ssid, <span class="keywordtype">size_t</span> ssid_n, <span class="keywordtype">char</span> *pass, <span class="keywordtype">size_t</span> pass_n);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a7e76308e770c39d46e1e1e4f9f123fd3">settings_set_wifi</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *ssid, <span class="keyword">const</span> <span class="keywordtype">char</span> *pass);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ad3200b5d1e2e3ad727bf971525ee44ca">settings_has_admin_code</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a8131914716c5a2264f972988a8a82057">settings_set_admin_code</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *code);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a04a4d53c0bd72fef1bca3aa7a540001e">settings_check_admin_code</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *code);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>uint8_t <a class="code hl_function" href="settings_8h.html#ab7cab7b76f913efe3d20f41ae7fed2fd">settings_admin_fail_count</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>uint32_t <a class="code hl_function" href="settings_8h.html#ae5fa2fb8d5ff26e2ab997c4384ac6ad8">settings_get_max_fee_gwei</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>uint32_t <a class="code hl_function" href="settings_8h.html#a772911b2f26faae157630d855318f16c">settings_get_priority_fee_gwei</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a7c47f204b7ea1b0dd94e9f96cb5eaa30">settings_set_fees_gwei</a>(uint32_t max_gwei, uint32_t prio_gwei);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="settings_8h.html#aeb66271972d06d56ccc6eaf2b00743b2">  200</a></span><span class="preprocessor">#define SETTINGS_PAYOUT_MAX  64U</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a7f58946e853a127fae0d6fbad217c07d">settings_get_payout</a>(<span class="keywordtype">bool</span> tron, <span class="keywordtype">char</span> *out, <span class="keywordtype">size_t</span> n);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ae24a2878fbba4ad4d30e6a389e802f68">settings_has_payout</a>(<span class="keywordtype">bool</span> tron);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#ab5774aac758cda9f0bfc6be6e6d3a3bc">settings_set_payout</a>(<span class="keywordtype">bool</span> tron, <span class="keyword">const</span> <span class="keywordtype">char</span> *addr);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a5313efb4b3043d5a6ceb7740f2a970ea">settings_get_contract</a>(<a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> chain, <span class="keywordtype">char</span> *out, <span class="keywordtype">size_t</span> n);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#aaaa7085add2c6180530acc4562b44fbb">settings_set_contract</a>(<a class="code hl_enumeration" href="settings_8h.html#ab65f4f90346e002c9018334aea79c725">pos_chain_t</a> chain, <span class="keyword">const</span> <span class="keywordtype">char</span> *addr);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#ab6e8c2165049181e1c37d84624b3ba2a">settings_factory_reset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#af017179ccd5628e765b9ac5e0fc02fcf">settings_inflight_save</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *rec, <span class="keywordtype">size_t</span> n);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a9846aac2482226abf9826699acf40290">settings_inflight_load</a>(<span class="keywordtype">void</span> *rec, <span class="keywordtype">size_t</span> n);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#adfb78a778a4b2074fa6c7a1892de0389">settings_inflight_clear</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment"> * BUILD_ID is set by the build to `git rev-list --count --first-parent HEAD`</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment"> * (project CMakeLists.txt), so every commit gets a new one. A plain counter</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="comment"> * survives every route onto a unit (browser update, `idf.py flash`, factory</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="comment"> * image). See @ref settings_wipe_if_new_build.</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span></div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="keywordtype">bool</span> <a class="code hl_function" href="settings_8h.html#a41b7d44a8d46e11e3b907a04ab6ccf49">settings_wipe_if_new_build</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>}</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">#endif </span><span class="comment">/* SETTINGS_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="asettings_8h_html_a04a4d53c0bd72fef1bca3aa7a540001e"><div class="ttname"><a href="settings_8h.html#a04a4d53c0bd72fef1bca3aa7a540001e">settings_check_admin_code</a></div><div class="ttdeci">bool settings_check_admin_code(const char *code)</div><div class="ttdoc">Check a candidate code, maintaining the failure counter.</div><div class="ttdef"><b>Definition</b> <a href="settings_8cpp_source.html#l00414">settings.cpp:414</a></div></div>
 <div class="ttc" id="asettings_8h_html_a0ce88caf5e1f89361552c90b47ebc9be"><div class="ttname"><a href="settings_8h.html#a0ce88caf5e1f89361552c90b47ebc9be">settings_has_wifi</a></div><div class="ttdeci">bool settings_has_wifi(void)</div><div class="ttdoc">true if a Wi-Fi SSID has been stored.</div><div class="ttdef"><b>Definition</b> <a href="settings_8cpp_source.html#l00284">settings.cpp:284</a></div></div>
 <div class="ttc" id="asettings_8h_html_a172f2aea1550fda41bb292fca261891b"><div class="ttname"><a href="settings_8h.html#a172f2aea1550fda41bb292fca261891b">settings_get_wifi</a></div><div class="ttdeci">bool settings_get_wifi(char *ssid, size_t ssid_n, char *pass, size_t pass_n)</div><div class="ttdoc">Read the stored Wi-Fi credentials.</div><div class="ttdef"><b>Definition</b> <a href="settings_8cpp_source.html#l00298">settings.cpp:298</a></div></div>

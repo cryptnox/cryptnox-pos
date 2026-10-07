@@ -133,15 +133,13 @@ Include dependency graph for settings.h:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="settings_8h__dep__incl.svg" width="2014" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="settings_8h__dep__incl.svg" width="2015" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="settings_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a1fa8ab0ed8ab4165ffa7d769ad21c4db" id="r_a1fa8ab0ed8ab4165ffa7d769ad21c4db"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1fa8ab0ed8ab4165ffa7d769ad21c4db">POS_AMOUNT_UNITS_MAX_NATIVE</a>&#160;&#160;&#160;18446744ULL</td></tr>
-<tr class="memdesc:a1fa8ab0ed8ab4165ffa7d769ad21c4db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ceiling on a native-coin sale, in the keypad's 6-decimal base units.  <br /></td></tr>
 <tr class="memitem:a365e60dce183e0ba4ce65b50500dbcfa" id="r_a365e60dce183e0ba4ce65b50500dbcfa"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a365e60dce183e0ba4ce65b50500dbcfa">TZ_OFFSET_MIN</a>&#160;&#160;&#160;(-720)</td></tr>
 <tr class="memdesc:a365e60dce183e0ba4ce65b50500dbcfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Widest real-world UTC offsets, in minutes: UTC-12:00 to UTC+14:00.  <br /></td></tr>
 <tr class="memitem:ace9681772ee79f11a0b41ac1f0859dd3" id="r_ace9681772ee79f11a0b41ac1f0859dd3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ace9681772ee79f11a0b41ac1f0859dd3">TZ_OFFSET_MAX</a>&#160;&#160;&#160;(840)</td></tr>
@@ -242,28 +240,6 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a1fa8ab0ed8ab4165ffa7d769ad21c4db" name="a1fa8ab0ed8ab4165ffa7d769ad21c4db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa8ab0ed8ab4165ffa7d769ad21c4db">&#9670;&#160;</a></span>POS_AMOUNT_UNITS_MAX_NATIVE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define POS_AMOUNT_UNITS_MAX_NATIVE&#160;&#160;&#160;18446744ULL</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Ceiling on a native-coin sale, in the keypad's 6-decimal base units. </p>
-<p>ETH and POL are 18-decimal, so wei = units * 10^12, and <a class="el" href="structeth__tx__t.html#a2729c720ecee7933d04fa42fb43a9adb">eth_tx_t::eth_value</a> is a uint64 — 2^64-1 wei is 18.446744073709551615 of the coin. Past that the multiply wraps and the card would sign a value nobody entered, so the keypad stops at 18.44 and the payment path re-checks it.</p>
-<p>ponytail: uint64 wei, 18.44 ETH/POL a sale. Widening means carrying eth_value as a 32-byte big-endian buffer through eth_rlp and its two encoders — worth it only if somebody actually needs to charge more. </p>
-
-<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00060">60</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="money_8h_source.html#l00103">evm_units_to_wei()</a>.</p>
-
-</div>
-</div>
 <a id="aeb66271972d06d56ccc6eaf2b00743b2" name="aeb66271972d06d56ccc6eaf2b00743b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb66271972d06d56ccc6eaf2b00743b2">&#9670;&#160;</a></span>SETTINGS_PAYOUT_MAX</h2>
 
@@ -278,7 +254,7 @@ Functions</h2></td></tr>
 
 <p>Longest payout address plus NUL — "0x" + 40 hex, or 34 base58 Tron. </p>
 
-<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00214">214</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00200">200</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00051">app_main()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00225">build_prov_confirm()</a>, <a class="el" href="settings_8cpp_source.html#l00466">dual_get()</a>, <a class="el" href="settings_8cpp_source.html#l00501">dual_set()</a>, <a class="el" href="boot_8cpp_source.html#l00269">run_wizard()</a>, <a class="el" href="settings__rules_8h_source.html#l00148">settings_addr_normalise()</a>, <a class="el" href="settings_8cpp_source.html#l00534">settings_has_payout()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00165">sign_and_broadcast()</a>, <a class="el" href="provision_8cpp_source.html#l00522">state_get()</a>, and <a class="el" href="provision_8cpp_source.html#l00741">value_post()</a>.</p>
 
@@ -296,7 +272,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00092">92</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00078">78</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="settings__rules_8h_source.html#l00053">tz_offset_decode()</a>, and <a class="el" href="settings__rules_8h_source.html#l00041">tz_offset_valid()</a>.</p>
 
@@ -316,7 +292,7 @@ Functions</h2></td></tr>
 
 <p>Widest real-world UTC offsets, in minutes: UTC-12:00 to UTC+14:00. </p>
 
-<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00091">91</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="settings_8h_source.html#l00077">77</a> of file <a class="el" href="settings_8h_source.html">settings.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="settings__rules_8h_source.html#l00041">tz_offset_valid()</a>.</p>
 
@@ -387,7 +363,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00054">K_ADMIN_FAILS</a>, and <a class="el" href="settings_8cpp_source.html#l00101">nvs_u8_get()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="settings_8cpp_source.html#l00414">settings_check_admin_code()</a>, and <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="settings_8cpp_source.html#l00414">settings_check_admin_code()</a>, and <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>.</p>
 
 </div>
 </div>
@@ -444,7 +420,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00159">cache_invalidate()</a>, <a class="el" href="settings_8cpp_source.html#l00064">K_BUILD_ID</a>, <a class="el" href="settings_8cpp_source.html#l00046">NS_SETTINGS</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>.</p>
 
 </div>
 </div>
@@ -469,7 +445,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00088">DEFAULT_BRIGHTNESS</a>, <a class="el" href="settings_8cpp_source.html#l00047">K_BRIGHTNESS</a>, and <a class="el" href="settings_8cpp_source.html#l00101">nvs_u8_get()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -494,7 +470,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00055">K_CHAIN</a>, <a class="el" href="settings_8cpp_source.html#l00101">nvs_u8_get()</a>, <a class="el" href="settings_8h_source.html#l00043">POS_CHAIN__COUNT</a>, <a class="el" href="settings_8h_source.html#l00034">POS_CHAIN_ETH_USDC</a>, and <a class="el" href="settings_8cpp_source.html#l00155">s_chain_cache</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00265">amount_cents_max()</a>, <a class="el" href="main_8cpp_source.html#l00051">app_main()</a>, <a class="el" href="pos__app_8h_source.html#l00084">chain_is_native_evm()</a>, <a class="el" href="pos__app_8h_source.html#l00079">chain_is_polygon()</a>, <a class="el" href="pos__app_8h_source.html#l00074">chain_is_tron()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00091">evm_balance_ok()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00182">make_asset_button()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="pay_8cpp_source.html#l00347">pay_sign_and_broadcast()</a>, <a class="el" href="pay__tron_8cpp_source.html#l00051">tron_balance_ok()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00715">tx_amount_row()</a>, and <a class="el" href="pay_8cpp_source.html#l00170">ui_refresh_addresses()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="main_8cpp_source.html#l00051">app_main()</a>, <a class="el" href="pos__app_8h_source.html#l00084">chain_is_native_evm()</a>, <a class="el" href="pos__app_8h_source.html#l00079">chain_is_polygon()</a>, <a class="el" href="pos__app_8h_source.html#l00074">chain_is_tron()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00091">evm_balance_ok()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00182">make_asset_button()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="pay_8cpp_source.html#l00347">pay_sign_and_broadcast()</a>, <a class="el" href="pay__tron_8cpp_source.html#l00051">tron_balance_ok()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00715">tx_amount_row()</a>, and <a class="el" href="pay_8cpp_source.html#l00170">ui_refresh_addresses()</a>.</p>
 
 </div>
 </div>
@@ -591,7 +567,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00092">DEFAULT_MAX_FEE_GWEI</a>, <a class="el" href="settings_8cpp_source.html#l00341">fee_get()</a>, and <a class="el" href="settings_8cpp_source.html#l00050">K_MAX_FEE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00064">evm_fees_wei()</a>, <a class="el" href="provision_8cpp_source.html#l00522">state_get()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00064">evm_fees_wei()</a>, <a class="el" href="provision_8cpp_source.html#l00522">state_get()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -662,7 +638,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00093">DEFAULT_PRIORITY_FEE_GWEI</a>, <a class="el" href="settings_8cpp_source.html#l00341">fee_get()</a>, and <a class="el" href="settings_8cpp_source.html#l00051">K_PRIO_FEE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00064">evm_fees_wei()</a>, <a class="el" href="provision_8cpp_source.html#l00522">state_get()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="pay__evm_8cpp_source.html#l00064">evm_fees_wei()</a>, <a class="el" href="provision_8cpp_source.html#l00522">state_get()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -829,7 +805,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings__rules_8h_source.html#l00105">ADMIN_HASH_LEN</a>, <a class="el" href="settings_8cpp_source.html#l00053">K_ADMIN_HASH</a>, and <a class="el" href="settings_8cpp_source.html#l00046">NS_SETTINGS</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="provision_8cpp_source.html#l00661">auth_post()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, and <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="provision_8cpp_source.html#l00661">auth_post()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, and <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
 
 </div>
 </div>
@@ -853,7 +829,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="settings_8cpp_source.html#l00534">534</a> of file <a class="el" href="settings_8cpp_source.html">settings.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="settings_8cpp_source.html#l00525">settings_get_payout()</a>, and <a class="el" href="settings_8h_source.html#l00214">SETTINGS_PAYOUT_MAX</a>.</p>
+<p class="reference">References <a class="el" href="settings_8cpp_source.html#l00525">settings_get_payout()</a>, and <a class="el" href="settings_8h_source.html#l00200">SETTINGS_PAYOUT_MAX</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00051">app_main()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00656">open_network_picker()</a>, <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>, and <a class="el" href="boot_8cpp_source.html#l00269">run_wizard()</a>.</p>
 
@@ -1078,7 +1054,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00055">K_CHAIN</a>, <a class="el" href="settings_8cpp_source.html#l00112">nvs_u8_set()</a>, and <a class="el" href="settings_8cpp_source.html#l00155">s_chain_cache</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1216,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00061">K_TOUCH_X</a>, <a class="el" href="settings_8cpp_source.html#l00062">K_TOUCH_Y</a>, <a class="el" href="settings_8cpp_source.html#l00135">nvs_u32_set()</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>.</p>
 
 </div>
 </div>

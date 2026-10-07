@@ -111,7 +111,6 @@ var ui__internal_8h =
     ] ],
     [ "add_test_chip", "ui__internal_8h.html#aec3b5a25f51b7dfb28554ce63e0d47c1", null ],
     [ "admin_penalty_ms", "ui__internal_8h.html#a2e3a381a139262b45e74807940bfe8cf", null ],
-    [ "amount_cents_max", "ui__internal_8h.html#a6b2edfc5bc0450245f6545a55faae313", null ],
     [ "asset", "ui__internal_8h.html#a8358e7697b64c56650ad612195cbaaa3", null ],
     [ "asset_btn_set_compact", "ui__internal_8h.html#a4b302f277afdf0f22f6fa9295b834b0d", null ],
     [ "asset_caption", "ui__internal_8h.html#a3de5dc6f9d337f2c78c1d636473a8eb3", null ],

@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('ui_8cpp.html',
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ui.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ui_8cpp__incl.svg" width="3551" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ui_8cpp__incl.svg" width="3539" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="ui_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -144,7 +144,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a83855dcf550418fa53ca8cda9244421e" id="r_a83855dcf550418fa53ca8cda9244421e"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a83855dcf550418fa53ca8cda9244421e">request_prov_stop</a> (void)</td></tr>
 <tr class="memitem:a6380b176c17e2872e62f91b47e3bbd74" id="r_a6380b176c17e2872e62f91b47e3bbd74"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6380b176c17e2872e62f91b47e3bbd74">request_screen</a> (<a class="el" href="ui_8h.html#a4a96c66658390ff80fefe7027730cc25">ui_screen_t</a> s)</td></tr>
 <tr class="memitem:a245eba9774db4c8cf91843bde4348333" id="r_a245eba9774db4c8cf91843bde4348333"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a245eba9774db4c8cf91843bde4348333">set_wifi_progress</a> (const char *caption, const char *name)</td></tr>
-<tr class="memitem:a6b2edfc5bc0450245f6545a55faae313" id="r_a6b2edfc5bc0450245f6545a55faae313"><td class="memItemLeft">uint64_t&#160;</td><td class="memItemRight"><a class="el" href="#a6b2edfc5bc0450245f6545a55faae313">amount_cents_max</a> (void)</td></tr>
 <tr class="memitem:a1ddb2a04a8f2d1f2e3d517eafce63206" id="r_a1ddb2a04a8f2d1f2e3d517eafce63206"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a1ddb2a04a8f2d1f2e3d517eafce63206">open_admin_entry</a> (void)</td></tr>
 <tr class="memdesc:a1ddb2a04a8f2d1f2e3d517eafce63206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the admin panel's front door — the code screen, not the panel.  <br /></td></tr>
 <tr class="memitem:a4f854fce00053a2460c7fc3f043b5bff" id="r_a4f854fce00053a2460c7fc3f043b5bff"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4f854fce00053a2460c7fc3f043b5bff">btn_event_cb</a> (lv_event_t *e)</td></tr>
@@ -287,31 +286,6 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a6b2edfc5bc0450245f6545a55faae313" name="a6b2edfc5bc0450245f6545a55faae313"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b2edfc5bc0450245f6545a55faae313">&#9670;&#160;</a></span>amount_cents_max()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t amount_cents_max </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Ceiling on what the keypad will accept, for the asset currently selected.</p>
-<p>ETH and POL are 18-decimal and the signed value is a uint64 of wei, so a sale stops at 18.44 of either (see POS_AMOUNT_UNITS_MAX_NATIVE). Enforced at the keypad rather than at the confirm step, so the mistake is never keyed. </p>
-
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00265">265</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="money_8h_source.html#l00052">amount_cents_cap()</a>, <a class="el" href="assets_8h_source.html#l00183">pos_chain_is_native_evm()</a>, and <a class="el" href="settings_8cpp_source.html#l00165">settings_get_chain()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00261">amount_kbd_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>.</p>
-
-</div>
-</div>
 <a id="ae8b4b39d3a0533dd6a9140e9a54ca6e9" name="ae8b4b39d3a0533dd6a9140e9a54ca6e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8b4b39d3a0533dd6a9140e9a54ca6e9">&#9670;&#160;</a></span>asset()</h2>
 
@@ -424,9 +398,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00306">306</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00295">295</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="ui__internal_8h_source.html#l00250">ACT_ADMIN_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00250">ACT_ADMIN_REVEAL</a>, <a class="el" href="ui__internal_8h_source.html#l00259">ACT_CAL_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00259">ACT_CAL_SAVE</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00263">ACT_CHAIN_BASE</a>, <a class="el" href="ui__internal_8h_source.html#l00267">ACT_CHAIN_OF</a>, <a class="el" href="ui__internal_8h_source.html#l00248">ACT_CLOSE</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_CONFIRM</a>, <a class="el" href="ui__internal_8h_source.html#l00253">ACT_MODAL_CLOSE</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_ETH</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_PICK</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_POLY</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_TRON</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_NEW</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_OTA_NO</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_OTA_OK</a>, <a class="el" href="ui__internal_8h_source.html#l00248">ACT_PIN_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00248">ACT_PIN_REVEAL</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_PORTAL</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_PORTAL_CLOSE</a>, <a class="el" href="ui__internal_8h_source.html#l00252">ACT_PROV_FINISH</a>, <a class="el" href="ui__internal_8h_source.html#l00252">ACT_PROV_NO</a>, <a class="el" href="ui__internal_8h_source.html#l00252">ACT_PROV_OK</a>, <a class="el" href="ui__internal_8h_source.html#l00253">ACT_RESET</a>, <a class="el" href="ui__internal_8h_source.html#l00253">ACT_RESET_CONFIRM</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_SEND</a>, <a class="el" href="ui__internal_8h_source.html#l00259">ACT_TOUCH_CAL</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_TX_RECHECK</a>, <a class="el" href="ui__internal_8h_source.html#l00250">ACT_WELCOME_OK</a>, <a class="el" href="ui__internal_8h_source.html#l00249">ACT_WIFI</a>, <a class="el" href="ui__internal_8h_source.html#l00249">ACT_WIFI_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00249">ACT_WIFI_PASS_REVEAL</a>, <a class="el" href="ui_8cpp_source.html#l00265">amount_cents_max()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00100">charge_set_busy()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00424">close_modal()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00286">code_field_reveal()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00692">open_coin_picker()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00656">open_network_picker()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00581">open_ota_gone()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00510">open_portal_window()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00457">open_reset_confirm()</a>, <a class="el" href="ota_8cpp_source.html#l00291">ota_commit()</a>, <a class="el" href="settings_8h_source.html#l00043">POS_CHAIN__COUNT</a>, <a class="el" href="assets_8h_source.html#l00052">POS_NET_ETH</a>, <a class="el" href="assets_8h_source.html#l00053">POS_NET_POLY</a>, <a class="el" href="assets_8h_source.html#l00054">POS_NET_TRON</a>, <a class="el" href="provision_8cpp_source.html#l01457">prov_auth_resolve()</a>, <a class="el" href="provision_8cpp_source.html#l01436">prov_mode()</a>, <a class="el" href="provision_8h_source.html#l00106">PROV_MODE_WIZARD</a>, <a class="el" href="provision_8cpp_source.html#l01569">prov_pending_commit()</a>, <a class="el" href="ui_8cpp_source.html#l00236">request_prov_stop()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00109">s_admin_eye_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00147">s_admin_first</a>, <a class="el" href="ui_8cpp_source.html#l00159">s_admin_for_portal</a>, <a class="el" href="ui_8cpp_source.html#l00145">s_admin_ta</a>, <a class="el" href="ui_8cpp_source.html#l00077">s_amount_cents</a>, <a class="el" href="ui_8cpp_source.html#l00037">s_amount_units</a>, <a class="el" href="ui_8cpp_source.html#l00052">s_cal_pressed</a>, <a class="el" href="ui_8cpp_source.html#l00055">s_cal_prev</a>, <a class="el" href="ui_8cpp_source.html#l00050">s_cal_step</a>, <a class="el" href="ui__hal_8cpp_source.html#l00040">s_cal_xmax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00039">s_cal_xmin</a>, <a class="el" href="ui__hal_8cpp_source.html#l00042">s_cal_ymax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00041">s_cal_ymin</a>, <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00031">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00099">s_pin</a>, <a class="el" href="ui_8cpp_source.html#l00108">s_pin_eye_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00164">s_pin_for_card</a>, <a class="el" href="ui_8cpp_source.html#l00100">s_pin_len</a>, <a class="el" href="ui_8cpp_source.html#l00098">s_pin_ta</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00177">s_settings_return</a>, <a class="el" href="ui_8cpp_source.html#l00186">s_view_chain</a>, <a class="el" href="ui_8cpp_source.html#l00150">s_welcome_sent</a>, <a class="el" href="ui_8cpp_source.html#l00107">s_wifi_eye_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00104">s_wifi_pass</a>, <a class="el" href="ui_8cpp_source.html#l00106">s_wifi_pass_ta</a>, <a class="el" href="ui_8cpp_source.html#l00247">set_wifi_progress()</a>, <a class="el" href="settings_8cpp_source.html#l00619">settings_factory_reset()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00019">settings_persist()</a>, <a class="el" href="settings_8cpp_source.html#l00181">settings_set_chain()</a>, <a class="el" href="settings_8cpp_source.html#l00270">settings_set_touch_cal()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00043">touch_cal_load()</a>, <a class="el" href="ui_8h_source.html#l00056">UI_EVENT_AMOUNT_CONFIRMED</a>, <a class="el" href="ui_8h_source.html#l00058">UI_EVENT_CONFIRM_CANCEL</a>, <a class="el" href="ui_8h_source.html#l00079">UI_EVENT_PROV_FINISH</a>, <a class="el" href="ui_8h_source.html#l00084">UI_EVENT_TX_RECHECK</a>, <a class="el" href="ui_8h_source.html#l00062">UI_EVENT_TX_RETRY</a>, <a class="el" href="ui_8h_source.html#l00065">UI_EVENT_WELCOME_DONE</a>, <a class="el" href="ui_8h_source.html#l00060">UI_EVENT_WIFI_SCAN</a>, <a class="el" href="pay_8cpp_source.html#l00170">ui_refresh_addresses()</a>, <a class="el" href="ui_8h_source.html#l00037">UI_SCREEN_AMOUNT</a>, <a class="el" href="ui_8h_source.html#l00038">UI_SCREEN_CONFIRM</a>, <a class="el" href="ui_8h_source.html#l00039">UI_SCREEN_PIN</a>, <a class="el" href="ui_8h_source.html#l00049">UI_SCREEN_PROV</a>, <a class="el" href="ui_8h_source.html#l00043">UI_SCREEN_SETTINGS</a>, <a class="el" href="ui_8h_source.html#l00051">UI_SCREEN_TOUCH_CAL</a>, and <a class="el" href="ui_8h_source.html#l00042">UI_SCREEN_WIFI_CONNECTING</a>.</p>
+<p class="reference">References <a class="el" href="ui__internal_8h_source.html#l00250">ACT_ADMIN_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00250">ACT_ADMIN_REVEAL</a>, <a class="el" href="ui__internal_8h_source.html#l00259">ACT_CAL_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00259">ACT_CAL_SAVE</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00263">ACT_CHAIN_BASE</a>, <a class="el" href="ui__internal_8h_source.html#l00267">ACT_CHAIN_OF</a>, <a class="el" href="ui__internal_8h_source.html#l00248">ACT_CLOSE</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_CONFIRM</a>, <a class="el" href="ui__internal_8h_source.html#l00253">ACT_MODAL_CLOSE</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_ETH</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_PICK</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_POLY</a>, <a class="el" href="ui__internal_8h_source.html#l00255">ACT_NET_TRON</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_NEW</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_OTA_NO</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_OTA_OK</a>, <a class="el" href="ui__internal_8h_source.html#l00248">ACT_PIN_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00248">ACT_PIN_REVEAL</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_PORTAL</a>, <a class="el" href="ui__internal_8h_source.html#l00257">ACT_PORTAL_CLOSE</a>, <a class="el" href="ui__internal_8h_source.html#l00252">ACT_PROV_FINISH</a>, <a class="el" href="ui__internal_8h_source.html#l00252">ACT_PROV_NO</a>, <a class="el" href="ui__internal_8h_source.html#l00252">ACT_PROV_OK</a>, <a class="el" href="ui__internal_8h_source.html#l00253">ACT_RESET</a>, <a class="el" href="ui__internal_8h_source.html#l00253">ACT_RESET_CONFIRM</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_SEND</a>, <a class="el" href="ui__internal_8h_source.html#l00259">ACT_TOUCH_CAL</a>, <a class="el" href="ui__internal_8h_source.html#l00247">ACT_TX_RECHECK</a>, <a class="el" href="ui__internal_8h_source.html#l00250">ACT_WELCOME_OK</a>, <a class="el" href="ui__internal_8h_source.html#l00249">ACT_WIFI</a>, <a class="el" href="ui__internal_8h_source.html#l00249">ACT_WIFI_CANCEL</a>, <a class="el" href="ui__internal_8h_source.html#l00249">ACT_WIFI_PASS_REVEAL</a>, <a class="el" href="ui__sale_8cpp_source.html#l00100">charge_set_busy()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00424">close_modal()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00286">code_field_reveal()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00692">open_coin_picker()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00656">open_network_picker()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00581">open_ota_gone()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00510">open_portal_window()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00457">open_reset_confirm()</a>, <a class="el" href="ota_8cpp_source.html#l00291">ota_commit()</a>, <a class="el" href="settings_8h_source.html#l00043">POS_CHAIN__COUNT</a>, <a class="el" href="assets_8h_source.html#l00052">POS_NET_ETH</a>, <a class="el" href="assets_8h_source.html#l00053">POS_NET_POLY</a>, <a class="el" href="assets_8h_source.html#l00054">POS_NET_TRON</a>, <a class="el" href="provision_8cpp_source.html#l01457">prov_auth_resolve()</a>, <a class="el" href="provision_8cpp_source.html#l01436">prov_mode()</a>, <a class="el" href="provision_8h_source.html#l00106">PROV_MODE_WIZARD</a>, <a class="el" href="provision_8cpp_source.html#l01569">prov_pending_commit()</a>, <a class="el" href="ui_8cpp_source.html#l00236">request_prov_stop()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00109">s_admin_eye_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00147">s_admin_first</a>, <a class="el" href="ui_8cpp_source.html#l00159">s_admin_for_portal</a>, <a class="el" href="ui_8cpp_source.html#l00145">s_admin_ta</a>, <a class="el" href="ui_8cpp_source.html#l00037">s_amount_units</a>, <a class="el" href="ui_8cpp_source.html#l00052">s_cal_pressed</a>, <a class="el" href="ui_8cpp_source.html#l00055">s_cal_prev</a>, <a class="el" href="ui_8cpp_source.html#l00050">s_cal_step</a>, <a class="el" href="ui__hal_8cpp_source.html#l00040">s_cal_xmax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00039">s_cal_xmin</a>, <a class="el" href="ui__hal_8cpp_source.html#l00042">s_cal_ymax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00041">s_cal_ymin</a>, <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00031">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00099">s_pin</a>, <a class="el" href="ui_8cpp_source.html#l00108">s_pin_eye_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00164">s_pin_for_card</a>, <a class="el" href="ui_8cpp_source.html#l00100">s_pin_len</a>, <a class="el" href="ui_8cpp_source.html#l00098">s_pin_ta</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00177">s_settings_return</a>, <a class="el" href="ui_8cpp_source.html#l00186">s_view_chain</a>, <a class="el" href="ui_8cpp_source.html#l00150">s_welcome_sent</a>, <a class="el" href="ui_8cpp_source.html#l00107">s_wifi_eye_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00104">s_wifi_pass</a>, <a class="el" href="ui_8cpp_source.html#l00106">s_wifi_pass_ta</a>, <a class="el" href="ui_8cpp_source.html#l00247">set_wifi_progress()</a>, <a class="el" href="settings_8cpp_source.html#l00619">settings_factory_reset()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00019">settings_persist()</a>, <a class="el" href="settings_8cpp_source.html#l00181">settings_set_chain()</a>, <a class="el" href="settings_8cpp_source.html#l00270">settings_set_touch_cal()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00043">touch_cal_load()</a>, <a class="el" href="ui_8h_source.html#l00056">UI_EVENT_AMOUNT_CONFIRMED</a>, <a class="el" href="ui_8h_source.html#l00058">UI_EVENT_CONFIRM_CANCEL</a>, <a class="el" href="ui_8h_source.html#l00079">UI_EVENT_PROV_FINISH</a>, <a class="el" href="ui_8h_source.html#l00084">UI_EVENT_TX_RECHECK</a>, <a class="el" href="ui_8h_source.html#l00062">UI_EVENT_TX_RETRY</a>, <a class="el" href="ui_8h_source.html#l00065">UI_EVENT_WELCOME_DONE</a>, <a class="el" href="ui_8h_source.html#l00060">UI_EVENT_WIFI_SCAN</a>, <a class="el" href="pay_8cpp_source.html#l00170">ui_refresh_addresses()</a>, <a class="el" href="ui_8h_source.html#l00037">UI_SCREEN_AMOUNT</a>, <a class="el" href="ui_8h_source.html#l00038">UI_SCREEN_CONFIRM</a>, <a class="el" href="ui_8h_source.html#l00039">UI_SCREEN_PIN</a>, <a class="el" href="ui_8h_source.html#l00049">UI_SCREEN_PROV</a>, <a class="el" href="ui_8h_source.html#l00043">UI_SCREEN_SETTINGS</a>, <a class="el" href="ui_8h_source.html#l00051">UI_SCREEN_TOUCH_CAL</a>, and <a class="el" href="ui_8h_source.html#l00042">UI_SCREEN_WIFI_CONNECTING</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="ui__widgets_8cpp_source.html#l00182">make_asset_button()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00017">make_button()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00532">make_icon_button()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00265">make_pill()</a>.</p>
 
@@ -460,11 +434,11 @@ Variables</h2></td></tr>
 <p>No code stored means first-run setup has not finished, so the request is ignored rather than let through (reachable by backing out of the first-run Wi-Fi picker onto the amount screen).</p>
 <p>Called from the swipe gesture, which arms the full lockout penalty: a gesture that skipped it would be a cheaper way in. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00283">283</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00272">272</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui__admin_8cpp_source.html#l00739">admin_penalty_ms()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00149">s_admin_confirming</a>, <a class="el" href="ui_8cpp_source.html#l00159">s_admin_for_portal</a>, <a class="el" href="ui_8cpp_source.html#l00156">s_admin_lock_ms</a>, <a class="el" href="ui_8cpp_source.html#l00155">s_admin_lock_start</a>, <a class="el" href="ui_8cpp_source.html#l00148">s_admin_note</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00177">s_settings_return</a>, <a class="el" href="ui_8cpp_source.html#l00180">s_settings_tab</a>, <a class="el" href="ui_8cpp_source.html#l00063">s_sheet_pending</a>, <a class="el" href="ui_8cpp_source.html#l00186">s_view_chain</a>, <a class="el" href="settings_8cpp_source.html#l00448">settings_admin_fail_count()</a>, <a class="el" href="settings_8cpp_source.html#l00165">settings_get_chain()</a>, <a class="el" href="settings_8cpp_source.html#l00372">settings_has_admin_code()</a>, and <a class="el" href="ui_8h_source.html#l00047">UI_SCREEN_ADMIN_UNLOCK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -495,7 +469,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00031">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00234">s_prov_stop_at</a>, and <a class="el" href="ui_8h_source.html#l00086">UI_EVENT_PROV_STOP</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -518,7 +492,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, and <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>, <a class="el" href="ui_8cpp_source.html#l00818">ui_show_admin_set()</a>, <a class="el" href="ui_8cpp_source.html#l00711">ui_show_amount_entry()</a>, <a class="el" href="ui_8cpp_source.html#l00795">ui_show_boot_error()</a>, <a class="el" href="ui_8cpp_source.html#l00873">ui_show_card_pin()</a>, <a class="el" href="ui_8cpp_source.html#l00886">ui_show_card_wait()</a>, <a class="el" href="ui_8cpp_source.html#l00718">ui_show_confirm()</a>, <a class="el" href="ui_8cpp_source.html#l00850">ui_show_prov()</a>, <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>, <a class="el" href="ui_8cpp_source.html#l00706">ui_show_splash()</a>, <a class="el" href="ui_8cpp_source.html#l00898">ui_show_tx_status()</a>, <a class="el" href="ui_8cpp_source.html#l00807">ui_show_welcome()</a>, <a class="el" href="ui_8cpp_source.html#l00770">ui_show_wifi_connecting()</a>, <a class="el" href="ui_8cpp_source.html#l00747">ui_show_wifi_list()</a>, <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00307">wifi_item_cb()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>, <a class="el" href="ui_8cpp_source.html#l00801">ui_show_admin_set()</a>, <a class="el" href="ui_8cpp_source.html#l00694">ui_show_amount_entry()</a>, <a class="el" href="ui_8cpp_source.html#l00778">ui_show_boot_error()</a>, <a class="el" href="ui_8cpp_source.html#l00856">ui_show_card_pin()</a>, <a class="el" href="ui_8cpp_source.html#l00869">ui_show_card_wait()</a>, <a class="el" href="ui_8cpp_source.html#l00701">ui_show_confirm()</a>, <a class="el" href="ui_8cpp_source.html#l00833">ui_show_prov()</a>, <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>, <a class="el" href="ui_8cpp_source.html#l00689">ui_show_splash()</a>, <a class="el" href="ui_8cpp_source.html#l00881">ui_show_tx_status()</a>, <a class="el" href="ui_8cpp_source.html#l00790">ui_show_welcome()</a>, <a class="el" href="ui_8cpp_source.html#l00753">ui_show_wifi_connecting()</a>, <a class="el" href="ui_8cpp_source.html#l00730">ui_show_wifi_list()</a>, <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00307">wifi_item_cb()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
 
 </div>
 </div>
@@ -545,7 +519,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00114">s_wifi_caption</a>, and <a class="el" href="ui_8cpp_source.html#l00115">s_wifi_name</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00770">ui_show_wifi_connecting()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00753">ui_show_wifi_connecting()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
 
 </div>
 </div>
@@ -568,7 +542,7 @@ Variables</h2></td></tr>
 <p>Same handoff as <a class="el" href="#a8683f2eb73882c592583c2e9528dead8" title="ui_fees_changed">ui_fees_changed</a> and for the same reason: the config page writes the offset straight through from the HTTP task, and the band's clock caches it rather than opening NVS on every three-second tick. Without this the panel keeps the old hour until something rebuilds the screen.</p>
 <p>Safe from the HTTP task: applied by the UI task on its next pass. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00788">788</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00771">771</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui__widgets_8cpp_source.html#l00419">s_tz_dirty</a>.</p>
 
@@ -595,7 +569,7 @@ Variables</h2></td></tr>
 <p>The caps are the one setting the config page writes straight through, and that page is opened from a card raised over the settings screen — so the two gas rows underneath keep the values they were built with until the operator leaves the screen and comes back. This retexts them in place.</p>
 <p>Safe from the HTTP task: applied by the UI task on its next pass, and a no-op when the rows are not on screen (any other screen, or Tron, which has no caps). </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00783">783</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00766">766</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00128">s_fees_dirty</a>.</p>
 
@@ -626,9 +600,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00696">696</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00679">679</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00222">s_ui_mx</a>, <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">References <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00222">s_ui_mx</a>, <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
 
@@ -655,7 +629,7 @@ Variables</h2></td></tr>
 
 <p>Provide the token contract and destination addresses for the confirm screen and the settings "Tx" tab (pointers stored as-is; pass static/literal storage that outlives the call). </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00764">764</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00747">747</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00168">s_addr_dest</a>, and <a class="el" href="ui_8cpp_source.html#l00167">s_addr_usdc</a>.</p>
 
@@ -687,7 +661,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00776">776</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00759">759</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00119">s_boot_step</a>, and <a class="el" href="ui_8cpp_source.html#l00121">s_boot_step_dirty</a>.</p>
 
@@ -720,7 +694,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00880">880</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00863">863</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00136">s_prov_msg</a>.</p>
 
@@ -752,7 +726,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00910">910</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00893">893</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00047">s_tx_info</a>, and <a class="el" href="ui_8cpp_source.html#l00049">s_tx_info_dirty</a>.</p>
 
@@ -778,7 +752,7 @@ Variables</h2></td></tr>
 <p>Run the first-run admin-code creation (enter, then confirm). </p>
 <p>Deliberately has no way out: everything behind the burger menu — Wi-Fi, fees, factory reset — sits behind this code, so the terminal must not become usable without one. Emits <a class="el" href="ui_8h.html#a9a99e204659fdc9573b3dc140ffeedd3a52d8ee321f1b394c2dbc75c4a3c4a6da" title="UI_EVENT_ADMIN_SET">UI_EVENT_ADMIN_SET</a> once stored. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00818">818</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00801">801</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00149">s_admin_confirming</a>, <a class="el" href="ui_8cpp_source.html#l00147">s_admin_first</a>, <a class="el" href="ui_8cpp_source.html#l00148">s_admin_note</a>, and <a class="el" href="ui_8h_source.html#l00046">UI_SCREEN_ADMIN_SET</a>.</p>
 
@@ -803,7 +777,7 @@ Variables</h2></td></tr>
 
 <p>Switch to the amount-entry screen (forces a value redraw). </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00711">711</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00694">694</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00077">s_amount_cents</a>, <a class="el" href="ui_8cpp_source.html#l00037">s_amount_units</a>, and <a class="el" href="ui_8h_source.html#l00037">UI_SCREEN_AMOUNT</a>.</p>
 
@@ -839,7 +813,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00795">795</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00778">778</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00144">s_boot_detail</a>, <a class="el" href="ui_8cpp_source.html#l00143">s_boot_err</a>, and <a class="el" href="ui_8h_source.html#l00045">UI_SCREEN_BOOT_ERROR</a>.</p>
 
@@ -865,7 +839,7 @@ Variables</h2></td></tr>
 <p>Ask for the card PIN before reading an address off a Cryptnox card. </p>
 <p>The card will not export a public key without a verified PIN, so deriving a payout address needs one exactly as signing does. Emits <a class="el" href="ui_8h.html#a9a99e204659fdc9573b3dc140ffeedd3a31e5c798a750d55193d76f4abef3c6fe" title="UI_EVENT_CARD_PIN">UI_EVENT_CARD_PIN</a>, or <a class="el" href="ui_8h.html#a9a99e204659fdc9573b3dc140ffeedd3a07a32dd4ddc27478fb80eb73b946c9eb" title="UI_EVENT_CONFIRM_CANCEL">UI_EVENT_CONFIRM_CANCEL</a> if the operator backs out. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00873">873</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00856">856</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00164">s_pin_for_card</a>, <a class="el" href="ui_8cpp_source.html#l00136">s_prov_msg</a>, and <a class="el" href="ui_8h_source.html#l00039">UI_SCREEN_PIN</a>.</p>
 
@@ -897,7 +871,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00886">886</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00869">869</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00067">s_card_note</a>, and <a class="el" href="ui_8h_source.html#l00050">UI_SCREEN_CARD_WAIT</a>.</p>
 
@@ -940,7 +914,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00718">718</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00701">701</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00041">s_confirm_addr</a>, <a class="el" href="ui_8cpp_source.html#l00040">s_confirm_amount</a>, <a class="el" href="ui_8cpp_source.html#l00042">s_confirm_fee</a>, and <a class="el" href="ui_8h_source.html#l00038">UI_SCREEN_CONFIRM</a>.</p>
 
@@ -966,7 +940,7 @@ Variables</h2></td></tr>
 <p>Raise the modal that asks the operator to accept a firmware image the update page has uploaded, reading it from <a class="el" href="ota_8h.html" title="Firmware slot handling: receive an image into the idle slot, verify it, and install it only once some...">ota.h</a>. </p>
 <p>Call after <a class="el" href="ui_8h.html#a9a99e204659fdc9573b3dc140ffeedd3a15cd2c18907d05435917becbfa4d68fe" title="UI_EVENT_OTA_STAGED">UI_EVENT_OTA_STAGED</a>. Accepting reboots into the new firmware and does not return; declining discards the staging and leaves the running firmware alone. The panel is the only place either can happen — an upload on its own changes nothing about what boots. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00893">893</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00876">876</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00140">s_ota_modal_dirty</a>.</p>
 
@@ -998,7 +972,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00850">850</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00833">833</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00132">s_prov_step</a>, and <a class="el" href="ui_8h_source.html#l00049">UI_SCREEN_PROV</a>.</p>
 
@@ -1024,7 +998,7 @@ Variables</h2></td></tr>
 <p>Demand the admin code so a browser can be authorised. </p>
 <p>Same screen as the settings unlock, but a correct code calls prov_auth_resolve(true) instead of opening the menu, and backing out refuses the request rather than silently leaving the browser waiting. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00861">861</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00844">844</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui__admin_8cpp_source.html#l00739">admin_penalty_ms()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00149">s_admin_confirming</a>, <a class="el" href="ui_8cpp_source.html#l00159">s_admin_for_portal</a>, <a class="el" href="ui_8cpp_source.html#l00156">s_admin_lock_ms</a>, <a class="el" href="ui_8cpp_source.html#l00155">s_admin_lock_start</a>, <a class="el" href="ui_8cpp_source.html#l00148">s_admin_note</a>, <a class="el" href="settings_8cpp_source.html#l00448">settings_admin_fail_count()</a>, and <a class="el" href="ui_8h_source.html#l00047">UI_SCREEN_ADMIN_UNLOCK</a>.</p>
 
@@ -1050,7 +1024,7 @@ Variables</h2></td></tr>
 <p>Raise the modal that asks the operator to accept a value a browser proposed, reading the pending proposal from <a class="el" href="provision_8h.html" title="The config portal: one web app for setting a terminal up and for administering it afterwards,...">provision.h</a>. </p>
 <p>Call after <a class="el" href="ui_8h.html#a9a99e204659fdc9573b3dc140ffeedd3aa6cace6d3c672a572d39d904ecb4bb57" title="UI_EVENT_PROV_VALUE">UI_EVENT_PROV_VALUE</a>. Accepting emits <a class="el" href="ui_8h.html#a9a99e204659fdc9573b3dc140ffeedd3ad461639409f10b0469a825ad47e8e420" title="UI_EVENT_PROV_VALUE_SET">UI_EVENT_PROV_VALUE_SET</a>; rejecting emits nothing and drops the proposal, so a caller waiting on the step stays where it is and can be offered another. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00856">856</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00839">839</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00137">s_addr_modal_dirty</a>.</p>
 
@@ -1075,7 +1049,7 @@ Variables</h2></td></tr>
 
 <p>Switch to the splash screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00706">706</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00689">689</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, and <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>.</p>
 
@@ -1111,7 +1085,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00898">898</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00881">881</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00047">s_tx_info</a>, <a class="el" href="ui_8cpp_source.html#l00046">s_tx_state</a>, and <a class="el" href="ui_8h_source.html#l00044">UI_SCREEN_TX_STATUS</a>.</p>
 
@@ -1143,7 +1117,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00807">807</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00790">790</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00150">s_welcome_sent</a>, <a class="el" href="ui_8cpp_source.html#l00151">s_welcome_sub</a>, and <a class="el" href="ui_8h_source.html#l00048">UI_SCREEN_WELCOME</a>.</p>
 
@@ -1169,7 +1143,7 @@ Variables</h2></td></tr>
 <p>Show a "Connecting to &lt;ssid&gt;…" screen while main associates. </p>
 <p>Interactive picker only; unattended boot reports through <a class="el" href="#a3db450e73974ba379262c434734336f2" title="ui_set_boot_status">ui_set_boot_status</a> and stays on the splash. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00770">770</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00753">753</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00247">set_wifi_progress()</a>, and <a class="el" href="ui_8h_source.html#l00042">UI_SCREEN_WIFI_CONNECTING</a>.</p>
 
@@ -1211,7 +1185,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00747">747</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00730">730</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="provision_8cpp_source.html#l00163">s_ap_count</a>, <a class="el" href="provision_8cpp_source.html#l00162">s_aps</a>, <a class="el" href="ui_8cpp_source.html#l00105">s_wifi_note</a>, <a class="el" href="ui_8h_source.html#l00040">UI_SCREEN_WIFI_LIST</a>, and <a class="el" href="ui__internal_8h_source.html#l00227">WIFI_MAX_APS</a>.</p>
 
@@ -1248,7 +1222,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00842">842</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00825">825</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00104">s_wifi_pass</a>, and <a class="el" href="ui_8cpp_source.html#l00103">s_wifi_ssid</a>.</p>
 
@@ -1286,7 +1260,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of PIN digits copied (0 if none available). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00733">733</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00716">716</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00099">s_pin</a>, and <a class="el" href="ui_8cpp_source.html#l00100">s_pin_len</a>.</p>
 
@@ -1336,7 +1310,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>length of the SSID (0 if none available). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00827">827</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00810">810</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00104">s_wifi_pass</a>, and <a class="el" href="ui_8cpp_source.html#l00103">s_wifi_ssid</a>.</p>
 
@@ -1367,11 +1341,11 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00521">521</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00504">504</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="ui__hal_8cpp_source.html#l00186">backlight_init()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00593">build_ota_confirm()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00225">build_prov_confirm()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00424">close_modal()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00022">disp_flush()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00104">indev_read()</a>, <a class="el" href="ui__internal_8h_source.html#l00212">LV_TICK_PERIOD_MS</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="ota_8cpp_source.html#l00165">ota_receiving()</a>, <a class="el" href="ota_8cpp_source.html#l00275">ota_staged()</a>, <a class="el" href="provision_8cpp_source.html#l01436">prov_mode()</a>, <a class="el" href="provision_8h_source.html#l00107">PROV_MODE_ADMIN</a>, <a class="el" href="provision_8cpp_source.html#l01442">prov_window_left_min()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00236">request_prov_stop()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00137">s_addr_modal_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00119">s_boot_step</a>, <a class="el" href="ui_8cpp_source.html#l00121">s_boot_step_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00120">s_boot_step_lbl</a>, <a class="el" href="ui__hal_8cpp_source.html#l00179">s_brightness</a>, <a class="el" href="ui__hal_8cpp_source.html#l00018">s_buf</a>, <a class="el" href="ui_8cpp_source.html#l00057">s_cal_countdown</a>, <a class="el" href="ui_8cpp_source.html#l00056">s_cal_deadline</a>, <a class="el" href="ui_8cpp_source.html#l00055">s_cal_prev</a>, <a class="el" href="ui_8cpp_source.html#l00050">s_cal_step</a>, <a class="el" href="ui__hal_8cpp_source.html#l00040">s_cal_xmax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00039">s_cal_xmin</a>, <a class="el" href="ui__hal_8cpp_source.html#l00042">s_cal_ymax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00041">s_cal_ymin</a>, <a class="el" href="ui__hal_8cpp_source.html#l00020">s_disp_drv</a>, <a class="el" href="ui__hal_8cpp_source.html#l00019">s_draw_buf</a>, <a class="el" href="ui_8cpp_source.html#l00126">s_fee_max_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00127">s_fee_prio_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00128">s_fees_dirty</a>, <a class="el" href="ui__hal_8cpp_source.html#l00021">s_indev_drv</a>, <a class="el" href="ui_8cpp_source.html#l00140">s_ota_modal_dirty</a>, <a class="el" href="ui__admin_8cpp_source.html#l00423">s_portal_modal</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>, <a class="el" href="ui__hal_8cpp_source.html#l00103">s_swipe_admin</a>, <a class="el" href="ui_8cpp_source.html#l00047">s_tx_info</a>, <a class="el" href="ui_8cpp_source.html#l00049">s_tx_info_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00048">s_tx_info_lbl</a>, <a class="el" href="ui__internal_8h_source.html#l00113">SCR_H</a>, <a class="el" href="ui__internal_8h_source.html#l00111">SCR_W</a>, <a class="el" href="settings_8cpp_source.html#l00215">settings_get_brightness()</a>, <a class="el" href="settings_8cpp_source.html#l00347">settings_get_max_fee_gwei()</a>, <a class="el" href="settings_8cpp_source.html#l00352">settings_get_priority_fee_gwei()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00710">signal_init()</a>, <a class="el" href="ui__internal_8h_source.html#l00104">T_CLK</a>, <a class="el" href="ui__internal_8h_source.html#l00100">T_CS</a>, <a class="el" href="ui__internal_8h_source.html#l00108">T_MISO</a>, <a class="el" href="ui__internal_8h_source.html#l00106">T_MOSI</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>, <a class="el" href="ui__hal_8cpp_source.html#l00014">tft</a>, <a class="el" href="ui__theme_8cpp_source.html#l00157">theme_init()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00165">tick_cb()</a>, <a class="el" href="ui__internal_8h.html#a4803303ab37a4abb034926826b83b407">touch</a>, <a class="el" href="ui__hal_8cpp_source.html#l00043">touch_cal_load()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>, <a class="el" href="ui__internal_8h.html#abbbfd699f99110bf7d9a145d0a9561c3">touchSPI</a>, <a class="el" href="ui_8h_source.html#l00037">UI_SCREEN_AMOUNT</a>, <a class="el" href="ui_8h_source.html#l00043">UI_SCREEN_SETTINGS</a>, <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>, <a class="el" href="ui_8h_source.html#l00051">UI_SCREEN_TOUCH_CAL</a>, <a class="el" href="ui_8h_source.html#l00044">UI_SCREEN_TX_STATUS</a>, and <a class="el" href="wdt_8h_source.html#l00028">wdt_feed()</a>.</p>
+<p class="reference">References <a class="el" href="ui__hal_8cpp_source.html#l00186">backlight_init()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00593">build_ota_confirm()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00225">build_prov_confirm()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00424">close_modal()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00022">disp_flush()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00104">indev_read()</a>, <a class="el" href="ui__internal_8h_source.html#l00212">LV_TICK_PERIOD_MS</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="ota_8cpp_source.html#l00165">ota_receiving()</a>, <a class="el" href="ota_8cpp_source.html#l00275">ota_staged()</a>, <a class="el" href="provision_8cpp_source.html#l01436">prov_mode()</a>, <a class="el" href="provision_8h_source.html#l00107">PROV_MODE_ADMIN</a>, <a class="el" href="provision_8cpp_source.html#l01442">prov_window_left_min()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00236">request_prov_stop()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00137">s_addr_modal_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00119">s_boot_step</a>, <a class="el" href="ui_8cpp_source.html#l00121">s_boot_step_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00120">s_boot_step_lbl</a>, <a class="el" href="ui__hal_8cpp_source.html#l00179">s_brightness</a>, <a class="el" href="ui__hal_8cpp_source.html#l00018">s_buf</a>, <a class="el" href="ui_8cpp_source.html#l00057">s_cal_countdown</a>, <a class="el" href="ui_8cpp_source.html#l00056">s_cal_deadline</a>, <a class="el" href="ui_8cpp_source.html#l00055">s_cal_prev</a>, <a class="el" href="ui_8cpp_source.html#l00050">s_cal_step</a>, <a class="el" href="ui__hal_8cpp_source.html#l00040">s_cal_xmax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00039">s_cal_xmin</a>, <a class="el" href="ui__hal_8cpp_source.html#l00042">s_cal_ymax</a>, <a class="el" href="ui__hal_8cpp_source.html#l00041">s_cal_ymin</a>, <a class="el" href="ui__hal_8cpp_source.html#l00020">s_disp_drv</a>, <a class="el" href="ui__hal_8cpp_source.html#l00019">s_draw_buf</a>, <a class="el" href="ui_8cpp_source.html#l00126">s_fee_max_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00127">s_fee_prio_lbl</a>, <a class="el" href="ui_8cpp_source.html#l00128">s_fees_dirty</a>, <a class="el" href="ui__hal_8cpp_source.html#l00021">s_indev_drv</a>, <a class="el" href="ui_8cpp_source.html#l00140">s_ota_modal_dirty</a>, <a class="el" href="ui__admin_8cpp_source.html#l00423">s_portal_modal</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>, <a class="el" href="ui__hal_8cpp_source.html#l00103">s_swipe_admin</a>, <a class="el" href="ui_8cpp_source.html#l00047">s_tx_info</a>, <a class="el" href="ui_8cpp_source.html#l00049">s_tx_info_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00048">s_tx_info_lbl</a>, <a class="el" href="ui__internal_8h_source.html#l00113">SCR_H</a>, <a class="el" href="ui__internal_8h_source.html#l00111">SCR_W</a>, <a class="el" href="settings_8cpp_source.html#l00215">settings_get_brightness()</a>, <a class="el" href="settings_8cpp_source.html#l00347">settings_get_max_fee_gwei()</a>, <a class="el" href="settings_8cpp_source.html#l00352">settings_get_priority_fee_gwei()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00710">signal_init()</a>, <a class="el" href="ui__internal_8h_source.html#l00104">T_CLK</a>, <a class="el" href="ui__internal_8h_source.html#l00100">T_CS</a>, <a class="el" href="ui__internal_8h_source.html#l00108">T_MISO</a>, <a class="el" href="ui__internal_8h_source.html#l00106">T_MOSI</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>, <a class="el" href="ui__hal_8cpp_source.html#l00014">tft</a>, <a class="el" href="ui__theme_8cpp_source.html#l00157">theme_init()</a>, <a class="el" href="ui__hal_8cpp_source.html#l00165">tick_cb()</a>, <a class="el" href="ui__internal_8h.html#a4803303ab37a4abb034926826b83b407">touch</a>, <a class="el" href="ui__hal_8cpp_source.html#l00043">touch_cal_load()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>, <a class="el" href="ui__internal_8h.html#abbbfd699f99110bf7d9a145d0a9561c3">touchSPI</a>, <a class="el" href="ui_8h_source.html#l00037">UI_SCREEN_AMOUNT</a>, <a class="el" href="ui_8h_source.html#l00043">UI_SCREEN_SETTINGS</a>, <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>, <a class="el" href="ui_8h_source.html#l00051">UI_SCREEN_TOUCH_CAL</a>, <a class="el" href="ui_8h_source.html#l00044">UI_SCREEN_TX_STATUS</a>, and <a class="el" href="wdt_8h_source.html#l00028">wdt_feed()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00696">ui_init()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00679">ui_init()</a>.</p>
 
 </div>
 </div>
@@ -1390,7 +1364,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00168">168</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="ui_8cpp_source.html#l00764">ui_set_addresses()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="ui_8cpp_source.html#l00747">ui_set_addresses()</a>.</p>
 
 </div>
 </div>
@@ -1416,7 +1390,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00137">137</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00856">ui_show_prov_confirm()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00839">ui_show_prov_confirm()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -1434,7 +1408,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00167">167</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="ui_8cpp_source.html#l00764">ui_set_addresses()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="ui_8cpp_source.html#l00747">ui_set_addresses()</a>.</p>
 
 </div>
 </div>
@@ -1452,7 +1426,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00149">149</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00922">build_admin_set()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="ui_8cpp_source.html#l00818">ui_show_admin_set()</a>, and <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00922">build_admin_set()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="ui_8cpp_source.html#l00801">ui_show_admin_set()</a>, and <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>.</p>
 
 </div>
 </div>
@@ -1470,7 +1444,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00109">109</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui__admin_8cpp_source.html#l00888">build_admin_screen()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui__admin_8cpp_source.html#l00888">build_admin_screen()</a>.</p>
 
 </div>
 </div>
@@ -1488,7 +1462,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00147">147</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00818">ui_show_admin_set()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00801">ui_show_admin_set()</a>.</p>
 
 </div>
 </div>
@@ -1506,7 +1480,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00159">159</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00929">build_admin_unlock()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, and <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00929">build_admin_unlock()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, and <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>.</p>
 
 </div>
 </div>
@@ -1524,7 +1498,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00156">156</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00756">admin_lock_remaining_s()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, and <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00756">admin_lock_remaining_s()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, and <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>.</p>
 
 </div>
 </div>
@@ -1542,7 +1516,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00155">155</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00756">admin_lock_remaining_s()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, and <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00756">admin_lock_remaining_s()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, and <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>.</p>
 
 </div>
 </div>
@@ -1560,7 +1534,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00148">148</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00766">admin_set_note()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00888">build_admin_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="ui_8cpp_source.html#l00818">ui_show_admin_set()</a>, and <a class="el" href="ui_8cpp_source.html#l00861">ui_show_prov_auth()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00766">admin_set_note()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00888">build_admin_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="ui_8cpp_source.html#l00801">ui_show_admin_set()</a>, and <a class="el" href="ui_8cpp_source.html#l00844">ui_show_prov_auth()</a>.</p>
 
 </div>
 </div>
@@ -1596,7 +1570,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00145">145</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00872">admin_kbd_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00888">build_admin_screen()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00872">admin_kbd_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00888">build_admin_screen()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>.</p>
 
 </div>
 </div>
@@ -1614,7 +1588,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00077">77</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00261">amount_kbd_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00107">amount_update_display()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00711">ui_show_amount_entry()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00261">amount_kbd_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00107">amount_update_display()</a>, and <a class="el" href="ui_8cpp_source.html#l00694">ui_show_amount_entry()</a>.</p>
 
 </div>
 </div>
@@ -1686,7 +1660,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00037">37</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00107">amount_update_display()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00711">ui_show_amount_entry()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00107">amount_update_display()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00694">ui_show_amount_entry()</a>.</p>
 
 </div>
 </div>
@@ -1772,7 +1746,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00144">144</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00874">build_boot_error()</a>, and <a class="el" href="ui_8cpp_source.html#l00795">ui_show_boot_error()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00874">build_boot_error()</a>, and <a class="el" href="ui_8cpp_source.html#l00778">ui_show_boot_error()</a>.</p>
 
 </div>
 </div>
@@ -1790,7 +1764,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00143">143</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00874">build_boot_error()</a>, and <a class="el" href="ui_8cpp_source.html#l00795">ui_show_boot_error()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00874">build_boot_error()</a>, and <a class="el" href="ui_8cpp_source.html#l00778">ui_show_boot_error()</a>.</p>
 
 </div>
 </div>
@@ -1808,7 +1782,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00119">119</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00776">ui_set_boot_status()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00759">ui_set_boot_status()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -1834,7 +1808,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00121">121</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00776">ui_set_boot_status()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00759">ui_set_boot_status()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -1852,7 +1826,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00120">120</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -1870,7 +1844,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00057">57</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00331">build_touch_cal()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00331">build_touch_cal()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -1888,7 +1862,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00056">56</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00331">build_touch_cal()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00331">build_touch_cal()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -1942,7 +1916,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00052">52</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>.</p>
 
 </div>
 </div>
@@ -1968,7 +1942,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00055">55</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2004,7 +1978,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00050">50</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00331">build_touch_cal()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00331">build_touch_cal()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00397">touch_cal_poll()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2022,7 +1996,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00067">67</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00271">build_card_wait()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, and <a class="el" href="ui_8cpp_source.html#l00886">ui_show_card_wait()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00271">build_card_wait()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, and <a class="el" href="ui_8cpp_source.html#l00869">ui_show_card_wait()</a>.</p>
 
 </div>
 </div>
@@ -2040,7 +2014,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00031">31</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00236">request_prov_stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00236">request_prov_stop()</a>.</p>
 
 </div>
 </div>
@@ -2130,7 +2104,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00041">41</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00718">ui_show_confirm()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00701">ui_show_confirm()</a>.</p>
 
 </div>
 </div>
@@ -2148,7 +2122,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00040">40</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00718">ui_show_confirm()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00701">ui_show_confirm()</a>.</p>
 
 </div>
 </div>
@@ -2166,7 +2140,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00042">42</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00718">ui_show_confirm()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00701">ui_show_confirm()</a>.</p>
 
 </div>
 </div>
@@ -2184,7 +2158,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00126">126</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2202,7 +2176,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00127">127</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2228,7 +2202,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00128">128</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00783">ui_fees_changed()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00766">ui_fees_changed()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2254,7 +2228,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00140">140</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00893">ui_show_ota_confirm()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00876">ui_show_ota_confirm()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2272,7 +2246,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00099">99</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, and <a class="el" href="ui_8cpp_source.html#l00733">ui_take_pin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, and <a class="el" href="ui_8cpp_source.html#l00716">ui_take_pin()</a>.</p>
 
 </div>
 </div>
@@ -2290,7 +2264,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00108">108</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>.</p>
 
 </div>
 </div>
@@ -2308,7 +2282,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00164">164</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00665">signal_refresh()</a>, and <a class="el" href="ui_8cpp_source.html#l00873">ui_show_card_pin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00665">signal_refresh()</a>, and <a class="el" href="ui_8cpp_source.html#l00856">ui_show_card_pin()</a>.</p>
 
 </div>
 </div>
@@ -2326,7 +2300,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00100">100</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, and <a class="el" href="ui_8cpp_source.html#l00733">ui_take_pin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, and <a class="el" href="ui_8cpp_source.html#l00716">ui_take_pin()</a>.</p>
 
 </div>
 </div>
@@ -2344,7 +2318,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00098">98</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00518">pin_kbd_cb()</a>, and <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, <a class="el" href="ui__sale_8cpp_source.html#l00518">pin_kbd_cb()</a>, and <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>.</p>
 
 </div>
 </div>
@@ -2362,7 +2336,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00136">136</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00065">build_prov()</a>, <a class="el" href="ui_8cpp_source.html#l00880">ui_set_prov_note()</a>, and <a class="el" href="ui_8cpp_source.html#l00873">ui_show_card_pin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00065">build_prov()</a>, <a class="el" href="ui_8cpp_source.html#l00863">ui_set_prov_note()</a>, and <a class="el" href="ui_8cpp_source.html#l00856">ui_show_card_pin()</a>.</p>
 
 </div>
 </div>
@@ -2380,7 +2354,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00132">132</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00065">build_prov()</a>, and <a class="el" href="ui_8cpp_source.html#l00850">ui_show_prov()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00065">build_prov()</a>, and <a class="el" href="ui_8cpp_source.html#l00833">ui_show_prov()</a>.</p>
 
 </div>
 </div>
@@ -2424,7 +2398,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00034">34</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00665">signal_refresh()</a>, <a class="el" href="ui_8cpp_source.html#l00696">ui_init()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00665">signal_refresh()</a>, <a class="el" href="ui_8cpp_source.html#l00679">ui_init()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2468,7 +2442,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00033">33</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00696">ui_init()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00679">ui_init()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2494,7 +2468,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00177">177</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>.</p>
 
 </div>
 </div>
@@ -2512,7 +2486,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00180">180</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, and <a class="el" href="ui__admin_8cpp_source.html#l00055">tab_change_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, and <a class="el" href="ui__admin_8cpp_source.html#l00055">tab_change_cb()</a>.</p>
 
 </div>
 </div>
@@ -2548,7 +2522,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00063">63</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>.</p>
 
 </div>
 </div>
@@ -2566,7 +2540,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00047">47</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00910">ui_set_tx_info()</a>, <a class="el" href="ui_8cpp_source.html#l00898">ui_show_tx_status()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00893">ui_set_tx_info()</a>, <a class="el" href="ui_8cpp_source.html#l00881">ui_show_tx_status()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2592,7 +2566,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00049">49</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00910">ui_set_tx_info()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00893">ui_set_tx_info()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2610,7 +2584,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00048">48</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 </div>
 </div>
@@ -2628,7 +2602,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00046">46</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00898">ui_show_tx_status()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__sale_8cpp_source.html#l00488">pin_submit()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00753">render_requested_screen()</a>, and <a class="el" href="ui_8cpp_source.html#l00881">ui_show_tx_status()</a>.</p>
 
 </div>
 </div>
@@ -2654,7 +2628,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00222">222</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00696">ui_init()</a>, <a class="el" href="ui_8cpp_source.html#l00225">UiLock::UiLock()</a>, and <a class="el" href="ui_8cpp_source.html#l00226">UiLock::~UiLock()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00679">ui_init()</a>, <a class="el" href="ui_8cpp_source.html#l00225">UiLock::UiLock()</a>, and <a class="el" href="ui_8cpp_source.html#l00226">UiLock::~UiLock()</a>.</p>
 
 </div>
 </div>
@@ -2672,7 +2646,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00186">186</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="ui_8cpp_source.html#l00283">open_admin_entry()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00774">admin_submit()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="ui_8cpp_source.html#l00272">open_admin_entry()</a>.</p>
 
 </div>
 </div>
@@ -2698,7 +2672,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00150">150</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00807">ui_show_welcome()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="ui_8cpp_source.html#l00790">ui_show_welcome()</a>.</p>
 
 </div>
 </div>
@@ -2716,7 +2690,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00151">151</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00017">build_welcome()</a>, and <a class="el" href="ui_8cpp_source.html#l00807">ui_show_welcome()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00017">build_welcome()</a>, and <a class="el" href="ui_8cpp_source.html#l00790">ui_show_welcome()</a>.</p>
 
 </div>
 </div>
@@ -2752,7 +2726,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00107">107</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00375">build_wifi_pass()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00375">build_wifi_pass()</a>, and <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>.</p>
 
 </div>
 </div>
@@ -2788,7 +2762,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00105">105</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00314">build_wifi_list()</a>, and <a class="el" href="ui_8cpp_source.html#l00747">ui_show_wifi_list()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00314">build_wifi_list()</a>, and <a class="el" href="ui_8cpp_source.html#l00730">ui_show_wifi_list()</a>.</p>
 
 </div>
 </div>
@@ -2806,7 +2780,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00104">104</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00842">ui_stage_wifi_creds()</a>, <a class="el" href="ui_8cpp_source.html#l00827">ui_take_wifi_creds()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui_8cpp_source.html#l00825">ui_stage_wifi_creds()</a>, <a class="el" href="ui_8cpp_source.html#l00810">ui_take_wifi_creds()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
 
 </div>
 </div>
@@ -2824,7 +2798,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00106">106</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00375">build_wifi_pass()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00375">build_wifi_pass()</a>, <a class="el" href="ui__widgets_8cpp_source.html#l00378">clear_screen()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
 
 </div>
 </div>
@@ -2842,7 +2816,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00103">103</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00375">build_wifi_pass()</a>, <a class="el" href="ui_8cpp_source.html#l00842">ui_stage_wifi_creds()</a>, <a class="el" href="ui_8cpp_source.html#l00827">ui_take_wifi_creds()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00307">wifi_item_cb()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui__setup_8cpp_source.html#l00375">build_wifi_pass()</a>, <a class="el" href="ui_8cpp_source.html#l00825">ui_stage_wifi_creds()</a>, <a class="el" href="ui_8cpp_source.html#l00810">ui_take_wifi_creds()</a>, <a class="el" href="ui__setup_8cpp_source.html#l00307">wifi_item_cb()</a>, and <a class="el" href="ui__setup_8cpp_source.html#l00360">wifi_pass_kb_cb()</a>.</p>
 
 </div>
 </div>

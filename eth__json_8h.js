@@ -10,6 +10,7 @@ var eth__json_8h =
     ] ],
     [ "eth_json_error_message", "eth__json_8h.html#a16231355dcd9b3959e9d59df86e1351c", null ],
     [ "eth_json_hex_quantity", "eth__json_8h.html#a66d4f37447527e040abfdf75717fb0fb", null ],
+    [ "eth_json_hex_u256", "eth__json_8h.html#a9b3c701ce29651e3a3c6810518d0f20e", null ],
     [ "eth_json_receipt_check", "eth__json_8h.html#af23048653dfa0e9789f417b3bc30c8ab", null ],
     [ "eth_json_receipt_status", "eth__json_8h.html#aa50cbf4e987bd6fe84870403eee482e8", null ],
     [ "eth_json_result_string", "eth__json_8h.html#aebcf929fb677d6581a9326a29d346ea3", null ]

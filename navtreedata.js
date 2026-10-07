@@ -57,7 +57,7 @@ var NAVTREEINDEX =
 "functions_vars.html",
 "provision_8cpp.html#a33e9752ac340fea28964783bec4adbae",
 "structtoken__cfg__t.html#a540a0e2eae59f3d1efddf046440ee7c0",
-"ui__theme_8cpp.html"
+"ui__widgets_8cpp.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

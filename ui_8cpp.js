@@ -1,7 +1,6 @@
 var ui_8cpp =
 [
     [ "UiLock", "structUiLock.html", "structUiLock" ],
-    [ "amount_cents_max", "ui_8cpp.html#a6b2edfc5bc0450245f6545a55faae313", null ],
     [ "asset", "ui_8cpp.html#ae8b4b39d3a0533dd6a9140e9a54ca6e9", null ],
     [ "asset_caption", "ui_8cpp.html#a18c4e619577968a7560b73a2808c430b", null ],
     [ "asset_name", "ui_8cpp.html#acd7d1476e1fd7667a94f1667c30ee686", null ],

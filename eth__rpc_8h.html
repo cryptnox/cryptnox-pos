@@ -164,8 +164,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:acabcedc1e08b643fb161f872b5ce2b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional: pin the RPC endpoint's TLS certificate.  <br /></td></tr>
 <tr class="memitem:a42216d313b51019c1163ff0b5c02efb7" id="r_a42216d313b51019c1163ff0b5c02efb7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a42216d313b51019c1163ff0b5c02efb7">eth_rpc_get_nonce</a> (uint64_t *nonce_out)</td></tr>
 <tr class="memdesc:a42216d313b51019c1163ff0b5c02efb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch the confirmed transaction count (nonce) for from_addr.  <br /></td></tr>
-<tr class="memitem:aaa4d0c79179831d0556cb3495ab69260" id="r_aaa4d0c79179831d0556cb3495ab69260"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaa4d0c79179831d0556cb3495ab69260">eth_rpc_get_balance</a> (uint64_t *wei_out)</td></tr>
-<tr class="memdesc:aaa4d0c79179831d0556cb3495ab69260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch the native balance of from_addr, in wei.  <br /></td></tr>
+<tr class="memitem:aead99ba01c4c16971e7b0a1dc9feba44" id="r_aead99ba01c4c16971e7b0a1dc9feba44"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aead99ba01c4c16971e7b0a1dc9feba44">eth_rpc_get_balance</a> (uint8_t wei_out[32])</td></tr>
+<tr class="memdesc:aead99ba01c4c16971e7b0a1dc9feba44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch the native balance of from_addr, in wei.  <br /></td></tr>
 <tr class="memitem:aad5d6a7af151bb169cc985b1bd5efedd" id="r_aad5d6a7af151bb169cc985b1bd5efedd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aad5d6a7af151bb169cc985b1bd5efedd">eth_rpc_get_token_balance</a> (const char *token_addr, uint64_t *units_out)</td></tr>
 <tr class="memdesc:aad5d6a7af151bb169cc985b1bd5efedd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch from_addr's balance of an ERC-20, via <code>balanceOf</code> over eth_call.  <br /></td></tr>
 <tr class="memitem:aa6b457e974f0d58bc3d40c5919d90493" id="r_aa6b457e974f0d58bc3d40c5919d90493"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6b457e974f0d58bc3d40c5919d90493">eth_rpc_get_token_decimals</a> (const char *token_addr, uint64_t *dec_out)</td></tr>
@@ -236,8 +236,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa4d0c79179831d0556cb3495ab69260" name="aaa4d0c79179831d0556cb3495ab69260"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa4d0c79179831d0556cb3495ab69260">&#9670;&#160;</a></span>eth_rpc_get_balance()</h2>
+<a id="aead99ba01c4c16971e7b0a1dc9feba44" name="aead99ba01c4c16971e7b0a1dc9feba44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aead99ba01c4c16971e7b0a1dc9feba44">&#9670;&#160;</a></span>eth_rpc_get_balance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +245,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool eth_rpc_get_balance </td>
           <td>(</td>
-          <td class="paramtype">uint64_t *</td>          <td class="paramname"><span class="paramname"><em>wei_out</em></span></td><td>)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>wei_out</em></span>[32]</td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -253,10 +253,10 @@ Functions</h2></td></tr>
 
 <p>Fetch the native balance of from_addr, in wei. </p>
 <p>For the pre-flight check that refuses a sale the payer cannot fund before the customer is asked for anything — see <code>evm_balance_ok</code> in <a class="el" href="main_8cpp.html" title="cryptnox-pos entry point: touchscreen USDC payment terminal.">main.cpp</a>. Without it the first news of an empty account is the node's refusal <em>after</em> the PIN, the tap and the signature.</p>
-<p>Saturating at <code>UINT64_MAX</code> (see <a class="el" href="eth__json_8h.html#a66d4f37447527e040abfdf75717fb0fb" title="eth_json_hex_quantity">eth_json_hex_quantity</a>): 20 ETH does not fit a uint64 of wei, and over-reporting can only fail to refuse.</p>
+<p>A full uint256 (see <a class="el" href="eth__json_8h.html#a9b3c701ce29651e3a3c6810518d0f20e" title="eth_json_hex_u256">eth_json_hex_u256</a>): 20 ETH does not fit a uint64 of wei, and a native sale can be worth more than that.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">wei_out</td><td>Balance on success; untouched on failure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">wei_out</td><td>Balance, 32 bytes big-endian, on success; untouched on failure. </td></tr>
   </table>
   </dd>
 </dl>
@@ -264,7 +264,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="eth__rpc_8cpp_source.html#l00212">212</a> of file <a class="el" href="eth__rpc_8cpp_source.html">eth_rpc.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="eth__rpc_8cpp_source.html#l00077">do_post()</a>, <a class="el" href="eth__json_8h_source.html#l00135">eth_json_hex_quantity()</a>, <a class="el" href="eth__json_8cpp_source.html#l00018">eth_json_result_string()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00036">RESP_BUF_SIZE</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00043">RESP_LOG_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00050">RESULT_STR_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00057">s_from_addr</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
+<p class="reference">References <a class="el" href="eth__rpc_8cpp_source.html#l00077">do_post()</a>, <a class="el" href="eth__json_8h_source.html#l00132">eth_json_hex_u256()</a>, <a class="el" href="eth__json_8cpp_source.html#l00018">eth_json_result_string()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00036">RESP_BUF_SIZE</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00043">RESP_LOG_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00050">RESULT_STR_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00057">s_from_addr</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="pay__evm_8cpp_source.html#l00091">evm_balance_ok()</a>.</p>
 
@@ -325,7 +325,7 @@ Functions</h2></td></tr>
 
 <p>Fetch from_addr's balance of an ERC-20, via <code>balanceOf</code> over eth_call. </p>
 <p>The token half of the same check, and the one that saves more: a transfer of more tokens than the account holds is not refused by the node at all. It is broadcast, mined, reverted, and charged for — so the customer waits through the whole confirmation only to be declined, and pays the gas for the privilege.</p>
-<p>Saturating, like <a class="el" href="eth__rpc_8cpp.html#aaa4d0c79179831d0556cb3495ab69260" title="eth_rpc_get_balance">eth_rpc_get_balance</a>.</p>
+<p>Saturating at <code>UINT64_MAX</code> (see <a class="el" href="eth__json_8h.html#a66d4f37447527e040abfdf75717fb0fb" title="eth_json_hex_quantity">eth_json_hex_quantity</a>): over-reporting can only fail to refuse.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">token_addr</td><td>"0x..."-prefixed contract address to call. </td></tr>
@@ -337,7 +337,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="eth__rpc_8cpp_source.html#l00239">239</a> of file <a class="el" href="eth__rpc_8cpp_source.html">eth_rpc.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="eth__rpc_8cpp_source.html#l00077">do_post()</a>, <a class="el" href="eth__json_8h_source.html#l00135">eth_json_hex_quantity()</a>, <a class="el" href="eth__json_8cpp_source.html#l00018">eth_json_result_string()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00203">from_no_prefix()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00036">RESP_BUF_SIZE</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00043">RESP_LOG_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00050">RESULT_STR_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00057">s_from_addr</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
+<p class="reference">References <a class="el" href="eth__rpc_8cpp_source.html#l00077">do_post()</a>, <a class="el" href="eth__json_8h_source.html#l00183">eth_json_hex_quantity()</a>, <a class="el" href="eth__json_8cpp_source.html#l00018">eth_json_result_string()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00203">from_no_prefix()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00036">RESP_BUF_SIZE</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00043">RESP_LOG_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00050">RESULT_STR_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00057">s_from_addr</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="pay__evm_8cpp_source.html#l00091">evm_balance_ok()</a>.</p>
 
@@ -375,7 +375,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="eth__rpc_8cpp_source.html#l00354">354</a> of file <a class="el" href="eth__rpc_8cpp_source.html">eth_rpc.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="eth__rpc_8cpp_source.html#l00077">do_post()</a>, <a class="el" href="eth__json_8h_source.html#l00135">eth_json_hex_quantity()</a>, <a class="el" href="eth__json_8cpp_source.html#l00018">eth_json_result_string()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00036">RESP_BUF_SIZE</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00043">RESP_LOG_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00050">RESULT_STR_MAX</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
+<p class="reference">References <a class="el" href="eth__rpc_8cpp_source.html#l00077">do_post()</a>, <a class="el" href="eth__json_8h_source.html#l00183">eth_json_hex_quantity()</a>, <a class="el" href="eth__json_8cpp_source.html#l00018">eth_json_result_string()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00036">RESP_BUF_SIZE</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00043">RESP_LOG_MAX</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00050">RESULT_STR_MAX</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00033">TAG</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="pay_8cpp_source.html#l00115">token_decimals_ok()</a>.</p>
 

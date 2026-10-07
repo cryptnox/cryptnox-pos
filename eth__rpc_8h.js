@@ -8,7 +8,7 @@ var eth__rpc_8h =
       [ "ETH_RPC_RECEIPT_MISMATCH", "eth__rpc_8h.html#ab0a994aa8d532bdb14eceeebeb4d8750a408f415065df3afa739e4f3a0f304c95", null ]
     ] ],
     [ "eth_rpc_err_already_known", "eth__rpc_8h.html#ab608d3ad21cf75d9ed3973ca8c43ed2c", null ],
-    [ "eth_rpc_get_balance", "eth__rpc_8h.html#aaa4d0c79179831d0556cb3495ab69260", null ],
+    [ "eth_rpc_get_balance", "eth__rpc_8h.html#aead99ba01c4c16971e7b0a1dc9feba44", null ],
     [ "eth_rpc_get_nonce", "eth__rpc_8h.html#a42216d313b51019c1163ff0b5c02efb7", null ],
     [ "eth_rpc_get_token_balance", "eth__rpc_8h.html#aad5d6a7af151bb169cc985b1bd5efedd", null ],
     [ "eth_rpc_get_token_decimals", "eth__rpc_8h.html#aa6b457e974f0d58bc3d40c5919d90493", null ],

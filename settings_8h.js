@@ -1,6 +1,5 @@
 var settings_8h =
 [
-    [ "POS_AMOUNT_UNITS_MAX_NATIVE", "settings_8h.html#a1fa8ab0ed8ab4165ffa7d769ad21c4db", null ],
     [ "SETTINGS_PAYOUT_MAX", "settings_8h.html#aeb66271972d06d56ccc6eaf2b00743b2", null ],
     [ "TZ_OFFSET_MAX", "settings_8h.html#ace9681772ee79f11a0b41ac1f0859dd3", null ],
     [ "TZ_OFFSET_MIN", "settings_8h.html#a365e60dce183e0ba4ce65b50500dbcfa", null ],

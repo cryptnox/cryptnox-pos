@@ -135,7 +135,7 @@ Include dependency graph for eth_rlp.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a72d92e7bcb253dbfb58f6553929f2466" id="r_a72d92e7bcb253dbfb58f6553929f2466"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a72d92e7bcb253dbfb58f6553929f2466">ITEMS_BUF_MAX</a>&#160;&#160;&#160;320U</td></tr>
-<tr class="memitem:aa7edf10c7aabb85033c3e71f0653a7aa" id="r_aa7edf10c7aabb85033c3e71f0653a7aa"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa7edf10c7aabb85033c3e71f0653a7aa">ITEMS_FIXED_MAX</a>&#160;&#160;&#160;160U</td></tr>
+<tr class="memitem:aa7edf10c7aabb85033c3e71f0653a7aa" id="r_aa7edf10c7aabb85033c3e71f0653a7aa"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa7edf10c7aabb85033c3e71f0653a7aa">ITEMS_FIXED_MAX</a>&#160;&#160;&#160;184U</td></tr>
 <tr class="memitem:adb3cc194adb9f745b9de7d56f93394a2" id="r_adb3cc194adb9f745b9de7d56f93394a2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#adb3cc194adb9f745b9de7d56f93394a2">CALLDATA_MAX</a>&#160;&#160;&#160;(<a class="el" href="#a72d92e7bcb253dbfb58f6553929f2466">ITEMS_BUF_MAX</a> - <a class="el" href="#aa7edf10c7aabb85033c3e71f0653a7aa">ITEMS_FIXED_MAX</a>)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
@@ -205,7 +205,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ITEMS_FIXED_MAX&#160;&#160;&#160;160U</td>
+          <td class="memname">#define ITEMS_FIXED_MAX&#160;&#160;&#160;184U</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -305,7 +305,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="eth__rlp_8cpp_source.html#l00215">215</a> of file <a class="el" href="eth__rlp_8cpp_source.html">eth_rlp.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="eth__rlp_8h_source.html#l00040">eth_tx_t::calldata</a>, <a class="el" href="eth__rlp_8h_source.html#l00041">eth_tx_t::calldata_len</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00033">CALLDATA_MAX</a>, <a class="el" href="eth__rlp_8h_source.html#l00032">eth_tx_t::chain_id</a>, <a class="el" href="eth__rlp_8h_source.html#l00038">eth_tx_t::eth_value</a>, <a class="el" href="eth__rlp_8h_source.html#l00036">eth_tx_t::gas_limit</a>, <a class="el" href="eth__rlp_8h_source.html#l00035">eth_tx_t::max_fee</a>, <a class="el" href="eth__rlp_8h_source.html#l00034">eth_tx_t::max_priority_fee</a>, <a class="el" href="eth__rlp_8h_source.html#l00033">eth_tx_t::nonce</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00089">rlp_bytes()</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00137">rlp_uint64()</a>, and <a class="el" href="eth__rlp_8h_source.html#l00037">eth_tx_t::to</a>.</p>
+<p class="reference">References <a class="el" href="eth__rlp_8h_source.html#l00040">eth_tx_t::calldata</a>, <a class="el" href="eth__rlp_8h_source.html#l00041">eth_tx_t::calldata_len</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00033">CALLDATA_MAX</a>, <a class="el" href="eth__rlp_8h_source.html#l00032">eth_tx_t::chain_id</a>, <a class="el" href="eth__rlp_8h_source.html#l00038">eth_tx_t::eth_value</a>, <a class="el" href="eth__rlp_8h_source.html#l00036">eth_tx_t::gas_limit</a>, <a class="el" href="eth__rlp_8h_source.html#l00035">eth_tx_t::max_fee</a>, <a class="el" href="eth__rlp_8h_source.html#l00034">eth_tx_t::max_priority_fee</a>, <a class="el" href="eth__rlp_8h_source.html#l00033">eth_tx_t::nonce</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00089">rlp_bytes()</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00159">rlp_int256()</a>, <a class="el" href="eth__rlp_8cpp_source.html#l00137">rlp_uint64()</a>, and <a class="el" href="eth__rlp_8h_source.html#l00037">eth_tx_t::to</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="eth__rlp_8cpp_source.html#l00268">eth_rlp_encode_signed()</a>, and <a class="el" href="eth__rlp_8cpp_source.html#l00244">eth_rlp_encode_unsigned()</a>.</p>
 
@@ -520,7 +520,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="eth__rlp_8cpp_source.html#l00089">rlp_bytes()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="eth__rlp_8cpp_source.html#l00268">eth_rlp_encode_signed()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="eth__rlp_8cpp_source.html#l00215">encode_common_fields()</a>, and <a class="el" href="eth__rlp_8cpp_source.html#l00268">eth_rlp_encode_signed()</a>.</p>
 
 </div>
 </div>

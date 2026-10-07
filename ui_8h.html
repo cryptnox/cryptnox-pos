@@ -504,7 +504,7 @@ Functions</h2></td></tr>
 <p>Same handoff as <a class="el" href="ui_8cpp.html#a8683f2eb73882c592583c2e9528dead8" title="ui_fees_changed">ui_fees_changed</a> and for the same reason: the config page writes the offset straight through from the HTTP task, and the band's clock caches it rather than opening NVS on every three-second tick. Without this the panel keeps the old hour until something rebuilds the screen.</p>
 <p>Safe from the HTTP task: applied by the UI task on its next pass. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00788">788</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00771">771</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui__widgets_8cpp_source.html#l00419">s_tz_dirty</a>.</p>
 
@@ -531,7 +531,7 @@ Functions</h2></td></tr>
 <p>The caps are the one setting the config page writes straight through, and that page is opened from a card raised over the settings screen — so the two gas rows underneath keep the values they were built with until the operator leaves the screen and comes back. This retexts them in place.</p>
 <p>Safe from the HTTP task: applied by the UI task on its next pass, and a no-op when the rows are not on screen (any other screen, or Tron, which has no caps). </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00783">783</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00766">766</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00128">s_fees_dirty</a>.</p>
 
@@ -562,9 +562,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00696">696</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00679">679</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00222">s_ui_mx</a>, <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>, and <a class="el" href="ui_8cpp_source.html#l00521">ui_task()</a>.</p>
+<p class="reference">References <a class="el" href="provision_8cpp_source.html#l00121">s_cb</a>, <a class="el" href="ui_8cpp_source.html#l00034">s_req_screen</a>, <a class="el" href="ui_8cpp_source.html#l00033">s_screen_dirty</a>, <a class="el" href="ui_8cpp_source.html#l00222">s_ui_mx</a>, <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>, and <a class="el" href="ui_8cpp_source.html#l00504">ui_task()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
 
@@ -592,7 +592,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="settings_8cpp_source.html#l00165">settings_get_chain()</a>, and <a class="el" href="pay_8cpp_source.html#l00155">ui_refresh_addresses_for()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00051">app_main()</a>, <a class="el" href="ui_8cpp_source.html#l00306">btn_event_cb()</a>, and <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00051">app_main()</a>, <a class="el" href="ui_8cpp_source.html#l00295">btn_event_cb()</a>, and <a class="el" href="boot_8cpp_source.html#l00496">pos_boot()</a>.</p>
 
 </div>
 </div>
@@ -619,7 +619,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="pay_8cpp_source.html#l00155">155</a> of file <a class="el" href="pay_8cpp_source.html">pay.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="pay_8cpp_source.html#l00045">active_token()</a>, <a class="el" href="assets_8h_source.html#l00174">pos_chain_is_polygon()</a>, <a class="el" href="assets_8h_source.html#l00165">pos_chain_is_tron()</a>, <a class="el" href="pay_8cpp_source.html#l00027">s_payout_eth</a>, <a class="el" href="pay_8cpp_source.html#l00028">s_payout_tron</a>, <a class="el" href="pos__app_8h_source.html#l00099">token_t::str</a>, and <a class="el" href="ui_8cpp_source.html#l00764">ui_set_addresses()</a>.</p>
+<p class="reference">References <a class="el" href="pay_8cpp_source.html#l00045">active_token()</a>, <a class="el" href="assets_8h_source.html#l00174">pos_chain_is_polygon()</a>, <a class="el" href="assets_8h_source.html#l00165">pos_chain_is_tron()</a>, <a class="el" href="pay_8cpp_source.html#l00027">s_payout_eth</a>, <a class="el" href="pay_8cpp_source.html#l00028">s_payout_tron</a>, <a class="el" href="pos__app_8h_source.html#l00099">token_t::str</a>, and <a class="el" href="ui_8cpp_source.html#l00747">ui_set_addresses()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="ui__admin_8cpp_source.html#l00064">build_settings()</a>, and <a class="el" href="pay_8cpp_source.html#l00170">ui_refresh_addresses()</a>.</p>
 
@@ -646,7 +646,7 @@ Functions</h2></td></tr>
 
 <p>Provide the token contract and destination addresses for the confirm screen and the settings "Tx" tab (pointers stored as-is; pass static/literal storage that outlives the call). </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00764">764</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00747">747</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00168">s_addr_dest</a>, and <a class="el" href="ui_8cpp_source.html#l00167">s_addr_usdc</a>.</p>
 
@@ -678,7 +678,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00776">776</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00759">759</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00119">s_boot_step</a>, and <a class="el" href="ui_8cpp_source.html#l00121">s_boot_step_dirty</a>.</p>
 
@@ -711,7 +711,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00880">880</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00863">863</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00136">s_prov_msg</a>.</p>
 
@@ -743,7 +743,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00910">910</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00893">893</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00047">s_tx_info</a>, and <a class="el" href="ui_8cpp_source.html#l00049">s_tx_info_dirty</a>.</p>
 
@@ -769,7 +769,7 @@ Functions</h2></td></tr>
 <p>Run the first-run admin-code creation (enter, then confirm). </p>
 <p>Deliberately has no way out: everything behind the burger menu — Wi-Fi, fees, factory reset — sits behind this code, so the terminal must not become usable without one. Emits <a class="el" href="#a9a99e204659fdc9573b3dc140ffeedd3a52d8ee321f1b394c2dbc75c4a3c4a6da" title="UI_EVENT_ADMIN_SET">UI_EVENT_ADMIN_SET</a> once stored. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00818">818</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00801">801</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00149">s_admin_confirming</a>, <a class="el" href="ui_8cpp_source.html#l00147">s_admin_first</a>, <a class="el" href="ui_8cpp_source.html#l00148">s_admin_note</a>, and <a class="el" href="ui_8h_source.html#l00046">UI_SCREEN_ADMIN_SET</a>.</p>
 
@@ -794,7 +794,7 @@ Functions</h2></td></tr>
 
 <p>Switch to the amount-entry screen (forces a value redraw). </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00711">711</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00694">694</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00077">s_amount_cents</a>, <a class="el" href="ui_8cpp_source.html#l00037">s_amount_units</a>, and <a class="el" href="ui_8h_source.html#l00037">UI_SCREEN_AMOUNT</a>.</p>
 
@@ -830,7 +830,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00795">795</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00778">778</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00144">s_boot_detail</a>, <a class="el" href="ui_8cpp_source.html#l00143">s_boot_err</a>, and <a class="el" href="ui_8h_source.html#l00045">UI_SCREEN_BOOT_ERROR</a>.</p>
 
@@ -856,7 +856,7 @@ Functions</h2></td></tr>
 <p>Ask for the card PIN before reading an address off a Cryptnox card. </p>
 <p>The card will not export a public key without a verified PIN, so deriving a payout address needs one exactly as signing does. Emits <a class="el" href="#a9a99e204659fdc9573b3dc140ffeedd3a31e5c798a750d55193d76f4abef3c6fe" title="UI_EVENT_CARD_PIN">UI_EVENT_CARD_PIN</a>, or <a class="el" href="#a9a99e204659fdc9573b3dc140ffeedd3a07a32dd4ddc27478fb80eb73b946c9eb" title="UI_EVENT_CONFIRM_CANCEL">UI_EVENT_CONFIRM_CANCEL</a> if the operator backs out. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00873">873</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00856">856</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00164">s_pin_for_card</a>, <a class="el" href="ui_8cpp_source.html#l00136">s_prov_msg</a>, and <a class="el" href="ui_8h_source.html#l00039">UI_SCREEN_PIN</a>.</p>
 
@@ -888,7 +888,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00886">886</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00869">869</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00067">s_card_note</a>, and <a class="el" href="ui_8h_source.html#l00050">UI_SCREEN_CARD_WAIT</a>.</p>
 
@@ -931,7 +931,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00718">718</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00701">701</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00041">s_confirm_addr</a>, <a class="el" href="ui_8cpp_source.html#l00040">s_confirm_amount</a>, <a class="el" href="ui_8cpp_source.html#l00042">s_confirm_fee</a>, and <a class="el" href="ui_8h_source.html#l00038">UI_SCREEN_CONFIRM</a>.</p>
 
@@ -957,7 +957,7 @@ Functions</h2></td></tr>
 <p>Raise the modal that asks the operator to accept a firmware image the update page has uploaded, reading it from <a class="el" href="ota_8h.html" title="Firmware slot handling: receive an image into the idle slot, verify it, and install it only once some...">ota.h</a>. </p>
 <p>Call after <a class="el" href="#a9a99e204659fdc9573b3dc140ffeedd3a15cd2c18907d05435917becbfa4d68fe" title="UI_EVENT_OTA_STAGED">UI_EVENT_OTA_STAGED</a>. Accepting reboots into the new firmware and does not return; declining discards the staging and leaves the running firmware alone. The panel is the only place either can happen — an upload on its own changes nothing about what boots. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00893">893</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00876">876</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00140">s_ota_modal_dirty</a>.</p>
 
@@ -989,7 +989,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00850">850</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00833">833</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00132">s_prov_step</a>, and <a class="el" href="ui_8h_source.html#l00049">UI_SCREEN_PROV</a>.</p>
 
@@ -1015,7 +1015,7 @@ Functions</h2></td></tr>
 <p>Demand the admin code so a browser can be authorised. </p>
 <p>Same screen as the settings unlock, but a correct code calls prov_auth_resolve(true) instead of opening the menu, and backing out refuses the request rather than silently leaving the browser waiting. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00861">861</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00844">844</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui__admin_8cpp_source.html#l00739">admin_penalty_ms()</a>, <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00149">s_admin_confirming</a>, <a class="el" href="ui_8cpp_source.html#l00159">s_admin_for_portal</a>, <a class="el" href="ui_8cpp_source.html#l00156">s_admin_lock_ms</a>, <a class="el" href="ui_8cpp_source.html#l00155">s_admin_lock_start</a>, <a class="el" href="ui_8cpp_source.html#l00148">s_admin_note</a>, <a class="el" href="settings_8cpp_source.html#l00448">settings_admin_fail_count()</a>, and <a class="el" href="ui_8h_source.html#l00047">UI_SCREEN_ADMIN_UNLOCK</a>.</p>
 
@@ -1041,7 +1041,7 @@ Functions</h2></td></tr>
 <p>Raise the modal that asks the operator to accept a value a browser proposed, reading the pending proposal from <a class="el" href="provision_8h.html" title="The config portal: one web app for setting a terminal up and for administering it afterwards,...">provision.h</a>. </p>
 <p>Call after <a class="el" href="#a9a99e204659fdc9573b3dc140ffeedd3aa6cace6d3c672a572d39d904ecb4bb57" title="UI_EVENT_PROV_VALUE">UI_EVENT_PROV_VALUE</a>. Accepting emits <a class="el" href="#a9a99e204659fdc9573b3dc140ffeedd3ad461639409f10b0469a825ad47e8e420" title="UI_EVENT_PROV_VALUE_SET">UI_EVENT_PROV_VALUE_SET</a>; rejecting emits nothing and drops the proposal, so a caller waiting on the step stays where it is and can be offered another. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00856">856</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00839">839</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00137">s_addr_modal_dirty</a>.</p>
 
@@ -1066,7 +1066,7 @@ Functions</h2></td></tr>
 
 <p>Switch to the splash screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00706">706</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00689">689</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, and <a class="el" href="ui_8h_source.html#l00036">UI_SCREEN_SPLASH</a>.</p>
 
@@ -1102,7 +1102,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00898">898</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00881">881</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00047">s_tx_info</a>, <a class="el" href="ui_8cpp_source.html#l00046">s_tx_state</a>, and <a class="el" href="ui_8h_source.html#l00044">UI_SCREEN_TX_STATUS</a>.</p>
 
@@ -1134,7 +1134,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00807">807</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00790">790</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00150">s_welcome_sent</a>, <a class="el" href="ui_8cpp_source.html#l00151">s_welcome_sub</a>, and <a class="el" href="ui_8h_source.html#l00048">UI_SCREEN_WELCOME</a>.</p>
 
@@ -1160,7 +1160,7 @@ Functions</h2></td></tr>
 <p>Show a "Connecting to &lt;ssid&gt;…" screen while main associates. </p>
 <p>Interactive picker only; unattended boot reports through <a class="el" href="ui_8cpp.html#a3db450e73974ba379262c434734336f2" title="ui_set_boot_status">ui_set_boot_status</a> and stays on the splash. </p>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00770">770</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00753">753</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="ui_8cpp_source.html#l00247">set_wifi_progress()</a>, and <a class="el" href="ui_8h_source.html#l00042">UI_SCREEN_WIFI_CONNECTING</a>.</p>
 
@@ -1202,7 +1202,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00747">747</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00730">730</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00241">request_screen()</a>, <a class="el" href="provision_8cpp_source.html#l00163">s_ap_count</a>, <a class="el" href="provision_8cpp_source.html#l00162">s_aps</a>, <a class="el" href="ui_8cpp_source.html#l00105">s_wifi_note</a>, <a class="el" href="ui_8h_source.html#l00040">UI_SCREEN_WIFI_LIST</a>, and <a class="el" href="ui__internal_8h_source.html#l00227">WIFI_MAX_APS</a>.</p>
 
@@ -1239,7 +1239,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00842">842</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00825">825</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00104">s_wifi_pass</a>, and <a class="el" href="ui_8cpp_source.html#l00103">s_wifi_ssid</a>.</p>
 
@@ -1277,7 +1277,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of PIN digits copied (0 if none available). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00733">733</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00716">716</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00099">s_pin</a>, and <a class="el" href="ui_8cpp_source.html#l00100">s_pin_len</a>.</p>
 
@@ -1327,7 +1327,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>length of the SSID (0 if none available). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00827">827</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00810">810</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00104">s_wifi_pass</a>, and <a class="el" href="ui_8cpp_source.html#l00103">s_wifi_ssid</a>.</p>
 

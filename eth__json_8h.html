@@ -166,8 +166,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa50cbf4e987bd6fe84870403eee482e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classify an <code>eth_getTransactionReceipt</code> response body.  <br /></td></tr>
 <tr class="memitem:af23048653dfa0e9789f417b3bc30c8ab" id="r_af23048653dfa0e9789f417b3bc30c8ab"><td class="memItemLeft"><a class="el" href="#a812052cb324ba72b248eb240e2183db4">eth_json_receipt_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#af23048653dfa0e9789f417b3bc30c8ab">eth_json_receipt_check</a> (const char *resp, const <a class="el" href="structeth__receipt__expect__t.html">eth_receipt_expect_t</a> *want)</td></tr>
 <tr class="memdesc:af23048653dfa0e9789f417b3bc30c8ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classify a receipt AND check it is the payment that was asked for.  <br /></td></tr>
+<tr class="memitem:a9b3c701ce29651e3a3c6810518d0f20e" id="r_a9b3c701ce29651e3a3c6810518d0f20e"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a9b3c701ce29651e3a3c6810518d0f20e">eth_json_hex_u256</a> (const char *hex, uint8_t out[32])</td></tr>
+<tr class="memdesc:a9b3c701ce29651e3a3c6810518d0f20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a JSON-RPC QUANTITY ("0x0", "0x1a", 64 hex chars) into a 32-byte big-endian uint256 — the width Ethereum itself uses for a balance.  <br /></td></tr>
 <tr class="memitem:a66d4f37447527e040abfdf75717fb0fb" id="r_a66d4f37447527e040abfdf75717fb0fb"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a66d4f37447527e040abfdf75717fb0fb">eth_json_hex_quantity</a> (const char *hex, uint64_t *out)</td></tr>
-<tr class="memdesc:a66d4f37447527e040abfdf75717fb0fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a JSON-RPC QUANTITY ("0x0", "0x1a", 64 hex chars) into a uint64, saturating instead of wrapping.  <br /></td></tr>
+<tr class="memdesc:a66d4f37447527e040abfdf75717fb0fb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a9b3c701ce29651e3a3c6810518d0f20e" title="eth_json_hex_u256">eth_json_hex_u256</a>, narrowed to a uint64 that saturates at <code>UINT64_MAX</code> instead of wrapping.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>JSON-RPC response parsing helpers — kept in their own unit (cJSON + CW_Utils only, no ESP-IDF networking) so they can be fuzzed on the host (see fuzz/fuzz_eth_rpc_json.cpp). </p>
@@ -278,8 +280,46 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parse a JSON-RPC QUANTITY ("0x0", "0x1a", 64 hex chars) into a uint64, saturating instead of wrapping. </p>
-<p>A balance is a uint256 and this is not, so a value wider than 16 significant hex digits reports <code>UINT64_MAX</code>. That direction is the safe one for the callers here: these numbers are compared against what a sale costs, and an over-reported balance only lets a doomed sale through to the node that would have refused it anyway — which is the behaviour without this check at all — whereas a wrapped one would refuse a sale that is funded. An account holding 20 ETH is past 2^64 wei, so this is the ordinary case and not a corner.</p>
+<p><a class="el" href="#a9b3c701ce29651e3a3c6810518d0f20e" title="eth_json_hex_u256">eth_json_hex_u256</a>, narrowed to a uint64 that saturates at <code>UINT64_MAX</code> instead of wrapping. </p>
+<p>For the quantities that are small by nature (a nonce, decimals, a 6-decimal token balance). Saturating is the safe direction for the same reason as above. A native balance is not one of them: use the uint256 form. </p>
+
+<p class="definition">Definition at line <a class="el" href="eth__json_8h_source.html#l00183">183</a> of file <a class="el" href="eth__json_8h_source.html">eth_json.h</a>.</p>
+
+<p class="reference">References <a class="el" href="eth__json_8h_source.html#l00132">eth_json_hex_u256()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="eth__rpc_8cpp_source.html#l00239">eth_rpc_get_token_balance()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00354">eth_rpc_get_token_decimals()</a>, <a class="el" href="tron__rpc_8cpp_source.html#l00269">tron_rpc_get_trc20_balance()</a>, and <a class="el" href="tron__rpc_8cpp_source.html#l00330">tron_rpc_get_trc20_decimals()</a>.</p>
+
+</div>
+</div>
+<a id="a9b3c701ce29651e3a3c6810518d0f20e" name="a9b3c701ce29651e3a3c6810518d0f20e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b3c701ce29651e3a3c6810518d0f20e">&#9670;&#160;</a></span>eth_json_hex_u256()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool eth_json_hex_u256 </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>hex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>out</em></span>[32]&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parse a JSON-RPC QUANTITY ("0x0", "0x1a", 64 hex chars) into a 32-byte big-endian uint256 — the width Ethereum itself uses for a balance. </p>
+<p>Wider than 64 significant hex digits cannot be a uint256 at all; it reports all-0xFF rather than failing, the safe direction for a balance compared against what a sale costs (it can only fail to refuse, never refuse a funded sale).</p>
 <p>Header-only, and deliberately: it is the one piece of this unit a host test can reach without cJSON (tests/units/test_eth_hex.cpp).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -290,9 +330,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true on a well-formed quantity; false on a missing prefix, an empty body, or any non-hex character anywhere in it. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eth__json_8h_source.html#l00135">135</a> of file <a class="el" href="eth__json_8h_source.html">eth_json.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eth__json_8h_source.html#l00132">132</a> of file <a class="el" href="eth__json_8h_source.html">eth_json.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="eth__rpc_8cpp_source.html#l00212">eth_rpc_get_balance()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00239">eth_rpc_get_token_balance()</a>, <a class="el" href="eth__rpc_8cpp_source.html#l00354">eth_rpc_get_token_decimals()</a>, <a class="el" href="tron__rpc_8cpp_source.html#l00269">tron_rpc_get_trc20_balance()</a>, and <a class="el" href="tron__rpc_8cpp_source.html#l00330">tron_rpc_get_trc20_decimals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="eth__json_8h_source.html#l00183">eth_json_hex_quantity()</a>, and <a class="el" href="eth__rpc_8cpp_source.html#l00212">eth_rpc_get_balance()</a>.</p>
 
 </div>
 </div>
