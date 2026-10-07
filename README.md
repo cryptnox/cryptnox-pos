@@ -32,11 +32,9 @@ Tron. Whether those are the production networks or their test deployments
 testnet-only selection — Circle wound it down in 2024&ndash;25.
 
 > [!NOTE]
-> The keypad enters two decimal places of whatever asset is selected, and a
-> native-coin amount is signed as a `uint64` of wei — so **ETH and POL sales are
-> capped at 18.44**. The keypad stops there rather than letting an operator key a
-> figure the transaction cannot carry. The stablecoins are 6-decimal and keep the
-> full 9999.99 range.
+> The keypad enters two decimal places of whatever asset is selected, up to
+> **9999.99** — the same ceiling for the stablecoins and for ETH and POL (whose
+> amount is signed as a full `uint256` of wei).
 
 > [!WARNING]
 > **Reference / educational dev kit — not a tamper-resistant terminal.**

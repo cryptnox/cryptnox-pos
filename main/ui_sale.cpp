@@ -264,7 +264,7 @@ static void amount_kbd_cb(lv_event_t *e) {
     const char *txt = lv_btnmatrix_get_btn_text(bm, lv_btnmatrix_get_selected_btn(bm));
     if (txt == NULL) { return; }
 
-    const uint64_t cap = amount_cents_max();
+    const uint64_t cap = AMOUNT_CENTS_MAX;
     if (strcmp(txt, LV_SYMBOL_BACKSPACE) == 0) {
         s_amount_cents = amount_key_back(s_amount_cents);
     } else if (strcmp(txt, "00") == 0) {

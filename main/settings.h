@@ -45,20 +45,6 @@ typedef enum {
 
 /* Family/network predicates for each selection live in assets.h. */
 
-/**
- * @brief Ceiling on a native-coin sale, in the keypad's 6-decimal base units.
- *
- * ETH and POL are 18-decimal, so wei = units * 10^12, and eth_tx_t::eth_value is
- * a uint64 — 2^64-1 wei is 18.446744073709551615 of the coin. Past that the
- * multiply wraps and the card would sign a value nobody entered, so the keypad
- * stops at 18.44 and the payment path re-checks it.
- *
- * ponytail: uint64 wei, 18.44 ETH/POL a sale. Widening means carrying
- * eth_value as a 32-byte big-endian buffer through eth_rlp and its two
- * encoders — worth it only if somebody actually needs to charge more.
- */
-#define POS_AMOUNT_UNITS_MAX_NATIVE  18446744ULL
-
 /** @brief Selected chain, or @ref POS_CHAIN_ETH_USDC if never set. */
 pos_chain_t settings_get_chain(void);
 

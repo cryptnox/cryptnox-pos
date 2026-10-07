@@ -209,7 +209,7 @@ static const char *from_no_prefix(void)
     return p;
 }
 
-bool eth_rpc_get_balance(uint64_t *wei_out)
+bool eth_rpc_get_balance(uint8_t wei_out[32])
 {
     if ((wei_out == NULL) || (s_from_addr == NULL)) { return false; }
 
@@ -229,7 +229,7 @@ bool eth_rpc_get_balance(uint64_t *wei_out)
         ESP_LOGE(TAG, "balance: no result in: %.*s", RESP_LOG_MAX, resp);
         return false;
     }
-    if (!eth_json_hex_quantity(result, wei_out)) {
+    if (!eth_json_hex_u256(result, wei_out)) {
         ESP_LOGE(TAG, "balance: malformed quantity: %.*s", RESP_LOG_MAX, result);
         return false;
     }

@@ -41,6 +41,20 @@ CONFIG_MBEDTLS_DYNAMIC_BUFFER=y
 CONFIG_ESP_TASK_WDT_PANIC=y
 CONFIG_ESP_TASK_WDT_TIMEOUT_S=60
 
+# Stack and heap protection. A wrapped length in the card, RLP or JSON code
+# would otherwise corrupt memory silently on a device that signs payments.
+# - STRONG stack protector: a canary in every function with a local array or
+#   an address-taken local; a smashed return address aborts, it does not run.
+# - FreeRTOS canary + end-of-stack watchpoint: a task overflowing its stack
+#   panics at the faulting write instead of trampling the next allocation.
+# - LIGHT heap poisoning: head/tail canaries on every block, checked on free;
+#   an overrun panics. COMPREHENSIVE also fills freed memory but costs speed.
+# The watchdog/rollback above turns any of these panics into a reboot.
+CONFIG_COMPILER_STACK_CHECK_MODE_STRONG=y
+CONFIG_FREERTOS_CHECK_STACKOVERFLOW_CANARY=y
+CONFIG_FREERTOS_WATCHPOINT_END_OF_STACK=y
+CONFIG_HEAP_POISONING_LIGHT=y
+
 # HTTPS support in the HTTP client
 CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS=y
 

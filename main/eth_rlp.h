@@ -35,8 +35,8 @@ typedef struct {
     uint64_t       max_fee;           /**< Max fee per gas, in wei.             */
     uint64_t       gas_limit;         /**< Gas limit for the transaction.       */
     uint8_t        to[20];            /**< Recipient Ethereum address.          */
-    uint64_t       eth_value;         /**< ETH value in wei (0 for pure ERC-20
-                                           transfer).                           */
+    uint8_t        eth_value[32];     /**< ETH value in wei, uint256 big-endian
+                                           (all zero for an ERC-20 transfer). */
     const uint8_t *calldata;          /**< ABI-encoded calldata, or NULL.       */
     size_t         calldata_len;      /**< Length of @ref calldata in bytes.    */
 } eth_tx_t;

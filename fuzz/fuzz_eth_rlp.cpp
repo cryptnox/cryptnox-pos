@@ -28,11 +28,12 @@
  *
  * Input layout (bytes are consumed left to right; the harness tolerates a
  * short input by leaving the remaining fields zero):
- *   [0..47]   six big-endian u64 scalars: chain_id, nonce, max_priority_fee,
- *             max_fee, gas_limit, eth_value
- *   [48..67]  20-byte recipient address
- *   [68]      signature parity bit (low bit used)
- *   [69..]    remainder → calldata (pointer + length handed to the encoder)
+ *   [0..39]   five big-endian u64 scalars: chain_id, nonce, max_priority_fee,
+ *             max_fee, gas_limit
+ *   [40..71]  eth_value, a 32-byte big-endian uint256
+ *   [72..91]  20-byte recipient address
+ *   [92]      signature parity bit (low bit used)
+ *   [93..]    remainder → calldata (pointer + length handed to the encoder)
  */
 
 #include <stdint.h>
@@ -78,7 +79,10 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
     take_u64(tx.max_priority_fee);
     take_u64(tx.max_fee);
     take_u64(tx.gas_limit);
-    take_u64(tx.eth_value);
+    for (size_t i = 0U; (i < sizeof(tx.eth_value)) && (rem > 0U); i++) {
+        tx.eth_value[i] = *p++;
+        rem--;
+    }
 
     for (size_t i = 0U; (i < 20U) && (rem > 0U); i++) {
         tx.to[i] = *p++;

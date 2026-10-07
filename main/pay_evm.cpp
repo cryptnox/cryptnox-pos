@@ -101,8 +101,8 @@ bool evm_balance_ok(const pos_amount_t *amount, char *err, size_t err_max)
     const uint64_t gas_cost =
         (uint64_t)(native ? GAS_LIMIT_NATIVE : GAS_LIMIT_ERC20) * max_fee;
 
-    uint64_t have_wei = 0U;
-    if (!eth_rpc_get_balance(&have_wei)) {
+    uint8_t have_wei[WEI_LEN];
+    if (!eth_rpc_get_balance(have_wei)) {
         ESP_LOGW(TAG, "pre-flight: balance read failed - letting the sale run");
         return true;
     }
@@ -199,11 +199,11 @@ bcast_t sign_and_broadcast(CryptnoxWallet &wallet,
     }
     const uint64_t amount_units = amount->amount_minor;
 
-    /* 6-decimal keypad units -> wei, for the 18-decimal coins only. Re-checked
-     * here rather than trusted from the keypad's cap: a wrapped multiply signs a
-     * value nobody entered (see POS_AMOUNT_UNITS_MAX_NATIVE). */
-    uint64_t native_wei = 0U;
-    if (native && !evm_units_to_wei(amount_units, &native_wei)) {
+    /* 6-decimal keypad units -> wei (uint256), for the 18-decimal coins only.
+     * Re-checked here rather than trusted from the keypad's cap. A token sale
+     * leaves it zero: the amount is in the calldata. */
+    uint8_t native_wei[WEI_LEN] = { 0U };
+    if (native && !evm_units_to_wei(amount_units, native_wei)) {
         (void)snprintf(err_out, err_max, "Amount too large for this asset");
         return BCAST_FAILED;
     }
@@ -301,7 +301,8 @@ bcast_t sign_and_broadcast(CryptnoxWallet &wallet,
      * read. Selected on `token` (not `native`) so the dereference is provably
      * guarded. */
     tx.gas_limit         = native ? GAS_LIMIT_NATIVE : GAS_LIMIT_ERC20;
-    tx.eth_value         = native ? native_wei : 0U;
+    (void)CW_Utils::safe_memcpy(tx.eth_value, sizeof(tx.eth_value),
+                                native_wei, sizeof(native_wei));
     tx.calldata          = native ? NULL : calldata;
     tx.calldata_len      = native ? 0U   : sizeof(calldata);
     (void)CW_Utils::safe_memcpy(tx.to, sizeof(tx.to),

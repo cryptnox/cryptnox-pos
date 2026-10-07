@@ -24,6 +24,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 
 #include "eth_json.h"
 
@@ -83,6 +84,34 @@ int main(void)
     v = 4242U;
     assert(!eth_json_hex_quantity("0x", &v));
     assert(v == 4242U);
+
+    /* The uint256 form a native balance goes through: exact past 2^64. */
+    uint8_t w[32];
+    static const uint8_t ETH20[32] = {   /* 20 ETH = 0x01158e460913d00000 wei */
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0x01, 0x15, 0x8e, 0x46, 0x09, 0x13, 0xd0, 0x00, 0x00,
+    };
+    assert(eth_json_hex_u256("0x1158e460913d00000", w) &&      /* odd digit count */
+           (memcmp(w, ETH20, 32) == 0));
+    assert(eth_json_hex_u256(
+        "0x00000000000000000000000000000000000000000000001158E460913D00000", w) &&
+           (memcmp(w, ETH20, 32) == 0));
+    uint8_t ff[32];
+    memset(ff, 0xFF, sizeof(ff));
+    assert(eth_json_hex_u256(
+        "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        w) && (memcmp(w, ff, 32) == 0));
+    /* 65 significant digits is no uint256: saturate, as the uint64 form does. */
+    memset(w, 0, sizeof(w));
+    assert(eth_json_hex_u256(
+        "0x10000000000000000000000000000000000000000000000000000000000000000",
+        w) && (memcmp(w, ff, 32) == 0));
+    /* Refused and untouched, same as above. */
+    memset(w, 0x42, sizeof(w));
+    assert(!eth_json_hex_u256("0x", w));
+    assert(!eth_json_hex_u256("0x1g", w));
+    assert(!eth_json_hex_u256(NULL, w));
+    assert((w[0] == 0x42U) && (w[31] == 0x42U));
 
     printf("test_eth_hex: all assertions passed\n");
     return 0;

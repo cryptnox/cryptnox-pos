@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  * Copyright (c) 2026 Cryptnox SA
  *
- * Known-answer test for main/money.h — keypad cents, the native-coin ceiling,
+ * Known-answer test for main/money.h — keypad cents, the keypad ceiling,
  * units to wei, the EIP-1559 fees, the pre-flight funds check, the fee text and
  * the USDC transfer calldata. Every figure the customer is charged is one of
  * these, and every mistake in them is silent.
@@ -72,6 +72,41 @@ static const uint8_t CALLDATA_ffffffffffffffff[68] = {
     0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
 };
 
+/* units * 10^12 as a uint256: 1 unit, both sides of the old 2^64 wall, and
+ * the 9999.99 ceiling. */
+static const uint8_t WEI_1[32] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0xe8, 0xd4, 0xa5, 0x10, 0x00,
+};
+static const uint8_t WEI_18446744[32] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0xff, 0xff, 0xff, 0xee, 0xd6, 0x91, 0x80, 0x00,
+};
+static const uint8_t WEI_18446745[32] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01,
+    0x00, 0x00, 0x00, 0xd7, 0xab, 0x36, 0x90, 0x00,
+};
+static const uint8_t WEI_9999990000[32] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x1e,
+    0x19, 0xbd, 0x42, 0xc8, 0x42, 0x7f, 0x00, 0x00,
+};
+
+/* Balances past 2^64: the 9999.99 sale plus 21000 gas at 30 Gwei, and 1 wei less. */
+static const uint8_t HAVE_21e19bf7fc390b46000[32] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x1e,
+    0x19, 0xbf, 0x7f, 0xc3, 0x90, 0xb4, 0x60, 0x00,
+};
+static const uint8_t HAVE_21e19bf7fc390b45fff[32] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x1e,
+    0x19, 0xbf, 0x7f, 0xc3, 0x90, 0xb4, 0x5f, 0xff,
+};
+
 /* Fee ceilings, Decimal(v) / 10^dec rounded toward +inf at six places. */
 static const struct {
     uint64_t    v;
@@ -106,43 +141,38 @@ int main(void)
     calldata_is(12500000U, CALLDATA_bebc20);            /* 12.50 USDC */
     calldata_is(UINT64_MAX, CALLDATA_ffffffffffffffff); /* every amount byte */
 
-    /* ── Units -> wei around POS_AMOUNT_UNITS_MAX_NATIVE ──────────── */
-    /* 18446743 and 18446744 units fit a uint64 of wei; 18446745 is
-     * 18446745000000000000 > 2^64 - 1 and must be refused, not wrapped. */
-    uint64_t wei = 0U;
-    assert(POS_AMOUNT_UNITS_MAX_NATIVE == 18446744ULL);
-    assert(evm_units_to_wei(0U, &wei) && (wei == 0U));
-    assert(evm_units_to_wei(1U, &wei) && (wei == 1000000000000ULL));
-    assert(evm_units_to_wei(18446743ULL, &wei) && (wei == 18446743000000000000ULL));
-    assert(evm_units_to_wei(18446744ULL, &wei) && (wei == 18446744000000000000ULL));
-    wei = 42U;
-    assert(!evm_units_to_wei(18446745ULL, &wei));
-    assert(wei == 42U);   /* untouched on refusal */
-    assert(!evm_units_to_wei(UINT64_MAX, &wei));
-
-    /* ── Keypad ceilings ──────────────────────────────────────────── */
-    assert(amount_cents_cap(false) == 999999ULL);   /* 9999.99 */
-    assert(amount_cents_cap(true)  == 1844ULL);     /* 18.44 */
-    /* The native ceiling, keyed, is a value the wei conversion accepts. */
-    assert(evm_units_to_wei(amount_cents_to_units(amount_cents_cap(true)), &wei));
-    assert(wei == 18440000000000000000ULL);
-    /* The token ceiling is not — which is why it is only the token ceiling. */
-    assert(!evm_units_to_wei(amount_cents_to_units(amount_cents_cap(false)), &wei));
+    /* ── Units -> wei (uint256) ────────────────────────────────────── */
+    /* 18446745 units is the first value past 2^64 wei — where a uint64 used to
+     * wrap — and 9999.99 is ~2^73. All exact, none refused. */
+    uint8_t wei[WEI_LEN];
+    const uint8_t zero[WEI_LEN] = { 0U };
+    assert(AMOUNT_UNITS_MAX == 9999990000ULL);
+    assert(evm_units_to_wei(0U, wei) && (memcmp(wei, zero, WEI_LEN) == 0));
+    assert(evm_units_to_wei(1U, wei) && (memcmp(wei, WEI_1, WEI_LEN) == 0));
+    assert(evm_units_to_wei(18446744ULL, wei) && (memcmp(wei, WEI_18446744, WEI_LEN) == 0));
+    assert(evm_units_to_wei(18446745ULL, wei) && (memcmp(wei, WEI_18446745, WEI_LEN) == 0));
+    assert(evm_units_to_wei(AMOUNT_UNITS_MAX, wei) &&
+           (memcmp(wei, WEI_9999990000, WEI_LEN) == 0));
+    /* The keypad ceiling, keyed, is exactly that value. */
+    assert(amount_cents_to_units(AMOUNT_CENTS_MAX) == AMOUNT_UNITS_MAX);
+    /* Past it is refused, and the output untouched. */
+    memset(wei, 0x42, WEI_LEN);
+    assert(!evm_units_to_wei(AMOUNT_UNITS_MAX + 1U, wei));
+    assert(!evm_units_to_wei(UINT64_MAX, wei));
+    assert((wei[0] == 0x42U) && (wei[WEI_LEN - 1U] == 0x42U));
 
     /* ── Keypad keys ──────────────────────────────────────────────── */
-    const uint64_t cap_n = amount_cents_cap(true);
+    const uint64_t cap_n = AMOUNT_CENTS_MAX;
     uint64_t c = 0U;
-    c = amount_key_digit(c, 1U, cap_n);   /* 0.01 */
-    c = amount_key_digit(c, 8U, cap_n);   /* 0.18 */
-    c = amount_key_digit(c, 4U, cap_n);   /* 1.84 */
-    c = amount_key_digit(c, 4U, cap_n);   /* 18.44 — exactly the cap */
-    assert(c == 1844U);
-    assert(amount_key_digit(c, 0U, cap_n) == 1844U);   /* 184.40 refused whole */
-    assert(amount_key_digit(184U, 5U, cap_n) == 184U); /* 18.45 refused */
-    assert(amount_key_digit(184U, 4U, cap_n) == 1844U);
+    for (int i = 0; i < 6; i++) {
+        c = amount_key_digit(c, 9U, cap_n);   /* 0.09 ... 9999.99 */
+    }
+    assert(c == 999999U);                                  /* exactly the cap */
+    assert(amount_key_digit(c, 0U, cap_n) == 999999U);     /* 99999.90 refused whole */
+    assert(amount_key_digit(1844U, 5U, cap_n) == 18445U);  /* 184.45: past the old 18.44 */
     assert(amount_key_00(18U, cap_n) == 1800U);
-    assert(amount_key_00(19U, cap_n) == 1844U);        /* 19.00 clamps to 18.44 */
-    assert(amount_key_00(999999U, amount_cents_cap(false)) == 999999U);
+    assert(amount_key_00(10000U, cap_n) == 999999U);       /* 10000.00 clamps */
+    assert(amount_key_00(9999U, cap_n) == 999900U);
     assert(amount_key_back(1844U) == 184U);
     assert(amount_key_back(0U) == 0U);
     assert(amount_cents_to_units(1250U) == 12500000U);
@@ -182,21 +212,31 @@ int main(void)
 
     /* ── Pre-flight funds ─────────────────────────────────────────── */
     const uint64_t gas = 21000ULL * 30000000000ULL;   /* 630000000000000 wei */
-    assert(evm_funds_check(true, 630000000000000ULL, gas, 0U) == EVM_FUNDS_OK);
-    assert(evm_funds_check(true, 629999999999999ULL, gas, 0U) == EVM_FUNDS_SHORT_GAS);
-    assert(evm_funds_check(true, 631000000000000ULL, gas, 1U) == EVM_FUNDS_OK);
-    assert(evm_funds_check(true, 630999999999999ULL, gas, 1U) == EVM_FUNDS_SHORT_VALUE);
-    /* The sum that would wrap: 18446744 units + the gas is past 2^64, so no
-     * balance can pay it — a check that added instead of subtracting would
-     * have said yes. */
-    assert(evm_funds_check(true, UINT64_MAX, gas, 18446744ULL) == EVM_FUNDS_SHORT_VALUE);
-    assert(evm_funds_check(true, UINT64_MAX, gas, 18446114ULL) == EVM_FUNDS_OK);
-    assert(evm_funds_check(true, UINT64_MAX, gas, 18446115ULL) == EVM_FUNDS_SHORT_VALUE);
-    /* Past the native cap is not a verdict: the payment path refuses it by name. */
-    assert(evm_funds_check(true, UINT64_MAX, gas, 18446745ULL) == EVM_FUNDS_UNKNOWN);
+    uint8_t have[WEI_LEN];
+    wei_from_u64(630000000000000ULL, have);
+    assert(evm_funds_check(true, have, gas, 0U) == EVM_FUNDS_OK);
+    wei_from_u64(629999999999999ULL, have);
+    assert(evm_funds_check(true, have, gas, 0U) == EVM_FUNDS_SHORT_GAS);
+    wei_from_u64(631000000000000ULL, have);
+    assert(evm_funds_check(true, have, gas, 1U) == EVM_FUNDS_OK);
+    wei_from_u64(630999999999999ULL, have);
+    assert(evm_funds_check(true, have, gas, 1U) == EVM_FUNDS_SHORT_VALUE);
+    /* Past 2^64 on both sides: 9999.99 + the gas, exactly and 1 wei short. */
+    assert(evm_funds_check(true, HAVE_21e19bf7fc390b46000, gas, AMOUNT_UNITS_MAX)
+           == EVM_FUNDS_OK);
+    assert(evm_funds_check(true, HAVE_21e19bf7fc390b45fff, gas, AMOUNT_UNITS_MAX)
+           == EVM_FUNDS_SHORT_VALUE);
+    /* 2^64 - 1 wei (~18.44) no longer passes for a balance that pays 18.45. */
+    wei_from_u64(UINT64_MAX, have);
+    assert(evm_funds_check(true, have, gas, 18450000ULL) == EVM_FUNDS_SHORT_VALUE);
+    /* Past the keypad cap is not a verdict: the payment path refuses it by name. */
+    assert(evm_funds_check(true, HAVE_21e19bf7fc390b46000, gas, AMOUNT_UNITS_MAX + 1U)
+           == EVM_FUNDS_UNKNOWN);
     /* A token only needs the gas in wei; its own balance is a separate read. */
-    assert(evm_funds_check(false, gas, gas, 999999999U) == EVM_FUNDS_OK);
-    assert(evm_funds_check(false, gas - 1U, gas, 0U) == EVM_FUNDS_SHORT_GAS);
+    wei_from_u64(gas, have);
+    assert(evm_funds_check(false, have, gas, 999999999U) == EVM_FUNDS_OK);
+    wei_from_u64(gas - 1U, have);
+    assert(evm_funds_check(false, have, gas, 0U) == EVM_FUNDS_SHORT_GAS);
 
     /* ── Fee ceiling text, rounded up ─────────────────────────────── */
     for (size_t i = 0U; i < (sizeof(COIN_TEXT) / sizeof(COIN_TEXT[0])); i++) {

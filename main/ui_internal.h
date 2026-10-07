@@ -46,7 +46,7 @@
 
 #include "settings.h"
 
-#include "money.h"       /* keypad cents, the native cap, amount text — host-tested */
+#include "money.h"       /* keypad cents, amount text — host-tested */
 
 #include "touch_cal.h"   /* two-point calibration arithmetic, host-tested */
 
@@ -483,7 +483,6 @@ const char *asset_network(pos_chain_t c = settings_get_chain());
 const char *asset_caption(pos_chain_t c = settings_get_chain());
 void request_screen(ui_screen_t s);
 void set_wifi_progress(const char *caption, const char *name);
-uint64_t amount_cents_max(void);
 void charge_set_busy(void);
 void code_field_reveal(lv_obj_t *ta, lv_obj_t *eye_lbl);
 void btn_event_cb(lv_event_t *e);

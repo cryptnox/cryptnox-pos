@@ -24,12 +24,12 @@
 
 /*
  * Worst-case bytes consumed in items[] by every non-calldata field:
- *   5x uint64 (<=9 each = 45) + to (21) + eth_value (<=9) + calldata
- *   header (<=9) + empty access list (1) + v (<=9) + r (<=33) + s (<=33) = 160.
+ *   5x uint64 (<=9 each = 45) + to (21) + eth_value (<=33) + calldata
+ *   header (<=9) + empty access list (1) + v (<=9) + r (<=33) + s (<=33) = 184.
  * Any calldata longer than what remains would overflow the stack buffer
  * before the out_max check ever runs, so it is rejected up front.
  */
-#define ITEMS_FIXED_MAX   160U
+#define ITEMS_FIXED_MAX   184U
 #define CALLDATA_MAX      (ITEMS_BUF_MAX - ITEMS_FIXED_MAX)
 
 /******************************************************************
@@ -227,7 +227,7 @@ static size_t encode_common_fields(const eth_tx_t *tx,
     w = rlp_uint64(tx->max_fee,          items + n, items_cap - n); if (w == 0U) { return 0U; } n += w;
     w = rlp_uint64(tx->gas_limit,        items + n, items_cap - n); if (w == 0U) { return 0U; } n += w;
     w = rlp_bytes(tx->to, 20U,           items + n, items_cap - n); if (w == 0U) { return 0U; } n += w;
-    w = rlp_uint64(tx->eth_value,        items + n, items_cap - n); if (w == 0U) { return 0U; } n += w;
+    w = rlp_int256(tx->eth_value,        items + n, items_cap - n); if (w == 0U) { return 0U; } n += w;
     w = rlp_bytes(tx->calldata, tx->calldata_len,
                                          items + n, items_cap - n); if (w == 0U) { return 0U; } n += w;
 

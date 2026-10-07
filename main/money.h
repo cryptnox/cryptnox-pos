@@ -29,30 +29,16 @@
 
 #include "CW_Utils.h"   /* secure_wipe / safe_memcpy (CODING_RULES §1.4) */
 #include "eth_addr.h"   /* ETH_ADDR_LEN */
-#include "settings.h"   /* POS_AMOUNT_UNITS_MAX_NATIVE */
 
 /******************************************************************
  * Keypad amounts (ui.cpp)
  ******************************************************************/
 
-/* 9999.99: plenty for a counter terminal, and it keeps the figure, the cents
- * and the asset selector inside the amount row. */
+/* 9999.99 of any asset: plenty for a counter terminal, and it keeps the
+ * figure, the cents and the asset selector inside the amount row. */
 #define AMOUNT_CENTS_MAX  999999ULL   /* 9999.99 */
-/* 18.44 — POS_AMOUNT_UNITS_MAX_NATIVE expressed in the keypad's cents. */
-#define AMOUNT_CENTS_MAX_NATIVE  (POS_AMOUNT_UNITS_MAX_NATIVE / 10000ULL)
-
-/**
- * @brief Ceiling on what the keypad will accept, in cents.
- *
- * ETH and POL are 18-decimal and the signed value is a uint64 of wei, so a sale
- * stops at 18.44 of either (see POS_AMOUNT_UNITS_MAX_NATIVE).
- *
- * @param[in] native true for an EVM network's own coin (ETH, POL).
- */
-static inline uint64_t amount_cents_cap(bool native)
-{
-    return native ? AMOUNT_CENTS_MAX_NATIVE : AMOUNT_CENTS_MAX;
-}
+/* The same ceiling in 6-decimal base units. */
+#define AMOUNT_UNITS_MAX  (AMOUNT_CENTS_MAX * 10000ULL)
 
 /** @brief A digit shifted in from the right; refused whole if it passes @p cap. */
 static inline uint64_t amount_key_digit(uint64_t cents, unsigned digit, uint64_t cap)
@@ -92,18 +78,60 @@ static inline void amount_format(uint64_t units, char *out, size_t n)
  * Units, wei and fees (main.cpp)
  ******************************************************************/
 
+/** @brief How wei is carried: a uint256, 32 bytes big-endian, as on chain. */
+#define WEI_LEN  32U
+
+/** @brief @p v as a uint256. */
+static inline void wei_from_u64(uint64_t v, uint8_t out[WEI_LEN])
+{
+    for (size_t i = 0U; i < WEI_LEN; i++) {
+        out[(WEI_LEN - 1U) - i] =
+            (i < 8U) ? static_cast<uint8_t>((v >> (8U * i)) & 0xFFU) : 0U;
+    }
+}
+
+/** @brief a += b. A carry out of the top byte is dropped; every caller here
+ *         stays below 2^80. */
+static inline void wei_add(uint8_t a[WEI_LEN], const uint8_t b[WEI_LEN])
+{
+    unsigned carry = 0U;
+    for (size_t i = WEI_LEN; i > 0U; i--) {
+        const unsigned s = static_cast<unsigned>(a[i - 1U]) + b[i - 1U] + carry;
+        a[i - 1U] = static_cast<uint8_t>(s & 0xFFU);
+        carry = s >> 8;
+    }
+}
+
+/** @brief a < b. Equal-length big-endian, so byte order is numeric order. */
+static inline bool wei_lt(const uint8_t a[WEI_LEN], const uint8_t b[WEI_LEN])
+{
+    return memcmp(a, b, WEI_LEN) < 0;
+}
+
 /**
  * @brief 6-decimal keypad units -> wei, for the 18-decimal coins only.
  *
+ * 9999.99 is ~2^73 wei, past a uint64, hence the uint256 result. Under the
+ * ceiling units * 10^6 still fits a uint64; the second 10^6 goes over its two
+ * 32-bit halves so neither product wraps.
+ *
  * @param[in]  units Sale amount in keypad base units.
  * @param[out] wei   units * 10^12; untouched on refusal.
- * @return false past @ref POS_AMOUNT_UNITS_MAX_NATIVE, where the multiply
- *         would wrap and sign a value nobody entered.
+ * @return false past @ref AMOUNT_UNITS_MAX, a value the keypad cannot key.
  */
-static inline bool evm_units_to_wei(uint64_t units, uint64_t *wei)
+static inline bool evm_units_to_wei(uint64_t units, uint8_t wei[WEI_LEN])
 {
-    if (units > POS_AMOUNT_UNITS_MAX_NATIVE) { return false; }
-    *wei = units * 1000000000000ULL;
+    if (units > AMOUNT_UNITS_MAX) { return false; }
+    const uint64_t x = units * 1000000ULL;                 /* < 2^54 */
+    uint8_t lo[WEI_LEN];
+    uint8_t hi[WEI_LEN];
+    wei_from_u64((x & 0xFFFFFFFFULL) * 1000000ULL, lo);   /* < 2^52 */
+    wei_from_u64((x >> 32) * 1000000ULL, hi);             /* < 2^42 */
+    /* hi << 32: four bytes towards the front */
+    (void)memmove(hi, hi + 4U, WEI_LEN - 4U);
+    (void)memset(hi + (WEI_LEN - 4U), 0, 4U);
+    wei_add(lo, hi);
+    (void)CW_Utils::safe_memcpy(wei, WEI_LEN, lo, WEI_LEN);
     return true;
 }
 
@@ -145,28 +173,30 @@ typedef enum {
     EVM_FUNDS_OK = 0,      /**< Covered (for a token: the gas is).          */
     EVM_FUNDS_SHORT_GAS,   /**< Not even the network fee.                   */
     EVM_FUNDS_SHORT_VALUE, /**< The fee, but not the fee plus the amount.   */
-    EVM_FUNDS_UNKNOWN,     /**< Amount past the native cap: not ours to say. */
+    EVM_FUNDS_UNKNOWN,     /**< Amount past the keypad cap: not ours to say. */
 } evm_funds_t;
 
 /**
  * @brief Can @p have_wei pay for this sale?
  *
  * @param[in] native   true for ETH/POL; for a token only the gas is in wei.
- * @param[in] have_wei Account balance.
+ * @param[in] have_wei Account balance, uint256.
  * @param[in] gas_cost Gas limit * max fee.
  * @param[in] units    Sale amount in keypad base units (native only).
  */
-static inline evm_funds_t evm_funds_check(bool native, uint64_t have_wei,
+static inline evm_funds_t evm_funds_check(bool native,
+                                          const uint8_t have_wei[WEI_LEN],
                                           uint64_t gas_cost, uint64_t units)
 {
-    if (have_wei < gas_cost) { return EVM_FUNDS_SHORT_GAS; }
+    uint8_t need[WEI_LEN];
+    wei_from_u64(gas_cost, need);
+    if (wei_lt(have_wei, need)) { return EVM_FUNDS_SHORT_GAS; }
     if (!native) { return EVM_FUNDS_OK; }
-    uint64_t value_wei = 0U;
-    if (!evm_units_to_wei(units, &value_wei)) { return EVM_FUNDS_UNKNOWN; }
-    /* Subtracting rather than adding: value is capped at just under 2^64
-     * wei, so value + gas_cost is the one sum here that could overflow —
-     * and the gas is already known to be covered. */
-    if ((have_wei - gas_cost) < value_wei) { return EVM_FUNDS_SHORT_VALUE; }
+    uint8_t value_wei[WEI_LEN];
+    if (!evm_units_to_wei(units, value_wei)) { return EVM_FUNDS_UNKNOWN; }
+    /* Under 2^64 + 2^74: the uint256 sum cannot wrap. */
+    wei_add(need, value_wei);
+    if (wei_lt(have_wei, need)) { return EVM_FUNDS_SHORT_VALUE; }
     return EVM_FUNDS_OK;
 }
 

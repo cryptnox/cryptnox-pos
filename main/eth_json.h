@@ -113,16 +113,13 @@ eth_json_receipt_t eth_json_receipt_check(const char *resp,
                                           const eth_receipt_expect_t *want);
 
 /**
- * @brief Parse a JSON-RPC QUANTITY ("0x0", "0x1a", 64 hex chars) into a
- *        uint64, saturating instead of wrapping.
+ * @brief Parse a JSON-RPC QUANTITY ("0x0", "0x1a", 64 hex chars) into a 32-byte
+ *        big-endian uint256 — the width Ethereum itself uses for a balance.
  *
- * A balance is a uint256 and this is not, so a value wider than 16 significant
- * hex digits reports @c UINT64_MAX. That direction is the safe one for the
- * callers here: these numbers are compared against what a sale costs, and an
- * over-reported balance only lets a doomed sale through to the node that would
- * have refused it anyway — which is the behaviour without this check at all —
- * whereas a wrapped one would refuse a sale that is funded. An account holding
- * 20 ETH is past 2^64 wei, so this is the ordinary case and not a corner.
+ * Wider than 64 significant hex digits cannot be a uint256 at all; it reports
+ * all-0xFF rather than failing, the safe direction for a balance compared
+ * against what a sale costs (it can only fail to refuse, never refuse a funded
+ * sale).
  *
  * Header-only, and deliberately: it is the one piece of this unit a host test
  * can reach without cJSON (tests/units/test_eth_hex.cpp).
@@ -132,7 +129,7 @@ eth_json_receipt_t eth_json_receipt_check(const char *resp,
  * @return true on a well-formed quantity; false on a missing prefix, an empty
  *         body, or any non-hex character anywhere in it.
  */
-static inline bool eth_json_hex_quantity(const char *hex, uint64_t *out)
+static inline bool eth_json_hex_u256(const char *hex, uint8_t out[32])
 {
     if ((hex == NULL) || (out == NULL)) { return false; }
     if ((hex[0] != '0') || ((hex[1] != 'x') && (hex[1] != 'X'))) { return false; }
@@ -157,16 +154,41 @@ static inline bool eth_json_hex_quantity(const char *hex, uint64_t *out)
      * One digit always survives, so "0x000" stays parseable as zero. */
     while ((*p == '0') && (p[1] != '\0')) { p++; len--; }
 
-    if (len > 16U) { *out = UINT64_MAX; return true; }
+    if (len > 64U) {
+        for (size_t i = 0U; i < 32U; i++) { out[i] = 0xFFU; }
+        return true;
+    }
 
-    uint64_t v = 0U;
+    /* Right-aligned: the last digit is the low nibble of out[31]. */
+    for (size_t i = 0U; i < 32U; i++) { out[i] = 0U; }
     for (size_t i = 0U; i < len; i++) {
-        const char c = p[i];
+        const char c = p[len - 1U - i];
         uint8_t n;
         if ((c >= '0') && (c <= '9'))      { n = (uint8_t)(c - '0'); }
         else if ((c >= 'a') && (c <= 'f')) { n = (uint8_t)((c - 'a') + 10); }
         else                               { n = (uint8_t)((c - 'A') + 10); }
-        v = (v << 4) | (uint64_t)n;
+        out[31U - (i / 2U)] |= (uint8_t)(((i % 2U) != 0U) ? (n << 4) : n);
+    }
+    return true;
+}
+
+/**
+ * @brief @ref eth_json_hex_u256, narrowed to a uint64 that saturates at
+ *        @c UINT64_MAX instead of wrapping.
+ *
+ * For the quantities that are small by nature (a nonce, decimals, a 6-decimal
+ * token balance). Saturating is the safe direction for the same reason as
+ * above. A native balance is not one of them: use the uint256 form.
+ */
+static inline bool eth_json_hex_quantity(const char *hex, uint64_t *out)
+{
+    if (out == NULL) { return false; }
+    uint8_t w[32];
+    if (!eth_json_hex_u256(hex, w)) { return false; }
+    uint64_t v = 0U;
+    for (size_t i = 0U; i < 32U; i++) {
+        if ((i < 24U) && (w[i] != 0U)) { *out = UINT64_MAX; return true; }
+        if (i >= 24U) { v = (v << 8) | (uint64_t)w[i]; }
     }
     *out = v;
     return true;

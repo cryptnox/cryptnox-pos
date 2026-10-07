@@ -124,13 +124,14 @@ bool eth_rpc_get_nonce(uint64_t *nonce_out);
  * it the first news of an empty account is the node's refusal *after* the PIN,
  * the tap and the signature.
  *
- * Saturating at @c UINT64_MAX (see @ref eth_json_hex_quantity): 20 ETH does not
- * fit a uint64 of wei, and over-reporting can only fail to refuse.
+ * A full uint256 (see @ref eth_json_hex_u256): 20 ETH does not fit a uint64
+ * of wei, and a native sale can be worth more than that.
  *
- * @param[out] wei_out Balance on success; untouched on failure.
+ * @param[out] wei_out Balance, 32 bytes big-endian, on success; untouched on
+ *                     failure.
  * @return true on success, false on transport or parse error.
  */
-bool eth_rpc_get_balance(uint64_t *wei_out);
+bool eth_rpc_get_balance(uint8_t wei_out[32]);
 
 /**
  * @brief Fetch from_addr's balance of an ERC-20, via @c balanceOf over eth_call.
@@ -141,7 +142,8 @@ bool eth_rpc_get_balance(uint64_t *wei_out);
  * the whole confirmation only to be declined, and pays the gas for the
  * privilege.
  *
- * Saturating, like @ref eth_rpc_get_balance.
+ * Saturating at @c UINT64_MAX (see @ref eth_json_hex_quantity): over-reporting
+ * can only fail to refuse.
  *
  * @param[in]  token_addr "0x..."-prefixed contract address to call.
  * @param[out] units_out  Balance in the token's base units on success;

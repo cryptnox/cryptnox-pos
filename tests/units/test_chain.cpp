@@ -83,14 +83,6 @@ int main(void)
     assert(!pos_chain_is_native_evm(POS_CHAIN_POLY_USDC));
     assert(!pos_chain_is_native_evm(POS_CHAIN_POLY_USDT));
 
-    /* The 18-decimal ceiling: units * 10^12 must still fit a uint64 of wei, and
-     * one unit more must not. This is the number that keeps the card from
-     * signing a wrapped value nobody entered. */
-    assert(POS_AMOUNT_UNITS_MAX_NATIVE * 1000000000000ULL / 1000000000000ULL
-           == POS_AMOUNT_UNITS_MAX_NATIVE);
-    assert(POS_AMOUNT_UNITS_MAX_NATIVE
-           == (uint64_t)(UINT64_MAX / 1000000000000ULL));
-
     /* No selection is in two families, and every one is in at most one — the
      * loop is over the whole enum, so an asset added without touching either
      * predicate still has to come out as a plain Ethereum chain deliberately

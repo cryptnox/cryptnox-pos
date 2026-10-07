@@ -252,19 +252,8 @@ void set_wifi_progress(const char *caption, const char *name) {
     s_wifi_name[sizeof(s_wifi_name) - 1] = '\0';
 }
 
-/* amount_format, AMOUNT_CENTS_MAX(_NATIVE) and the keypad arithmetic are in
- * money.h, where test_money can reach them. */
-
-/**
- * Ceiling on what the keypad will accept, for the asset currently selected.
- *
- * ETH and POL are 18-decimal and the signed value is a uint64 of wei, so a sale
- * stops at 18.44 of either (see POS_AMOUNT_UNITS_MAX_NATIVE). Enforced at the
- * keypad rather than at the confirm step, so the mistake is never keyed.
- */
-uint64_t amount_cents_max(void) {
-    return amount_cents_cap(pos_chain_is_native_evm(settings_get_chain()));
-}
+/* amount_format, AMOUNT_CENTS_MAX and the keypad arithmetic are in money.h,
+ * where test_money can reach them. */
 
 /**
  * @brief Open the admin panel's front door — the code screen, not the panel.
@@ -319,12 +308,6 @@ void btn_event_cb(lv_event_t *e) {
             return;
         }
         settings_set_chain(picked);
-        /* The entered amount outlives the picker, so switching to an 18-decimal
-         * coin can leave a figure the new asset cannot carry. Clamp it to the
-         * new ceiling. */
-        if (s_amount_cents > amount_cents_max()) {
-            s_amount_cents = amount_cents_max();
-        }
         close_modal();
         /* Repoint the contract and payout strings before the rebuild reads
          * them, or the Tx tab shows the previous asset's contract and, across

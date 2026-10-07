@@ -43,7 +43,7 @@ USDC_SEPOLIA = "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238"
 
 GWEI = 10 ** 9
 WEI_PER_UNIT = 10 ** 12          # 6-decimal keypad units -> 18-decimal wei
-UNITS_MAX_NATIVE = 18446744      # POS_AMOUNT_UNITS_MAX_NATIVE
+UNITS_MAX = 999999 * 10000       # AMOUNT_UNITS_MAX: 9999.99, every asset
 U64 = 2 ** 64
 
 
@@ -110,7 +110,7 @@ def main():
     # 2. The largest native sale the keypad allows, on Polygon, at its tip floor;
     #    nonce 0 (RLP empty string).
     tx_vector("POLMAX", 137, 0, 30 * GWEI, 30 * GWEI, 21000, PAYEE,
-              UNITS_MAX_NATIVE * WEI_PER_UNIT, b"")
+              UNITS_MAX * WEI_PER_UNIT, b"")
 
     # 3. One unit of ETH on mainnet, nonce >= 128 (two-byte RLP), and a nonce
     #    chosen so r has a leading zero byte that the encoder must strip.
@@ -124,20 +124,21 @@ def main():
         print(c_bytes(f"CALLDATA_{amt:x}", usdc_calldata(PAYEE, amt)))
     print()
 
-    print("/* units -> wei at the native ceiling (2^64 = %d) */" % U64)
-    for u in (UNITS_MAX_NATIVE - 1, UNITS_MAX_NATIVE, UNITS_MAX_NATIVE + 1):
-        w = u * WEI_PER_UNIT
-        print(f"/* {u} units = {w} wei, fits uint64: {w < U64} */")
+    print("/* units -> wei, uint256 big-endian */")
+    for u in (1, 18446744, 18446745, UNITS_MAX):
+        print(c_bytes(f"WEI_{u}", (u * WEI_PER_UNIT).to_bytes(32, "big")))
     print()
 
     print("/* native funds: (have, gas cost, units) -> can pay gas / gas + value */")
     gas = 21000 * 30 * GWEI
     for have, units in ((gas, 0), (gas - 1, 0), (gas + 10 ** 12, 1), (gas + 10 ** 12 - 1, 1),
-                        (U64 - 1, UNITS_MAX_NATIVE), (U64 - 1, (U64 - 1 - gas) // WEI_PER_UNIT),
-                        (U64 - 1, (U64 - 1 - gas) // WEI_PER_UNIT + 1)):
+                        (gas + UNITS_MAX * WEI_PER_UNIT, UNITS_MAX),
+                        (gas + UNITS_MAX * WEI_PER_UNIT - 1, UNITS_MAX)):
         need = gas + units * WEI_PER_UNIT
-        print(f"/* have {have}, gas {gas}, units {units}: gas {have >= gas},"
-              f" all {have >= need} */")
+        print(f"/* have {have} (0x{have:x}), gas {gas}, units {units}:"
+              f" gas {have >= gas}, all {have >= need} */")
+        if have >= U64:
+            print(c_bytes(f"HAVE_{have:x}", have.to_bytes(32, "big")))
     print()
 
     print("/* fee ceilings, rounded up to 6 places: (base units, decimals) -> text */")

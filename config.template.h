@@ -294,12 +294,7 @@
 #define GAS_LIMIT_ERC20   100000ULL
 
 /* Gas for a plain ETH / POL transfer to an account: exactly 21000, because no
- * contract runs. Optional — the firmware defaults to this if it is not set.
- *
- * Note the ceiling on those two assets: they are 18-decimal and the signed value
- * is a uint64 of wei, so a single sale stops at 18.446744 ETH or POL. The keypad
- * enforces it on the way in; the payment path re-checks it. The 6-decimal
- * stablecoins are unaffected and keep the full 99999.99 range. */
+ * contract runs. Optional — the firmware defaults to this if it is not set. */
 #define GAS_LIMIT_NATIVE  21000ULL
 
 #endif // CONFIG_H
