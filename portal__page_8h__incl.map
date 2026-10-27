@@ -1,7 +1,7 @@
 <map id="main/portal_page.h" name="main/portal_page.h">
-<area shape="rect" id="Node000001" title="The config portal&#39;s document — the HTML/CSS half and the script half." alt="" coords="45,5,193,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,105,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,33,77,70,73,67,107,29"/>
-<area shape="rect" id="Node000003" href="$portal__fonts_8h.html" title=" " alt="" coords="129,79,241,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,29,167,67,163,70,128,33"/>
+<area shape="rect" id="Node000001" title="The config portal&#39;s document — the HTML/CSS half and the script half." alt="" coords="45,5,193,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,105,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,32,78,71,75,67,105,35"/>
+<area shape="rect" id="Node000003" href="$portal__fonts_8h.html" title=" " alt="" coords="129,81,240,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,31,166,69,160,70,130,36"/>
 </map>

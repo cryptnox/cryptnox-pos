@@ -1,13 +1,13 @@
 <map id="main/assets.h" name="main/assets.h">
-<area shape="rect" id="Node000001" title="What each selectable asset IS — one row per pos_chain_t." alt="" coords="91,5,205,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,88,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,33,94,80,60,141,55,138,90,77,133,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="208,152,283,177"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,29,184,50,206,77,224,108,238,138,233,140,220,111,202,80,180,54,159,33"/>
-<area shape="rect" id="Node000004" href="$settings_8h.html" title="Persistent device settings stored in NVS (backlight, Wi&#45;Fi creds)." alt="" coords="105,79,191,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,31,151,65,145,65,145,31"/>
-<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="133,106,76,146,73,142,130,102"/>
-<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="165,102,220,141,217,146,162,106"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="113,152,183,177"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="151,104,151,138,145,138,145,104"/>
+<area shape="rect" id="Node000001" title="What each selectable asset IS — one row per pos_chain_t." alt="" coords="90,5,202,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,157,87,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,36,94,83,60,144,55,141,89,79,134,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="205,157,279,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,31,203,79,221,111,234,143,229,142,216,113,198,83,159,36"/>
+<area shape="rect" id="Node000004" href="$settings_8h.html" title="Persistent device settings stored in NVS (backlight, Wi&#45;Fi creds)." alt="" coords="103,81,189,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="147,31,149,66,143,64,145,36"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="131,108,77,150,74,145,126,110"/>
+<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="164,107,216,147,210,147,162,112"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="111,157,181,184"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="148,107,148,142,144,140,144,111"/>
 </map>

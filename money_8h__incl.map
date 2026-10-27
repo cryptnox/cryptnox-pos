@@ -1,22 +1,22 @@
 <map id="main/money.h" name="main/money.h">
-<area shape="rect" id="Node000001" title="The sale&#39;s arithmetic: keypad cents, base units, wei, fees, calldata." alt="" coords="263,5,378,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,92,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,33,106,78,105,73,276,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="97,152,179,177"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="264,28,207,46,180,60,157,80,149,93,144,108,140,139,134,138,138,107,144,91,153,77,177,56,205,41,262,23"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="207,152,282,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="317,32,259,141,255,139,312,30"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="308,152,379,177"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="325,31,342,138,337,139,320,32"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="383,79,450,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="338,29,391,68,388,72,335,33"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="475,79,545,104"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="352,28,467,71,465,76,350,33"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="570,79,663,104"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="369,28,557,73,556,78,368,33"/>
-<area shape="rect" id="Node000009" href="$eth__addr_8h.html" title="Hex Ethereum&#45;address parsing — a pure, dependency&#45;free unit so it can be unit&#45;tested and fuzzed on th..." alt="" coords="167,79,258,104"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="305,33,243,73,240,69,302,28"/>
-<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="203,106,162,144,158,141,199,102"/>
-<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="220,103,236,139,232,141,216,105"/>
-<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="235,102,311,143,309,148,232,106"/>
+<area shape="rect" id="Node000001" title="The sale&#39;s arithmetic: keypad cents, base units, wei, fees, calldata." alt="" coords="262,5,376,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,92,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,36,107,80,106,75,271,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,157,178,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,28,205,47,178,62,156,83,148,96,142,111,138,143,134,140,137,110,143,94,152,79,175,58,203,42,264,26"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="206,157,280,184"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="315,32,259,144,255,141,310,34"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="307,157,377,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="323,31,340,142,335,140,319,35"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="382,81,448,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="337,31,389,71,383,71,336,36"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="472,81,542,109"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="353,31,462,75,457,76,352,36"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="566,81,659,109"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="372,31,554,78,549,79,372,36"/>
+<area shape="rect" id="Node000009" href="$eth__addr_8h.html" title="Hex Ethereum&#45;address parsing — a pure, dependency&#45;free unit so it can be unit&#45;tested and fuzzed on th..." alt="" coords="166,81,256,109"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="302,32,244,74,241,70,298,35"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="201,108,163,148,160,143,196,110"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="218,107,234,143,229,142,215,111"/>
+<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="235,107,308,149,303,149,234,112"/>
 </map>

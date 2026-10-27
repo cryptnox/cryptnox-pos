@@ -1,35 +1,35 @@
 <map id="main/eth_rpc.cpp" name="main/eth_rpc.cpp">
-<area shape="rect" id="Node000001" title="Ethereum JSON&#45;RPC client implementation (HTTPS). Network bring&#45;up (Wi&#45;Fi, SNTP) lives in net...." alt="" coords="401,5,536,31"/>
-<area shape="rect" id="Node000002" href="$eth__rpc_8h.html" title="Ethereum JSON&#45;RPC client over HTTPS (nonce / ecrecover parity / raw&#45;tx broadcast / receipt polling)...." alt="" coords="77,79,159,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,33,173,82,172,76,412,28"/>
-<area shape="rect" id="Node000006" href="$eth__json_8h.html" title="JSON&#45;RPC response parsing helpers — kept in their own unit (cJSON + CW_Utils only,..." alt="" coords="113,152,203,177"/>
-<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="405,33,335,52,263,81,217,112,181,144,177,140,214,107,261,76,334,47,404,28"/>
-<area shape="rect" id="Node000007" href="$https__post_8h.html" title="One HTTPS JSON POST, shared by every RPC client in the firmware." alt="" coords="279,152,381,177"/>
-<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="402,23,368,29,333,39,302,56,276,80,271,95,276,111,288,127,304,142,300,146,285,131,272,114,266,95,272,77,298,52,331,34,366,24,401,18"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="285,79,356,104"/>
-<area shape="poly" id="edge13_Node000001_Node000008" title=" " alt="" coords="446,33,358,75,356,70,444,28"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="380,79,459,104"/>
-<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="463,33,437,69,433,66,458,29"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="483,79,553,104"/>
-<area shape="poly" id="edge15_Node000001_Node000010" title=" " alt="" coords="479,29,504,66,500,69,475,33"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="578,79,645,104"/>
-<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="493,28,577,70,575,75,490,33"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="669,79,756,104"/>
-<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="509,28,661,72,659,77,507,33"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="781,79,874,104"/>
-<area shape="poly" id="edge18_Node000001_Node000013" title=" " alt="" coords="527,28,767,75,766,81,526,33"/>
-<area shape="rect" id="Node000014" title=" " alt="" coords="899,79,983,104"/>
-<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="536,25,692,46,885,76,884,81,691,51,536,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,225,76,251"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,106,56,215,51,212,109,103"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="213,225,287,251"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="148,102,184,121,217,150,236,181,247,211,242,213,231,183,213,154,180,126,145,106"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="106,225,189,251"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="114,105,103,138,100,158,103,177,113,196,127,214,123,217,109,199,98,178,95,158,97,137,109,104"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="127,103,147,139,142,141,122,106"/>
-<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="141,180,73,220,70,216,138,175"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="174,175,226,215,223,219,171,179"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="159,178,154,212,148,211,154,177"/>
-<area shape="poly" id="edge12_Node000007_Node000004" title=" " alt="" coords="319,179,275,218,271,214,315,175"/>
-<area shape="poly" id="edge11_Node000007_Node000005" title=" " alt="" coords="302,180,191,223,189,218,300,175"/>
+<area shape="rect" id="Node000001" title="Ethereum JSON&#45;RPC client implementation (HTTPS). Network bring&#45;up (Wi&#45;Fi, SNTP) lives in net...." alt="" coords="396,5,530,33"/>
+<area shape="rect" id="Node000002" href="$eth__rpc_8h.html" title="Ethereum JSON&#45;RPC client over HTTPS (nonce / ecrecover parity / raw&#45;tx broadcast / receipt polling)...." alt="" coords="76,81,157,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,36,173,84,172,79,402,31"/>
+<area shape="rect" id="Node000006" href="$eth__json_8h.html" title="JSON&#45;RPC response parsing helpers — kept in their own unit (cJSON + CW_Utils only,..." alt="" coords="112,157,201,184"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="394,34,330,55,262,83,217,115,180,148,177,144,213,110,259,79,328,50,399,32"/>
+<area shape="rect" id="Node000007" href="$https__post_8h.html" title="One HTTPS JSON POST, shared by every RPC client in the firmware." alt="" coords="275,157,376,184"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="394,23,363,31,329,42,298,58,273,82,268,98,273,114,284,130,299,147,293,146,279,133,268,116,263,98,269,80,295,54,327,37,362,26,399,21"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="283,81,353,109"/>
+<area shape="poly" id="edge13_Node000001_Node000008" title=" " alt="" coords="435,35,358,76,356,71,440,32"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="376,81,454,109"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="457,32,434,70,430,66,453,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="478,81,547,109"/>
+<area shape="poly" id="edge15_Node000001_Node000010" title=" " alt="" coords="473,31,498,69,493,67,471,36"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="572,81,637,109"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="489,31,568,73,563,74,488,36"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="661,81,748,109"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="506,31,649,76,644,76,506,36"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="772,81,864,109"/>
+<area shape="poly" id="edge18_Node000001_Node000013" title=" " alt="" coords="528,31,759,80,754,81,528,36"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="888,81,972,109"/>
+<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="530,26,684,47,876,80,871,81,683,52,531,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,232,76,260"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,110,56,220,52,217,107,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="210,232,284,260"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="147,107,183,127,215,155,233,186,244,219,239,217,228,188,210,158,180,131,147,112"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="105,232,186,260"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="112,107,102,144,100,164,103,184,112,202,125,221,119,220,107,205,98,185,95,164,97,143,109,111"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="124,107,145,143,139,143,123,112"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="138,185,75,226,73,222,133,185"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="174,182,222,222,217,222,172,187"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="157,183,152,218,148,216,153,187"/>
+<area shape="poly" id="edge12_Node000007_Node000004" title=" " alt="" coords="314,184,274,224,271,219,309,186"/>
+<area shape="poly" id="edge11_Node000007_Node000005" title=" " alt="" coords="296,184,192,229,191,224,291,185"/>
 </map>
