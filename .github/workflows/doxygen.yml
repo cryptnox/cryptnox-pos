@@ -1,5 +1,11 @@
 name: Build and deploy documentation
 
+# One job publishes the whole site, because two workflows pushing to gh-pages
+# with keep_files: false would each wipe the other's output.
+#
+#   docs.cryptnox.com/cryptnox-pos/       Sphinx guide (docs/source)
+#   docs.cryptnox.com/cryptnox-pos/api/   Doxygen API reference (docs/Doxyfile)
+
 on:
   push:
     branches:
@@ -7,8 +13,11 @@ on:
       - main
   workflow_dispatch:
 
+# contents: write lets the publish step push to the gh-pages branch;
+# pages: write lets the last step point GitHub Pages at that branch.
 permissions:
   contents: write
+  pages: write
 
 jobs:
   build-docs:
@@ -20,6 +29,11 @@ jobs:
       #    skip submodule init to keep the checkout fast.
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       # 2. Install Doxygen (pinned: Ubuntu's apt ships 1.9.x which does not
       #    understand the `> [!IMPORTANT]` GitHub-style alert syntax we use in
@@ -43,18 +57,55 @@ jobs:
           sudo install "/tmp/doxygen-${DOXYGEN_VERSION}/bin/doxygen" /usr/local/bin/doxygen
           doxygen --version
 
-      # 3. Build Doxygen documentation
-      - name: Generate Doxygen docs
-        run: doxygen docs/Doxyfile
+      - name: Install Sphinx and its extensions
+        run: |
+          sudo apt-get install -y libcairo2
+          pip install -r docs/requirements.txt
 
-      # 4. Deploy HTML documentation to GitHub Pages
+      # 3. Build the guide. -W turns warnings into errors: a broken cross
+      #    reference or a figure with no file fails the build instead of
+      #    shipping.
+      - name: Build Sphinx
+        run: sphinx-build -W -b html docs/source site
+
+      # 4. Build the API reference into site/api/
+      - name: Generate Doxygen docs
+        run: |
+          doxygen docs/Doxyfile
+          mkdir -p site/api
+          cp -r docs/html/. site/api/
+
+      # 5. Deploy the combined tree to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/html
+          publish_dir: site
           publish_branch: gh-pages
           allow_empty_commit: false
           keep_files: false
           force_orphan: false
           enable_jekyll: false
+
+      # GitHub Pages must serve the gh-pages branch, not the source branch.
+      # Set it here so the site does not depend on a manual setting; if the
+      # workflow token is not allowed to, fail with the instruction instead
+      # of publishing into the void.
+      - name: Point GitHub Pages at the gh-pages branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          current=$(gh api "repos/${GITHUB_REPOSITORY}/pages" \
+                      --jq '"\(.build_type):\(.source.branch // "")"' 2>/dev/null || echo unknown)
+          echo "Pages source is currently: ${current}"
+          if [ "${current}" = "legacy:gh-pages" ]; then
+            echo "Already serving from the gh-pages branch."
+            exit 0
+          fi
+          if gh api -X PUT "repos/${GITHUB_REPOSITORY}/pages" \
+               -f build_type=legacy -f 'source[branch]=gh-pages' -f 'source[path]=/'; then
+            echo "Pages source set to the gh-pages branch."
+          else
+            echo "::error::The workflow token may not change the Pages source. A repository admin must set Settings > Pages > Source to 'Deploy from a branch', branch 'gh-pages', folder '/ (root)'."
+            exit 1
+          fi
