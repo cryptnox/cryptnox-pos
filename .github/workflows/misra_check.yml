@@ -43,6 +43,7 @@ jobs:
             --suppress=missingIncludeSystem \
             --suppress=unusedFunction \
             -I main \
+            -i main/fonts \
             --force \
             main/
 
@@ -101,5 +102,6 @@ jobs:
             --suppress=missingIncludeSystem \
             --suppress=unusedFunction \
             -I main \
+            -i main/fonts \
             --force \
             main/

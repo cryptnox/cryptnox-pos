@@ -4,7 +4,7 @@
 
 ### cryptnox-pos
 
-Standalone USDC payment terminal powered by a Cryptnox smart card and the Cheap Yellow Display
+Standalone payment terminal powered by a Cryptnox smart card and the Cheap Yellow Display
 
 </div>
 

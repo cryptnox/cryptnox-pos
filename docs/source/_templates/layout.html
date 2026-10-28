@@ -1,0 +1,96 @@
+{% extends "!layout.html" %}
+
+{# ── SEO / head ────────────────────────────────────────────────────── #}
+{% block extrahead %}
+{{ super() }}
+
+{% set canonical_url = pageurl | replace('index.html', '') if pageurl else 'https://docs.cryptnox.com/cryptnox-pos/' %}
+
+{# Page-specific social description.
+   SOURCE: a docinfo field at the very top of the .rst, before the title:
+       :description: One sentence about this page.
+   NOT the `.. meta::` directive -- docutils renders that straight to HTML and it
+   never reaches Sphinx's template context, so meta.get('description') cannot see it.
+   Pages with no :description: fall back to the site-wide blurb, unchanged.
+   The same value also feeds <meta name="description">: the `.. meta::` directive
+   in the .rst files does not produce one. #}
+{% set page_description = (meta.get('description') if meta else None) or
+   "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card." %}
+
+<meta name="description" content="{{ page_description|e }}" />
+
+<link rel="canonical" href="{{ canonical_url }}" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:title" content="{{ title|striptags }} | Cryptnox Docs" />
+<meta property="og:description" content="{{ page_description|e }}" />
+<meta property="og:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+<meta property="og:site_name" content="Cryptnox Docs" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CryptnoxTech" />
+<meta name="twitter:title" content="{{ title|striptags }} | Cryptnox Docs" />
+<meta name="twitter:description" content="{{ page_description|e }}" />
+<meta name="twitter:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta name="twitter:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cryptnox.com/#organization",
+      "name": "Cryptnox SA",
+      "url": "https://cryptnox.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://docs.cryptnox.com/#logo",
+        "url": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "contentUrl": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "caption": "Cryptnox"
+      },
+      "sameAs": [
+        "https://shop.cryptnox.com/",
+        "https://github.com/cryptnox"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://docs.cryptnox.com/#website",
+      "url": "https://docs.cryptnox.com",
+      "name": "Cryptnox Docs",
+      "alternateName": "Cryptnox",
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://docs.cryptnox.com/cryptnox-pos/#webpage",
+      "url": "https://docs.cryptnox.com/cryptnox-pos/",
+      "name": "Cryptnox POS",
+      "description": "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card.",
+      "isPartOf": { "@id": "https://docs.cryptnox.com/#website" },
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US",
+      "keywords": "Cryptnox, POS, payment terminal, ESP32, PN532, NFC, USDC, USDT, Ethereum, Polygon, Tron, hardware wallet, documentation"
+    }
+  ]
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GT-PJ7HDFB');</script>
+
+{% endblock %}

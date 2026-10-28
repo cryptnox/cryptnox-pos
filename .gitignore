@@ -42,3 +42,8 @@ __pycache__/
 *secure_boot_signing_key*.pem
 *.key
 secure_keys/
+
+# Documentation build output (Doxygen and Sphinx)
+docs/html/
+docs/_build/
+docs/source/_static/cryptnox-logo-dark.png

@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+/* ── Typography ───────────────────────────────────────────────────────── */
+body, html, .wy-body-for-nav {
+    font-family: 'Noto Sans', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+/* ── Headings ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    font-family: 'Noto Sans', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+/* ── Links ────────────────────────────────────────────────────────────── */
+a {
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* ── Code blocks ──────────────────────────────────────────────────────── */
+.highlight {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+/* ── Tables ───────────────────────────────────────────────────────────── */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* ── RTD sidebar nav-search ───────────────────────────────────────────── */
+.wy-side-nav-search > a,
+.wy-side-nav-search .wy-dropdown > a {
+    color: #fcb770;
+}
+
+.wy-side-nav-search .icon::before,
+.wy-side-nav-search .fa-home::before {
+    color: #fcb770;
+}
+
+/* Logo at 80% — same as cryptnox-sdk-py */
+.wy-side-nav-search .wy-dropdown > a img.logo,
+.wy-side-nav-search > a img.logo,
+.cnx-logo-link svg {
+    width: 80%;
+    height: auto;
+}
+
+/* ── Breadcrumbs home icon ────────────────────────────────────────────── */
+.wy-breadcrumbs li a .fa-home::before,
+.wy-breadcrumbs li a .icon-home::before,
+.wy-breadcrumbs .fa-home,
+.wy-breadcrumbs .icon-home {
+    color: #fcb770;
+}
+
+/* ── Sidebar: toctree items indented as subtitles under caption ──────── */
+.wy-menu-vertical .toctree-l1 > a {
+    padding-left: 2.5rem;
+}
+
+/* ── Sidebar menu hover ───────────────────────────────────────────────── */
+.wy-menu-vertical a:hover {
+    color: #ffffff !important;
+    background: #fcb770 !important;
+}
+
+.wy-menu-vertical li.current a:hover,
+.wy-menu-vertical li.current > a:hover {
+    color: #ffffff !important;
+    background: #fcb770 !important;
+}
+
+/* ── Hide Sphinx anchor symbols ───────────────────────────────────────── */
+a.headerlink { display: none; }
+
+/* ── Hide toctree block on landing page ───────────────────────────────── */
+.toctree-wrapper { display: none; }
+
+/* ── Content area: wider left margin ─────────────────────────────────── */
+.wy-nav-content {
+    max-width: 1100px;
+    padding-left: 8rem;
+}
+
+/* ── Page title (h1) ──────────────────────────────────────────────────── */
+.rst-content h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid #e1e4e5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ── Cards container ──────────────────────────────────────────────────── */
+#cryptnox-product-documentation {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+#cryptnox-product-documentation > h1,
+#cryptnox-product-documentation > .toctree-wrapper {
+    width: 100%;
+}
+
+#cryptnox-product-documentation > hr {
+    display: none;
+}
+
+/* ── Product cards (full-width vertical rows) ─────────────────────────── */
+#cryptnox-hardware-wallet,
+#cryptnox-cli,
+#cryptnox-id-cli,
+#smart-card-readers,
+#cryptnox-sdk-for-python,
+#cryptnox-sdk-for-esp32,
+#cryptnox-sdk-for-arduino,
+#cryptnox-sdk-for-c {
+    background: #fff;
+    border-bottom: 1px solid #e1e4e5;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+/* ── Card icon — displayed below the section title ───────────────────── */
+.card-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 123, 255, 0.08);
+    border: 1px solid rgba(0, 123, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #007bff;
+}
+
+/* ── Card heading (h2) ────────────────────────────────────────────────── */
+#cryptnox-hardware-wallet h2,
+#cryptnox-cli h2,
+#cryptnox-id-cli h2,
+#smart-card-readers h2,
+#cryptnox-sdk-for-python h2,
+#cryptnox-sdk-for-esp32 h2,
+#cryptnox-sdk-for-arduino h2,
+#cryptnox-sdk-for-c h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2c3e50;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* ── Card description ─────────────────────────────────────────────────── */
+#cryptnox-hardware-wallet p,
+#cryptnox-cli p,
+#cryptnox-id-cli p,
+#smart-card-readers p,
+#cryptnox-sdk-for-python p,
+#cryptnox-sdk-for-esp32 p,
+#cryptnox-sdk-for-arduino p,
+#cryptnox-sdk-for-c p {
+    color: #6b7a8a;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    max-width: 680px;
+}
+
+/* ── Card link list — indented with bullet icons ─────────────────────── */
+#cryptnox-hardware-wallet ul,
+#cryptnox-cli ul,
+#cryptnox-id-cli ul,
+#smart-card-readers ul,
+#cryptnox-sdk-for-python ul,
+#cryptnox-sdk-for-esp32 ul,
+#cryptnox-sdk-for-arduino ul,
+#cryptnox-sdk-for-c ul,
+#other-resources ul {
+    list-style: disc !important;
+    padding-left: 1.5rem !important;
+    margin-left: 0 !important;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+}
+
+#cryptnox-hardware-wallet ul li,
+#cryptnox-cli ul li,
+#cryptnox-id-cli ul li,
+#smart-card-readers ul li,
+#cryptnox-sdk-for-python ul li,
+#cryptnox-sdk-for-esp32 ul li,
+#cryptnox-sdk-for-arduino ul li,
+#cryptnox-sdk-for-c ul li,
+#other-resources ul li {
+    list-style: disc !important;
+    margin-left: 0 !important;
+    margin: 0;
+}
+
+#cryptnox-hardware-wallet ul li p,
+#cryptnox-cli ul li p,
+#cryptnox-id-cli ul li p,
+#smart-card-readers ul li p,
+#cryptnox-sdk-for-python ul li p,
+#cryptnox-sdk-for-esp32 ul li p,
+#cryptnox-sdk-for-arduino ul li p,
+#cryptnox-sdk-for-c ul li p {
+    margin: 0;
+    color: #6b7a8a;
+}
+
+/* ── Other resources ──────────────────────────────────────────────────── */
+#other-resources {
+    grid-column: 1 / -1;
+    border-top: 1px solid #e1e4e5;
+    padding-top: 1.5rem;
+}
+
+#other-resources h2 {
+    font-size: 0.85rem !important;
+    font-weight: 600;
+    color: #9ba8b4 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: none !important;
+    margin-bottom: 0.75rem;
+}
+
+#other-resources ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#other-resources ul li {
+    margin: 0;
+}
+
+#other-resources ul li p {
+    margin: 0;
+}
+
+#other-resources a {
+    color: #007bff !important;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+#other-resources a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline;
+}
+
+/* ── Readers landing page ─────────────────────────────────────────────── */
+/* Everything above is the docs hub's custom.css verbatim. The hub card rules
+   key on the hub's own section ids, so the one card on this index gets the
+   same values here. Keep them in step with the card rules above. */
+#cryptnox-smart-card-readers > hr {
+    display: none;
+}
+
+#compatibility-guides {
+    background: #fff;
+    border-bottom: 1px solid #e1e4e5;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+#compatibility-guides h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2c3e50;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#compatibility-guides p {
+    color: #6b7a8a;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    max-width: 680px;
+}
+
+#compatibility-guides ul {
+    list-style: disc !important;
+    padding-left: 1.5rem !important;
+    margin-left: 0 !important;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+}
+
+#compatibility-guides ul li {
+    list-style: disc !important;
+    margin-left: 0 !important;
+    margin: 0;
+}
+
+#compatibility-guides ul li p {
+    margin: 0;
+    color: #6b7a8a;
+}
+
+
+/* ── Figures des guides illustrés ─────────────────────────────────────── */
+/* La légende collait à l'image : une ligne de respiration, et de l'air
+   entre deux captures qui se suivent. */
+.rst-content figure,
+.rst-content div.figure {
+    margin: 1.5rem 0 2rem;
+}
+
+.rst-content figure figcaption,
+.rst-content div.figure p.caption {
+    margin-top: 0.75rem;
+    color: #5b6576;
+}
