@@ -13,12 +13,12 @@ Standalone payment terminal powered by a Cryptnox smart card and the Cheap Yello
 
 [![Platform: ESP32-2432S028 (CYD)](https://img.shields.io/badge/Platform-ESP32--2432S028%20(CYD)-blue.svg)](https://github.com/witnessmenow/ESP32-Cheap-Yellow-Display)
 [![Framework: ESP-IDF v5.5](https://img.shields.io/badge/Framework-ESP--IDF%20v5.5-blue.svg)](https://docs.espressif.com/projects/esp-idf/en/v5.5/)
-[![SDK: cryptnox-sdk-esp32](https://img.shields.io/badge/SDK-cryptnox--sdk--esp32-blue.svg)](https://github.com/embarquech/cryptnox-sdk-esp32)
+[![SDK: cryptnox-sdk-esp32](https://img.shields.io/badge/SDK-cryptnox--sdk--esp32-blue.svg)](https://github.com/cryptnox/cryptnox-sdk-esp32)
 [![License: LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 `cryptnox-pos` is a self-contained payment terminal firmware that runs on the
 ESP32-2432S028 "Cheap Yellow Display" (CYD). It also serves as a reference
-**dev kit** showing how to integrate the [`cryptnox-sdk-esp32`](https://github.com/embarquech/cryptnox-sdk-esp32)
+**dev kit** showing how to integrate the [`cryptnox-sdk-esp32`](https://github.com/cryptnox/cryptnox-sdk-esp32)
 into a real-world end-user product.
 
 The user selects an amount on the touchscreen, taps a **Cryptnox smart card** on
@@ -49,7 +49,7 @@ testnet-only selection — Circle wound it down in 2024&ndash;25.
 
 ### Built on
 
-- **[`cryptnox-sdk-esp32`](https://github.com/embarquech/cryptnox-sdk-esp32)** (git submodule) — secure channel, ECDH/ECDSA, PN532 transport, ESP32 crypto provider
+- **[`cryptnox-sdk-esp32`](https://github.com/cryptnox/cryptnox-sdk-esp32)** (git submodule) — secure channel, ECDH/ECDSA, PN532 transport, ESP32 crypto provider
 - **[LVGL 8](https://lvgl.io/)** (managed component) — the touchscreen UI
 - **[TFT_eSPI](https://github.com/Bodmer/TFT_eSPI)** + **[XPT2046_Touchscreen](https://github.com/PaulStoffregen/XPT2046_Touchscreen)** (git submodules) — CYD panel driver + touch, behind LVGL
 - **[arduino-esp32](https://github.com/espressif/arduino-esp32)** as an ESP-IDF managed component (Arduino runtime for the display libraries; the rest stays on native IDF)
@@ -87,7 +87,7 @@ Works with Cryptnox Hardware Wallet smart cards running firmware v1.6.0 or later
    components; TFT_eSPI / XPT2046 are in-tree submodules).
 2. Clone this repository **with submodules**:
    ```
-   git clone --recursive https://github.com/embarquech/cryptnox-pos.git
+   git clone --recursive https://github.com/cryptnox/cryptnox-pos.git
    cd cryptnox-pos
    ```
 3. Copy the credentials template and fill it in:
@@ -312,7 +312,7 @@ python tools/secure_flash.py --package    # -> dist/cryptnox_pos-encrypted-full.
 
 ## Documentation
 
-The generated documentation for this project is available [here](https://embarquech.github.io/cryptnox-pos/).
+The generated documentation for this project is available [here](https://docs.cryptnox.com/cryptnox-pos/).
 
 - [The config portal](docs/config-portal.md) — setup and administration on the terminal's own SoftAP: why that AP is the radio's only interface while the page is up, why the admin code is only ever typed on the panel, and the endpoint list. Test plan: [docs/testing-provisioning.md](docs/testing-provisioning.md).
 - [Firmware updates over Wi-Fi](docs/ota.md) — the browser-mediated OTA path, publishing a release, and the signing key you must not ship without. Test plan: [docs/ota-testing.md](docs/ota-testing.md).
