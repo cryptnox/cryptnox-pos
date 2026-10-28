@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taking a USDC payment &mdash; Cryptnox POS</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=91701ab8" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/guide-payment.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a12e3537"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuring the terminal" href="guide-settings.html" />
+    <link rel="prev" title="Setting up the terminal" href="guide-setup.html" />
+ 
+
+
+
+
+
+
+<meta name="description" content="A sale on a Cryptnox POS terminal, screen by screen: choosing the coin, the amount, the card PIN, tapping the card and the Approved screen." />
+
+<link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/guide-payment.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.cryptnox.com/cryptnox-pos/guide-payment.html" />
+<meta property="og:title" content="Taking a USDC payment | Cryptnox Docs" />
+<meta property="og:description" content="A sale on a Cryptnox POS terminal, screen by screen: choosing the coin, the amount, the card PIN, tapping the card and the Approved screen." />
+<meta property="og:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+<meta property="og:site_name" content="Cryptnox Docs" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CryptnoxTech" />
+<meta name="twitter:title" content="Taking a USDC payment | Cryptnox Docs" />
+<meta name="twitter:description" content="A sale on a Cryptnox POS terminal, screen by screen: choosing the coin, the amount, the card PIN, tapping the card and the Approved screen." />
+<meta name="twitter:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta name="twitter:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cryptnox.com/#organization",
+      "name": "Cryptnox SA",
+      "url": "https://cryptnox.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://docs.cryptnox.com/#logo",
+        "url": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "contentUrl": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "caption": "Cryptnox"
+      },
+      "sameAs": [
+        "https://shop.cryptnox.com/",
+        "https://github.com/cryptnox"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://docs.cryptnox.com/#website",
+      "url": "https://docs.cryptnox.com",
+      "name": "Cryptnox Docs",
+      "alternateName": "Cryptnox",
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://docs.cryptnox.com/cryptnox-pos/#webpage",
+      "url": "https://docs.cryptnox.com/cryptnox-pos/",
+      "name": "Cryptnox POS",
+      "description": "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card.",
+      "isPartOf": { "@id": "https://docs.cryptnox.com/#website" },
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US",
+      "keywords": "Cryptnox, POS, payment terminal, ESP32, PN532, NFC, USDC, USDT, Ethereum, Polygon, Tron, hardware wallet, documentation"
+    }
+  ]
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GT-PJ7HDFB');</script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #101f2e" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cryptnox POS
+              <img src="_static/cryptnox-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Illustrated guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide-assembly.html">Assembling the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-setup.html">Setting up the terminal</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Taking a USDC payment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choose-the-coin">Choose the coin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enter-the-amount">Enter the amount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-the-payment">Review the payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enter-the-card-pin">Enter the card PIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tap-the-card">Tap the card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#payment-approved">Payment approved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#declined-or-not-confirmed-yet">Declined or not confirmed yet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide-settings.html">Configuring the terminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">Firmware and the card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating.html">Setting up and using</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting and questions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #101f2e" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cryptnox POS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Taking a USDC payment</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="taking-a-usdc-payment">
+<h1>Taking a USDC payment<a class="headerlink" href="#taking-a-usdc-payment" title="Link to this heading"></a></h1>
+<p>Everything happens on the terminal, but two people use it: the merchant
+sets up the charge, the customer approves it and pays with the card.</p>
+<section id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<p>The terminal must already be set up and connected to Wi-Fi. The customer’s Cryptnox card needs enough USDC on Ethereum, plus a little ETH to pay the network fee.</p>
+</section>
+<section id="choose-the-coin">
+<h2>Choose the coin<a class="headerlink" href="#choose-the-coin" title="Link to this heading"></a></h2>
+<p>The amount screen opens on the coin used last time. Change it if needed.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/011.png"><img alt="Tap the coin button next to the amount." src="_images/011.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Tap the coin button next to the amount.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/021.png"><img alt="Pick the network: Ethereum." src="_images/021.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Pick the network: <strong>Ethereum</strong>.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/031.png"><img alt="Pick the coin: USDC (ERC-20)." src="_images/031.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Pick the coin: <strong>USDC</strong> (ERC-20).</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="enter-the-amount">
+<h2>Enter the amount<a class="headerlink" href="#enter-the-amount" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/041.png"><img alt="Type the amount, for example 1.00. The 00 key adds two zeros at once. Tap Charge." src="_images/041.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Type the amount, for example <strong>1.00</strong>. The <strong>00</strong> key adds two zeros at once. Tap <strong>Charge</strong>.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="review-the-payment">
+<h2>Review the payment<a class="headerlink" href="#review-the-payment" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="_images/051.png"><img alt="The terminal shows the total, the recipient (the merchant’s payout address), the maximum network fee in ETH, and the USDC contract. Tap Confirm, or Cancel to stop." src="_images/051.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The terminal shows the total, the recipient (the merchant’s payout address), the maximum network fee in ETH, and the USDC contract. Tap <strong>Confirm</strong>, or <strong>Cancel</strong> to stop.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The recipient must be the merchant’s own payout address. If it isn’t, tap <strong>Cancel</strong>.</p>
+</div>
+</section>
+<section id="enter-the-card-pin">
+<h2>Enter the card PIN<a class="headerlink" href="#enter-the-card-pin" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_images/061.png"><img alt="The terminal asks for the PIN of the Cryptnox Hardware Wallet that will pay." src="_images/061.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The terminal asks for the PIN of the Cryptnox Hardware Wallet that will pay.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/071.png"><img alt="Type the PIN and tap ✓. The back arrow returns to the previous screen." src="_images/071.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Type the PIN and tap <strong>✓</strong>. The back arrow returns to the previous screen.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tap-the-card">
+<h2>Tap the card<a class="headerlink" href="#tap-the-card" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="_images/081.png"><img alt="With the total still on screen, hold the Cryptnox card against the reader. Tap Cancel to stop the payment." src="_images/081.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">With the total still on screen, hold the Cryptnox card against the reader. Tap <strong>Cancel</strong> to stop the payment.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="_images/091.png"><img alt="The terminal checks the card’s balance and the card signs the payment. Keep the card on the reader and wait for the result." src="_images/091.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The terminal checks the card’s balance and the card signs the payment. Keep the card on the reader and wait for the result.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="payment-approved">
+<h2>Payment approved<a class="headerlink" href="#payment-approved" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="_images/10.png"><img alt="The terminal shows Approved with the amount, coin and a shortened transaction hash. Tap New sale to take the next payment." src="_images/10.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The terminal shows <strong>Approved</strong> with the amount, coin and a shortened transaction hash. Tap <strong>New sale</strong> to take the next payment.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="declined-or-not-confirmed-yet">
+<h2>Declined or not confirmed yet<a class="headerlink" href="#declined-or-not-confirmed-yet" title="Link to this heading"></a></h2>
+<p>Not every sale ends on <em>Approved</em>:</p>
+<ul class="simple">
+<li><p><strong>Declined</strong> (red cross): the payment did not go through and no money moved. The reason is shown under it. Tap <strong>New sale</strong> and try again.</p></li>
+<li><p><strong>Not confirmed yet</strong> (amber warning): the card signed and the payment was sent, but the network gave no answer in time. <strong>It may still arrive.</strong> Tap <strong>Recheck</strong> to ask again. Before charging the customer a second time, look the shortened hash up on a block explorer; <strong>Clear</strong> only closes the screen, it does not cancel anything.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Addresses, fees and amounts shown will differ on your terminal.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <hr/>
+<p style="margin-bottom: 0.25rem;">Last updated on 2026-10-28.</p>
+<p style="margin-bottom: 0.75rem;">&#169; Copyright 2026, Cryptnox SA.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-PJ7HDFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GT-PJ7HDFB', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

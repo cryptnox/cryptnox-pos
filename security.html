@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security &mdash; Cryptnox POS</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=91701ab8" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/security.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a12e3537"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Troubleshooting and questions" href="troubleshooting.html" />
+    <link rel="prev" title="Setting up and using" href="operating.html" />
+ 
+
+
+
+
+
+
+<meta name="description" content="The optional Cryptnox POS secure build (flash encryption, encrypted NVS, Secure Boot v2) and what the design does and does not defend against." />
+
+<link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/security.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.cryptnox.com/cryptnox-pos/security.html" />
+<meta property="og:title" content="Security | Cryptnox Docs" />
+<meta property="og:description" content="The optional Cryptnox POS secure build (flash encryption, encrypted NVS, Secure Boot v2) and what the design does and does not defend against." />
+<meta property="og:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+<meta property="og:site_name" content="Cryptnox Docs" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CryptnoxTech" />
+<meta name="twitter:title" content="Security | Cryptnox Docs" />
+<meta name="twitter:description" content="The optional Cryptnox POS secure build (flash encryption, encrypted NVS, Secure Boot v2) and what the design does and does not defend against." />
+<meta name="twitter:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta name="twitter:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cryptnox.com/#organization",
+      "name": "Cryptnox SA",
+      "url": "https://cryptnox.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://docs.cryptnox.com/#logo",
+        "url": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "contentUrl": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "caption": "Cryptnox"
+      },
+      "sameAs": [
+        "https://shop.cryptnox.com/",
+        "https://github.com/cryptnox"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://docs.cryptnox.com/#website",
+      "url": "https://docs.cryptnox.com",
+      "name": "Cryptnox Docs",
+      "alternateName": "Cryptnox",
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://docs.cryptnox.com/cryptnox-pos/#webpage",
+      "url": "https://docs.cryptnox.com/cryptnox-pos/",
+      "name": "Cryptnox POS",
+      "description": "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card.",
+      "isPartOf": { "@id": "https://docs.cryptnox.com/#website" },
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US",
+      "keywords": "Cryptnox, POS, payment terminal, ESP32, PN532, NFC, USDC, USDT, Ethereum, Polygon, Tron, hardware wallet, documentation"
+    }
+  ]
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GT-PJ7HDFB');</script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #101f2e" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cryptnox POS
+              <img src="_static/cryptnox-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Illustrated guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide-assembly.html">Assembling the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-setup.html">Setting up the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-payment.html">Taking a USDC payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-settings.html">Configuring the terminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">Firmware and the card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating.html">Setting up and using</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#secure-build">Secure build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-notes">Security notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting and questions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #101f2e" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cryptnox POS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Security</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="security">
+<h1>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h1>
+<section id="secure-build">
+<span id="id1"></span><h2>Secure build<a class="headerlink" href="#secure-build" title="Link to this heading"></a></h2>
+<p>By default the firmware and its settings storage are <strong>unencrypted and unsigned</strong>, which is
+right for a bench. The optional secure build adds:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Flash Encryption</p></td>
+<td><p>A flash dump is ciphertext without the key.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Encrypted NVS (<code class="docutils literal notranslate"><span class="pre">nvs_keys</span></code> partition)</p></td>
+<td><p>The Wi-Fi password, payout addresses and gas settings are encrypted at rest.</p></td>
+</tr>
+<tr class="row-even"><td><p>Secure Boot v2 (RSA-3072)</p></td>
+<td><p>Only firmware signed with your key boots, and only such firmware installs over Wi-Fi.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These burn <strong>eFuses, which is irreversible</strong>. Validate on a sacrificial board first; a
+misconfigured burn bricks the unit. On the classic ESP32, Secure Boot v2 supports <strong>a single
+key with no revocation or rotation</strong>: a leaked key cannot be revoked, and a lost key means
+no unit in the field can ever be updated again. Keep both keys offline, in several copies,
+and out of every repository.</p>
+</div>
+<p>The repository provides two configuration overlays (<code class="docutils literal notranslate"><span class="pre">sdkconfig.defaults.flash_encryption</span></code> for
+development, which stays reflashable, and <code class="docutils literal notranslate"><span class="pre">sdkconfig.defaults.release</span></code> for a locked
+production unit), a one-shot provisioning script (<code class="docutils literal notranslate"><span class="pre">tools/secure_provision.py</span></code>) and a routine
+reflash script (<code class="docutils literal notranslate"><span class="pre">tools/secure_flash.py</span></code>) that pre-encrypts images on the host. A unit built
+with the development overlay still reports <em>Flash encryption mode is DEVELOPMENT (not secure)</em>
+at boot, and its flash can be read out over the cable: the repository’s own security analysis
+lists shipping such a unit as the first thing to prevent. The full procedure is in the
+repository README.</p>
+</section>
+<section id="security-notes">
+<h2>Security notes<a class="headerlink" href="#security-notes" title="Link to this heading"></a></h2>
+<p>What the design defends, in the repository’s own words (<code class="docutils literal notranslate"><span class="pre">docs/security-analysis.md</span></code>):</p>
+<ul class="simple">
+<li><p><strong>No private key on the terminal, ever.</strong> The card signs; the terminal never holds a key
+and never sees a seed.</p></li>
+<li><p><strong>Every change that can redirect money is confirmed on the panel</strong>, by a person in front
+of the terminal, never in the browser alone.</p></li>
+<li><p><strong>Payout addresses are stored in duplicate</strong> and cross-checked, so one corrupted settings
+entry cannot silently redirect funds.</p></li>
+<li><p><strong>The node is not trusted for what gets signed.</strong> On Ethereum and Polygon the transaction
+is built and hashed on the device, and a receipt counts only when it matches that hash,
+contract, payee and amount. On Tron the node builds the transaction, and the device checks
+it against the sale before the card signs its ID.</p></li>
+<li><p><strong>Firmware updates are signed</strong> and verified against a key compiled into the running
+firmware.</p></li>
+</ul>
+<p>What it does <strong>not</strong> defend:</p>
+<ul class="simple">
+<li><p>The ESP32 has no protected RAM: the card PIN and the Wi-Fi password are readable by anyone
+who can reach live memory.</p></li>
+<li><p>The setup page is plain HTTP, on the terminal’s own WPA2 access point rather than the venue
+network. The session token and, during setup, the venue Wi-Fi password travel over that
+link.</p></li>
+<li><p>Nothing about a completed payment is recorded on the device: no receipt, no log. The chain
+is the record.</p></li>
+<li><p>The RPC provider is trusted for chain state. It cannot make the card sign a different
+transfer, but it could report a receipt that never landed; the chain, not the terminal’s
+screen, is authoritative for settlement.</p></li>
+<li><p>No penetration test, side-channel or fault-injection analysis has been performed. The card
+applet is out of scope of that analysis.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <hr/>
+<p style="margin-bottom: 0.25rem;">Last updated on 2026-10-28.</p>
+<p style="margin-bottom: 0.75rem;">&#169; Copyright 2026, Cryptnox SA.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-PJ7HDFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GT-PJ7HDFB', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

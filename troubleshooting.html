@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting and questions &mdash; Cryptnox POS</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=91701ab8" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/troubleshooting.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a12e3537"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Security" href="security.html" />
+ 
+
+
+
+
+
+
+<meta name="description" content="Common Cryptnox POS symptoms and what to check, plus answers on which card pays, which chains are supported and how the dev kit differs from the C-WaaS terminal." />
+
+<link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/troubleshooting.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.cryptnox.com/cryptnox-pos/troubleshooting.html" />
+<meta property="og:title" content="Troubleshooting and questions | Cryptnox Docs" />
+<meta property="og:description" content="Common Cryptnox POS symptoms and what to check, plus answers on which card pays, which chains are supported and how the dev kit differs from the C-WaaS terminal." />
+<meta property="og:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+<meta property="og:site_name" content="Cryptnox Docs" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CryptnoxTech" />
+<meta name="twitter:title" content="Troubleshooting and questions | Cryptnox Docs" />
+<meta name="twitter:description" content="Common Cryptnox POS symptoms and what to check, plus answers on which card pays, which chains are supported and how the dev kit differs from the C-WaaS terminal." />
+<meta name="twitter:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta name="twitter:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cryptnox.com/#organization",
+      "name": "Cryptnox SA",
+      "url": "https://cryptnox.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://docs.cryptnox.com/#logo",
+        "url": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "contentUrl": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "caption": "Cryptnox"
+      },
+      "sameAs": [
+        "https://shop.cryptnox.com/",
+        "https://github.com/cryptnox"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://docs.cryptnox.com/#website",
+      "url": "https://docs.cryptnox.com",
+      "name": "Cryptnox Docs",
+      "alternateName": "Cryptnox",
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://docs.cryptnox.com/cryptnox-pos/#webpage",
+      "url": "https://docs.cryptnox.com/cryptnox-pos/",
+      "name": "Cryptnox POS",
+      "description": "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card.",
+      "isPartOf": { "@id": "https://docs.cryptnox.com/#website" },
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US",
+      "keywords": "Cryptnox, POS, payment terminal, ESP32, PN532, NFC, USDC, USDT, Ethereum, Polygon, Tron, hardware wallet, documentation"
+    }
+  ]
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GT-PJ7HDFB');</script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #101f2e" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cryptnox POS
+              <img src="_static/cryptnox-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Illustrated guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide-assembly.html">Assembling the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-setup.html">Setting up the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-payment.html">Taking a USDC payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-settings.html">Configuring the terminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">Firmware and the card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating.html">Setting up and using</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting and questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #101f2e" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cryptnox POS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Troubleshooting and questions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting-and-questions">
+<h1>Troubleshooting and questions<a class="headerlink" href="#troubleshooting-and-questions" title="Link to this heading"></a></h1>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symptom</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">ACK</span> <span class="pre">from</span> <span class="pre">PN532</span></code> at boot, or <em>Card not found</em></p></td>
+<td><p>The PN532 mode switches (<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">0</span></code> for I²C, then unplug and replug USB), SDA on GPIO 27
+and SCL on GPIO 22, and the card centred on the antenna.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inverted colours or banding on gradients</p></td>
+<td><p>Already handled in the firmware for the common panel. A blank or scrambled screen means
+the other ILI9341 variant: set <code class="docutils literal notranslate"><span class="pre">CONFIG_TFT_ILI9341_DRIVER=y</span></code> instead of <code class="docutils literal notranslate"><span class="pre">_2</span></code> and
+rebuild.</p></td>
+</tr>
+<tr class="row-even"><td><p>Touch targets are offset</p></td>
+<td><p>Calibrate: menu → admin code → <strong>Screen</strong> → <strong>Touch</strong>. An unconfirmed calibration
+reverts after 20 seconds, so a bad one cannot lock you out.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wi-Fi will not connect</p></td>
+<td><p>Only WPA2 is supported. Check the network name and password.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Signature</span> <span class="pre">check</span> <span class="pre">failed</span></code></p></td>
+<td><p>The card’s signature did not verify under the public key it exported for the same
+path. Retry with the card held still; if it repeats, the card needs looking at.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Update</em> says there is no second firmware slot</p></td>
+<td><p>The unit still has the old single-slot partition table. Reflash once over USB.</p></td>
+</tr>
+<tr class="row-even"><td><p>Build says the app partition is full</p></td>
+<td><p>The table has two 1.94 MB slots on 4 MB flash. The image assets and the panel fonts
+are the largest items; <code class="docutils literal notranslate"><span class="pre">idf.py</span> <span class="pre">size-components</span></code> shows where the space goes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="frequently-asked-questions">
+<h2>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Can I use it to take payments in a shop?</strong></dt><dd><p>Technically yes, and that is what it does. It is published as a reference dev kit with its
+limits stated plainly: no tamper resistance, secrets in RAM at run time, no payment record
+on the device. For a merchant programme with issued cards, terminals with a Secure Access
+Module and issuer controls, see <a class="reference external" href="https://cryptnox.com/card-wallet-as-a-service-cwaas/">C-WaaS</a>.</p>
+</dd>
+<dt><strong>Which card pays?</strong></dt><dd><p>Any Cryptnox Hardware Wallet card with firmware v1.6.0 or later that holds a seed. The
+cardholder’s own self-custody card, not a card issued by the merchant.</p>
+</dd>
+<dt><strong>Does the terminal hold any keys?</strong></dt><dd><p>No. The card signs inside its EAL6+ certified secure element after PIN verification. The
+terminal builds the transaction, asks the card for a signature and broadcasts the result.</p>
+</dd>
+<dt><strong>Does it need an internet connection?</strong></dt><dd><p>Yes, over Wi-Fi (WPA2): to reach the JSON-RPC endpoint, broadcast the transaction and wait
+for the receipt. Without network time it refuses to sign.</p>
+</dd>
+<dt><strong>Which chains and assets does it accept?</strong></dt><dd><p>ETH, USDC and USDT on Ethereum; POL, USDC and USDT on Polygon; TRX and USDT on Tron, each
+on the production network or its test network. The asset is picked on the device for each
+sale.</p>
+</dd>
+<dt><strong>Is this the same as the C-WaaS terminal?</strong></dt><dd><p>No. The C-WaaS terminal is part of an issuer-run card scheme and uses a Secure Access Module
+and issuer co-signing. <code class="docutils literal notranslate"><span class="pre">cryptnox-pos</span></code> has no issuer: the cardholder’s own card signs and
+the merchant’s configured address receives the funds.</p>
+</dd>
+<dt><strong>Can I change the user interface or ship it in my own product?</strong></dt><dd><p>Yes. The firmware is LGPL-3.0; a commercial licence is available for proprietary use
+without LGPL obligations. Ask through the <a class="reference external" href="https://cryptnox.com/contact/">contact form</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <hr/>
+<p style="margin-bottom: 0.25rem;">Last updated on 2026-10-28.</p>
+<p style="margin-bottom: 0.75rem;">&#169; Copyright 2026, Cryptnox SA.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-PJ7HDFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GT-PJ7HDFB', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

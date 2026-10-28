@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware &mdash; Cryptnox POS</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=91701ab8" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/hardware.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a12e3537"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Firmware and the card" href="flashing.html" />
+    <link rel="prev" title="Configuring the terminal" href="guide-settings.html" />
+ 
+
+
+
+
+
+
+<meta name="description" content="The parts a Cryptnox POS terminal is built from, the I2C wiring between the ESP32 Cheap Yellow Display and the PN532 NFC module, and the printed snap-fit enclosure." />
+
+<link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/hardware.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.cryptnox.com/cryptnox-pos/hardware.html" />
+<meta property="og:title" content="Hardware | Cryptnox Docs" />
+<meta property="og:description" content="The parts a Cryptnox POS terminal is built from, the I2C wiring between the ESP32 Cheap Yellow Display and the PN532 NFC module, and the printed snap-fit enclosure." />
+<meta property="og:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+<meta property="og:site_name" content="Cryptnox Docs" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CryptnoxTech" />
+<meta name="twitter:title" content="Hardware | Cryptnox Docs" />
+<meta name="twitter:description" content="The parts a Cryptnox POS terminal is built from, the I2C wiring between the ESP32 Cheap Yellow Display and the PN532 NFC module, and the printed snap-fit enclosure." />
+<meta name="twitter:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta name="twitter:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cryptnox.com/#organization",
+      "name": "Cryptnox SA",
+      "url": "https://cryptnox.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://docs.cryptnox.com/#logo",
+        "url": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "contentUrl": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "caption": "Cryptnox"
+      },
+      "sameAs": [
+        "https://shop.cryptnox.com/",
+        "https://github.com/cryptnox"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://docs.cryptnox.com/#website",
+      "url": "https://docs.cryptnox.com",
+      "name": "Cryptnox Docs",
+      "alternateName": "Cryptnox",
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://docs.cryptnox.com/cryptnox-pos/#webpage",
+      "url": "https://docs.cryptnox.com/cryptnox-pos/",
+      "name": "Cryptnox POS",
+      "description": "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card.",
+      "isPartOf": { "@id": "https://docs.cryptnox.com/#website" },
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US",
+      "keywords": "Cryptnox, POS, payment terminal, ESP32, PN532, NFC, USDC, USDT, Ethereum, Polygon, Tron, hardware wallet, documentation"
+    }
+  ]
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GT-PJ7HDFB');</script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #101f2e" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cryptnox POS
+              <img src="_static/cryptnox-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Illustrated guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide-assembly.html">Assembling the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-setup.html">Setting up the terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-payment.html">Taking a USDC payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-settings.html">Configuring the terminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-need">What you need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wiring">Wiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enclosure">Enclosure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">Firmware and the card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating.html">Setting up and using</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting and questions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #101f2e" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cryptnox POS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hardware</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hardware">
+<h1>Hardware<a class="headerlink" href="#hardware" title="Link to this heading"></a></h1>
+<section id="what-you-need">
+<h2>What you need<a class="headerlink" href="#what-you-need" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 72.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ESP32-2432S028 “Cheap Yellow Display”</p></td>
+<td><p>ESP32-WROOM-32, 2.8” ILI9341 240×320 display used in portrait, XPT2046 resistive touch,
+4 MB flash. Sold under many names; the <a class="reference external" href="https://github.com/witnessmenow/ESP32-Cheap-Yellow-Display">CYD community repository</a> lists the variants.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PN532 NFC module</p></td>
+<td><p>The common red breakout board, used over <strong>I²C</strong>. Its two mode switches must be set to
+I²C.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cryptnox Hardware Wallet card</p></td>
+<td><p>Firmware <strong>v1.6.0 or later</strong> (the <a class="reference external" href="https://shop.cryptnox.com/product/hardware-wallet-smartcard-dual/">Dual Card Set</a> ships v1.6.1).
+The card must be initialised with a seed; see <a class="reference internal" href="flashing.html#preparing-the-card"><span class="std std-ref">Preparing the card</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Four jumper wires and a USB cable</p></td>
+<td><p>Female-to-female Dupont wires between the CYD’s CN1 header and the PN532; a data USB
+cable to flash and power the board.</p></td>
+</tr>
+<tr class="row-even"><td><p>A computer</p></td>
+<td><p>For the prebuilt firmware: any machine with Chrome or Edge, or Python and <code class="docutils literal notranslate"><span class="pre">esptool</span></code>.
+To build from source: <a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/v5.5/esp32/get-started/index.html">ESP-IDF v5.5</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wiring">
+<h2>Wiring<a class="headerlink" href="#wiring" title="Link to this heading"></a></h2>
+<p>The CYD exposes its free GPIOs on the <strong>CN1</strong> header. The firmware talks to the PN532 over I²C
+on two of them.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 40.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PN532 pin</p></th>
+<th class="head"><p>CYD pin (CN1)</p></th>
+<th class="head"><p>Wire colour in the diagram</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>black</p></td>
+</tr>
+<tr class="row-odd"><td><p>VCC</p></td>
+<td><p>3.3V</p></td>
+<td><p>red</p></td>
+</tr>
+<tr class="row-even"><td><p>SDA</p></td>
+<td><p>GPIO 27</p></td>
+<td><p>yellow</p></td>
+</tr>
+<tr class="row-odd"><td><p>SCL</p></td>
+<td><p>GPIO 22</p></td>
+<td><p>blue</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/wiring-diagram.png"><img alt="Breadboard diagram of the CYD wired to a PN532 module over I2C, four coloured wires" src="_images/wiring-diagram.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The four wires between the CYD’s CN1 header and the PN532, by colour.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Set the PN532 mode switches to <strong>I²C = ``1 0``</strong> as printed on the board: switch 1 ON,
+switch 2 OFF (<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span></code> is SPI). The PN532 reads the switches only at its own power-up and
+its reset pin is not wired, so after changing them <strong>unplug and replug the USB cable</strong>; an
+ESP32 reset is not enough. Double-check the wiring before powering the board.</p>
+</div>
+<p>The display, touch panel and backlight are wired internally on the CYD and need nothing.</p>
+</section>
+<section id="enclosure">
+<h2>Enclosure<a class="headerlink" href="#enclosure" title="Link to this heading"></a></h2>
+<p>The enclosure is a two-part printed shell, published under
+<a class="reference external" href="https://github.com/cryptnox/cryptnox-pos/tree/main/hardware/case">hardware/case/</a>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>What it is</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">case_front.stl</span></code></p></td>
+<td><p>Front shell: the screen window and the four posts the board sits on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">case_back.stl</span></code></p></td>
+<td><p>Back shell: the pocket for the NFC module and the contactless symbol on the lid.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">case_plate.3mf</span></code></p></td>
+<td><p>Both parts on one plate for Bambu Studio — <a class="reference external" href="https://github.com/cryptnox/cryptnox-pos/blob/main/hardware/case/case_plate.3mf">print this</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>It is a <strong>snap-fit</strong> shell: no screws and no inserts. About an hour and a half of printing in
+PLA or PETG, dimensionally accurate — an over-extruded lip will not clip.</p>
+<p>The seven assembly steps, with photographs, are in <a class="reference internal" href="guide-assembly.html"><span class="doc">Assembling the terminal</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <hr/>
+<p style="margin-bottom: 0.25rem;">Last updated on 2026-10-28.</p>
+<p style="margin-bottom: 0.75rem;">&#169; Copyright 2026, Cryptnox SA.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-PJ7HDFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GT-PJ7HDFB', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

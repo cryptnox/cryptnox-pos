@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting up the terminal &mdash; Cryptnox POS</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=91701ab8" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/guide-setup.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a12e3537"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Taking a USDC payment" href="guide-payment.html" />
+    <link rel="prev" title="Assembling the terminal" href="guide-assembly.html" />
+ 
+
+
+
+
+
+
+<meta name="description" content="First run of a Cryptnox POS terminal, screen by screen: the admin code, authorising the browser, the payout addresses and the venue Wi-Fi." />
+
+<link rel="canonical" href="https://docs.cryptnox.com/cryptnox-pos/guide-setup.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.cryptnox.com/cryptnox-pos/guide-setup.html" />
+<meta property="og:title" content="Setting up the terminal | Cryptnox Docs" />
+<meta property="og:description" content="First run of a Cryptnox POS terminal, screen by screen: the admin code, authorising the browser, the payout addresses and the venue Wi-Fi." />
+<meta property="og:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+<meta property="og:site_name" content="Cryptnox Docs" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CryptnoxTech" />
+<meta name="twitter:title" content="Setting up the terminal | Cryptnox Docs" />
+<meta name="twitter:description" content="First run of a Cryptnox POS terminal, screen by screen: the admin code, authorising the browser, the payout addresses and the venue Wi-Fi." />
+<meta name="twitter:image" content="https://cryptnox.com/wp-content/uploads/2026/09/cryptnox-documentation-social.jpg" />
+<meta name="twitter:image:alt" content="Cryptnox Documentation — official Cryptnox technical documentation" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cryptnox.com/#organization",
+      "name": "Cryptnox SA",
+      "url": "https://cryptnox.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://docs.cryptnox.com/#logo",
+        "url": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "contentUrl": "https://docs.cryptnox.com/_static/cryptnox-logo.svg",
+        "caption": "Cryptnox"
+      },
+      "sameAs": [
+        "https://shop.cryptnox.com/",
+        "https://github.com/cryptnox"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://docs.cryptnox.com/#website",
+      "url": "https://docs.cryptnox.com",
+      "name": "Cryptnox Docs",
+      "alternateName": "Cryptnox",
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://docs.cryptnox.com/cryptnox-pos/#webpage",
+      "url": "https://docs.cryptnox.com/cryptnox-pos/",
+      "name": "Cryptnox POS",
+      "description": "Open-source firmware that turns an ESP32 touchscreen board and a PN532 NFC module into a crypto payment terminal paid by tapping a Cryptnox Hardware Wallet card.",
+      "isPartOf": { "@id": "https://docs.cryptnox.com/#website" },
+      "publisher": { "@id": "https://cryptnox.com/#organization" },
+      "inLanguage": "en-US",
+      "keywords": "Cryptnox, POS, payment terminal, ESP32, PN532, NFC, USDC, USDT, Ethereum, Polygon, Tron, hardware wallet, documentation"
+    }
+  ]
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GT-PJ7HDFB');</script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #101f2e" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cryptnox POS
+              <img src="_static/cryptnox-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Illustrated guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide-assembly.html">Assembling the terminal</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up the terminal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-the-admin-code">Set the admin code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connect-your-phone">Connect your phone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authorize-this-browser">Authorize this browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-the-payout-addresses">Set the payout addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connect-to-the-shop-s-wi-fi">Connect to the shop’s Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finish-on-the-terminal">Finish on the terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide-payment.html">Taking a USDC payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide-settings.html">Configuring the terminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">Firmware and the card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating.html">Setting up and using</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting and questions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #101f2e" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cryptnox POS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setting up the terminal</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-up-the-terminal">
+<h1>Setting up the terminal<a class="headerlink" href="#setting-up-the-terminal" title="Link to this heading"></a></h1>
+<p>Setup moves back and forth between the terminal and your phone. Each step
+says which of the two you are on.</p>
+<section id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<p>You need the terminal, a phone, the merchant’s Cryptnox card with its PIN, and the password of the Wi-Fi network the terminal will use. Allow about ten minutes.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/013.png"><img alt="Power the terminal on. It boots and starts its NFC reader." src="_images/013.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Power the terminal on. It boots and starts its NFC reader.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/023.png"><img alt="On the welcome screen, tap Start." src="_images/023.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">On the welcome screen, tap Start.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="set-the-admin-code">
+<h2>Set the admin code<a class="headerlink" href="#set-the-admin-code" title="Link to this heading"></a></h2>
+<p>The admin code protects every change to the terminal. It is only ever typed on the terminal itself, never on a phone.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/033.png"><img alt="Type a new admin code on the keypad. The eye icon shows or hides the digits. Tap ✓." src="_images/033.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Type a new admin code on the keypad. The eye icon shows or hides the digits. Tap ✓.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/043.png"><img alt="Type the same code again to confirm, then tap ✓." src="_images/043.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Type the same code again to confirm, then tap ✓.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code is 6 to 9 digits. Write it down and keep it safe: you will need it to authorize any phone that configures the terminal, and after three wrong attempts each one doubles the wait before the next, even across a restart, up to an hour.</p>
+</div>
+</section>
+<section id="connect-your-phone">
+<h2>Connect your phone<a class="headerlink" href="#connect-your-phone" title="Link to this heading"></a></h2>
+<p>The terminal opens its own temporary Wi-Fi network, just for setup.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="_images/053.png"><img alt="Scan the QR code with your phone’s camera. Or join manually with the network name and password shown on the screen (each terminal has its own)." src="_images/053.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Scan the QR code with your phone’s camera. Or join manually with the network name and password shown on the screen (each terminal has its own).</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="authorize-this-browser">
+<h2>Authorize this browser<a class="headerlink" href="#authorize-this-browser" title="Link to this heading"></a></h2>
+<p>The setup page has to be approved on the terminal, which proves you are standing in front of it.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_images/063.png"><img alt="The setup page waits and shows a browser number, for example Browser 1234." src="_images/063.png" style="width: 260px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The setup page waits and shows a browser number, for example Browser 1234.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/073.png"><img alt="The terminal shows the same browser number. Check that both numbers match, then enter the admin code and tap ✓." src="_images/073.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The terminal shows the same browser number. Check that both numbers match, then enter the admin code and tap ✓.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the terminal doesn’t show the request, tap <strong>Ask the terminal again</strong> on the phone. If the numbers don’t match, don’t enter the code: another device is trying to connect.</p>
+</div>
+</section>
+<section id="set-the-payout-addresses">
+<h2>Set the payout addresses<a class="headerlink" href="#set-the-payout-addresses" title="Link to this heading"></a></h2>
+<p>Payout addresses are where takings are sent: the merchant’s own addresses. The phone only proposes them; nothing changes until they are accepted on the terminal.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="_images/083.png"><img alt="The terminal tells you to continue on your phone." src="_images/083.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The terminal tells you to continue on your phone.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="_images/093.png"><img alt="The easiest way: tap Read from a Cryptnox card. Whichever card is tapped, its own addresses are used, so use the merchant’s card, never a customer’s." src="_images/093.png" style="width: 260px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The easiest way: tap Read from a Cryptnox card. Whichever card is tapped, its own addresses are used, so use the merchant’s card, never a customer’s.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="_images/102.png"><img alt="Or type the addresses yourself: one Ethereum address (also used for Polygon) and/or one Tron address, then tap Propose for each. Tap Continue when you are done." src="_images/102.png" style="width: 260px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Or type the addresses yourself: one Ethereum address (also used for Polygon) and/or one Tron address, then tap Propose for each. Tap Continue when you are done.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="_images/111.png"><img alt="If you chose to read a card, the terminal asks for that card’s PIN. Enter it and tap ✓." src="_images/111.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">If you chose to read a card, the terminal asks for that card’s PIN. Enter it and tap ✓.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="_images/121.png"><img alt="Hold the merchant’s Cryptnox Hardware Wallet against the reader until the addresses are read." src="_images/121.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Hold the merchant’s Cryptnox Hardware Wallet against the reader until the addresses are read.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Whichever way you chose, the terminal then shows each address on its own screen under <strong>Set payout address?</strong> Check it against your own records and tap <strong>Accept</strong>, or <strong>Reject</strong> to discard it. A card’s Ethereum address comes first, then its Tron address.</p>
+<p>When the addresses you want are accepted, tap <strong>Continue</strong> on the phone. The page refuses to continue until at least one payout address is set.</p>
+</section>
+<section id="connect-to-the-shop-s-wi-fi">
+<h2>Connect to the shop’s Wi-Fi<a class="headerlink" href="#connect-to-the-shop-s-wi-fi" title="Link to this heading"></a></h2>
+<p>The terminal shows <em>Step 5 · Wi-Fi network</em>; carry on on the phone. A terminal that already has a saved network skips this step.</p>
+<ul class="simple">
+<li><p>Open the <strong>SSID</strong> list and pick the network. The number in brackets is signal strength: closer to zero is stronger. Tap <strong>Scan again</strong> if it is missing.</p></li>
+<li><p>Type the network password. Only WPA2 networks are supported.</p></li>
+<li><p>Tap <strong>Join this network</strong>.</p></li>
+</ul>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="_images/131.png"><img alt="The page shows Configuration complete. You can close it. If the terminal can’t join your network, it reopens the setup network and this page comes back by itself." src="_images/131.png" style="width: 260px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The page shows Configuration complete. You can close it. If the terminal can’t join your network, it reopens the setup network and this page comes back by itself.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="finish-on-the-terminal">
+<h2>Finish on the terminal<a class="headerlink" href="#finish-on-the-terminal" title="Link to this heading"></a></h2>
+<p>The terminal shows <strong>All set</strong>. Tap <strong>Finish</strong>: it restarts once to apply everything and opens on the sale screen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Screens shown from firmware v1.0.0. Network names, browser numbers and addresses differ on every terminal.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <hr/>
+<p style="margin-bottom: 0.25rem;">Last updated on 2026-10-28.</p>
+<p style="margin-bottom: 0.75rem;">&#169; Copyright 2026, Cryptnox SA.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-PJ7HDFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GT-PJ7HDFB', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
